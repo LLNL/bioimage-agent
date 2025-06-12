@@ -1,26 +1,22 @@
-# import socket, json
-# from pathlib import Path
-# HOST, PORT = "127.0.0.1", 64496          # put the port you saw in the widget
-# # cmd = ["napari.window.file.open_files", [["D:/Data/Tooth/tooth_103x94x161_uint8.tif"]]]
-# cmd = ["napari:open_sample", ["napari", "cells"]]
-# # server expects one newline-terminated JSON line
-# msg = json.dumps(cmd).encode() + b"\n"
-
-# with socket.create_connection((HOST, PORT)) as s:
-#     s.sendall(msg)
-#     print("response:", s.recv(1024).decode().strip())   # → “OK”
-
-"""
-toggle_theme.py – tell the napari-socket server to flip dark/light mode
-"""
 import json, socket
+host, port = "127.0.0.1", 64908   # ← read the port shown by the dock widget
 
-HOST = "127.0.0.1"
-PORT = 56368          # ⬅ replace with the port shown in the Socket Server dock
+# cmd = ["napari-socket.open_file", [r"D:\Data\Tooth\tooth_103x94x161_uint8.tif"]]
 
-cmd = ["napari:toggle_theme", []]        # ⬅ no arguments needed
-msg = json.dumps(cmd).encode() + b"\n"   # server expects one JSON line
+# with socket.create_connection((host, port)) as s:
+#     s.sendall((json.dumps(cmd) + "\n").encode())
+#     print(s.recv(1024).decode())       # should print “OK”
 
-with socket.create_connection((HOST, PORT)) as sock:
-    sock.sendall(msg)
-    print("reply:", sock.recv(1024).decode().strip())
+    # # 1) add an NPZ as an image layer
+    # cmd = ["napari-socket.open_npz",
+    #        [r"D:\Data\A1_Lattice\npz\strut-0-rotated.npz", "arr_0"]]  # path, array key
+
+    # with socket.create_connection((host, port)) as s:
+    #     s.sendall((json.dumps(cmd) + "\n").encode())
+    #     print(s.recv(1024).decode())         # → OK
+
+# 2) later on, remove that layer again
+cmd = ["napari-socket.remove_layer", ["arr_0"]]
+with socket.create_connection((host, port)) as s:
+    s.sendall((json.dumps(cmd) + "\n").encode())
+    print(s.recv(1024).decode())         # → OK

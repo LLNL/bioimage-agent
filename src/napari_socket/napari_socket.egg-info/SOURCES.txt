@@ -1,5 +1,6 @@
 pyproject.toml
 napari_socket/__init__.py
+napari_socket/_commands.py
 napari_socket/_server.py
 napari_socket/_widget.py
 napari_socket/napari.yaml

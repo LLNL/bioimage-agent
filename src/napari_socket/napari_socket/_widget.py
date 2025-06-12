@@ -24,7 +24,7 @@ class NapariSocketWidget(QWidget):
     # --------------------------------------------------------------------- #
     def _start(self):
         if self._srv is None:
-            self._srv = CommandServer()
+            self._srv = CommandServer(port = 64908)
             self._srv.start()
             self._lbl.setText(f"Listening on 127.0.0.1:{self._srv.port}")
             

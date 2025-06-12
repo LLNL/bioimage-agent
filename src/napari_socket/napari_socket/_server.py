@@ -2,8 +2,19 @@
 #from napari._qt.qt_main_window import Window
 # from napari.utils import get_app
 import json, socketserver, threading
-from qtpy.QtCore import QTimer
+from qtpy.QtCore import QObject, Signal, Qt
 from napari._app_model import get_app_model
+
+# marshal commands to the GUI thread ----------------------------------
+class _Dispatcher(QObject):
+    exec_cmd = Signal(str, list)
+
+# create once, on the main thread (module import happens in GUI thread)
+_dispatcher = _Dispatcher()
+_dispatcher.exec_cmd.connect(
+    lambda cid, a: get_app_model().commands.execute_command(cid, *a),
+    Qt.QueuedConnection,
+)
 
 class _TCPHandler(socketserver.BaseRequestHandler):
     """
@@ -15,20 +26,13 @@ class _TCPHandler(socketserver.BaseRequestHandler):
         try:
             cmd_id, args = json.loads(data)
             print(threading.current_thread())
-            # marshal into GUI thread via Qt event-loop
-            # get_app().invoke_later(
-            #     get_app().commands.execute_command, cmd_id, *(args or [])
-            # )
-            app = get_app_model()                   # ← new helper
-            # Schedule on the GUI thread without blocking this one
-            # QTimer.singleShot(
-            #     0, lambda: app.commands.execute_command(cmd_id, *(args or []))
-            # )
+            # run the command on Napari’s main GUI thread
+            # queue the command on Napari’s GUI thread
+            _dispatcher.exec_cmd.emit(cmd_id, args or [])
             
             self.request.sendall(b"OK\n")
         except Exception as exc:
             self.request.sendall(f"ERR {exc}\n".encode())
-
 
 class CommandServer(threading.Thread):
     """

@@ -4,9 +4,25 @@ schema_version: "0.2.1"
 
 contributions:
   commands:
-    - id: napari-socket.socket_widget         # can be any unique id
+    # dock-widget command
+    - id: napari-socket.socket_widget
       title: Socket Server
       python_name: napari_socket._widget:NapariSocketWidget
+
+    # NEW command exposed over the socket
+    - id: napari-socket.open_file
+      title: Open file via napari
+      python_name: napari_socket._commands:open_file
+    
+    - id: napari-socket.open_npz
+      title: Open NPZ file
+      python_name: napari_socket._commands:open_npz
+
+    - id: napari-socket.remove_layer
+      title: Remove viewer layer
+      python_name: napari_socket._commands:remove_layer
+
+  # link the widget to the first command
   widgets:
-    - command: napari-socket.socket_widget    # <-- ID from commands
+    - command: napari-socket.socket_widget
       display_name: Socket Server
