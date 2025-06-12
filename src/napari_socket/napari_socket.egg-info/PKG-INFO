@@ -1,0 +1,8 @@
+Metadata-Version: 2.4
+Name: napari-socket
+Version: 0.1.0
+Summary: Simple TCP command server for napari
+Author: You
+Requires-Python: >=3.9
+Requires-Dist: napari>=0.4.19
+Requires-Dist: qtpy

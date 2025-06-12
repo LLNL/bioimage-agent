@@ -1,0 +1,12 @@
+name: napari-socket
+display_name: Socket Server
+schema_version: "0.2.1"
+
+contributions:
+  commands:
+    - id: napari-socket.socket_widget         # can be any unique id
+      title: Socket Server
+      python_name: napari_socket._widget:NapariSocketWidget
+  widgets:
+    - command: napari-socket.socket_widget    # <-- ID from commands
+      display_name: Socket Server
