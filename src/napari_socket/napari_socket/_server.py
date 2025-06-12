@@ -14,15 +14,17 @@ class _TCPHandler(socketserver.BaseRequestHandler):
         data = self.request.recv(8192).decode().strip()
         try:
             cmd_id, args = json.loads(data)
+            print(threading.current_thread())
             # marshal into GUI thread via Qt event-loop
             # get_app().invoke_later(
             #     get_app().commands.execute_command, cmd_id, *(args or [])
             # )
             app = get_app_model()                   # ← new helper
             # Schedule on the GUI thread without blocking this one
-            QTimer.singleShot(
-                0, lambda: app.commands.execute_command(cmd_id, *(args or []))
-            )
+            # QTimer.singleShot(
+            #     0, lambda: app.commands.execute_command(cmd_id, *(args or []))
+            # )
+            
             self.request.sendall(b"OK\n")
         except Exception as exc:
             self.request.sendall(f"ERR {exc}\n".encode())
