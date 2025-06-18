@@ -45,3 +45,47 @@ def remove_layer(name_or_index: str | int, viewer: Viewer):
     else:
         layer = layers[name_or_index]
     viewer.layers.remove(layer)
+
+def toggle_ndisplay(viewer: Viewer):
+    """Toggle napari between 2-D (ndisplay = 2) and 3-D (ndisplay = 3)."""
+    viewer.dims.ndisplay = 3 if viewer.dims.ndisplay == 2 else 2
+    return viewer.dims.ndisplay
+
+
+# ----------------------------------------------------------------------
+# iso-surface (contour) rendering
+# ----------------------------------------------------------------------
+
+def iso_contour(
+    layer_name: str | int | None = None,
+    viewer: Viewer | None = None,          # injected by napari
+    threshold: float | None = None,
+) -> int:
+    """
+    Switch the specified image/volume layer (or all render-capable layers)
+    to *iso* rendering and optionally set the ``iso_threshold``.
+
+    Returns
+    -------
+    int
+        Number of layers that were modified.
+    """
+    # ensure a 3-D canvas so the surface is visible
+    if viewer.dims.ndisplay != 3:
+        viewer.dims.ndisplay = 3
+
+    # resolve which layers to edit
+    if layer_name is None:
+        targets = [lyr for lyr in viewer.layers if hasattr(lyr, "rendering")]
+    else:
+        targets = [
+            viewer.layers[layer_name] if isinstance(layer_name, int) else viewer.layers[layer_name]
+        ]
+
+    # apply rendering mode / threshold
+    for lyr in targets:
+        lyr.rendering = "iso"
+        if threshold is not None and hasattr(lyr, "iso_threshold"):
+            lyr.iso_threshold = threshold
+
+    return len(targets)

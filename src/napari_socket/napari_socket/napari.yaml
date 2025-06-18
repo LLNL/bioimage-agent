@@ -22,6 +22,14 @@ contributions:
       title: Remove viewer layer
       python_name: napari_socket._commands:remove_layer
 
+    - id: napari-socket.toggle_ndisplay
+      python_name: napari_socket._commands:toggle_ndisplay
+      title: Toggle 2D/3D view
+
+    - id: napari-socket.iso_contour
+      title: Iso-surface contour rendering
+      python_name: napari_socket._commands:iso_contour
+
   # link the widget to the first command
   widgets:
     - command: napari-socket.socket_widget
