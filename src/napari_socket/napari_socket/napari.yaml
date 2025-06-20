@@ -30,6 +30,14 @@ contributions:
       title: Iso-surface contour rendering
       python_name: napari_socket._commands:iso_contour
 
+    - id: napari-socket.screenshot
+      title: Take screenshot
+      python_name: napari_socket._commands:screenshot
+
+    - id: napari-socket.list_layers
+      title: List layers
+      python_name: napari_socket._commands:list_layers
+
   # link the widget to the first command
   widgets:
     - command: napari-socket.socket_widget

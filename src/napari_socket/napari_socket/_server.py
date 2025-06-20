@@ -1,18 +1,20 @@
 #import json, socketserver, threading
 #from napari._qt.qt_main_window import Window
 # from napari.utils import get_app
-import json, socketserver, threading
+import json, socketserver, threading, queue
 from qtpy.QtCore import QObject, Signal, Qt
 from napari._app_model import get_app_model
 
 # marshal commands to the GUI thread ----------------------------------
 class _Dispatcher(QObject):
-    exec_cmd = Signal(str, list)
+    # include a Queue argument that will receive the return-value
+    exec_cmd = Signal(str, list, object)
 
 # create once, on the main thread (module import happens in GUI thread)
 _dispatcher = _Dispatcher()
+# slot: run command on GUI thread and push *result* into the queue
 _dispatcher.exec_cmd.connect(
-    lambda cid, a: get_app_model().commands.execute_command(cid, *a),
+    lambda cid, a, q: q.put(get_app_model().commands.execute_command(cid, *a)),
     Qt.QueuedConnection,
 )
 
@@ -26,11 +28,27 @@ class _TCPHandler(socketserver.BaseRequestHandler):
         try:
             cmd_id, args = json.loads(data)
             print(threading.current_thread())
-            # run the command on Napari’s main GUI thread
-            # queue the command on Napari’s GUI thread
-            _dispatcher.exec_cmd.emit(cmd_id, args or [])
-            
-            self.request.sendall(b"OK\n")
+            # one queue per request
+            resp_q: queue.Queue = queue.Queue()
+            # execute on GUI thread (queued)
+            _dispatcher.exec_cmd.emit(cmd_id, args or [], resp_q)
+            result = resp_q.get()            # ← blocks until done
+
+            # If result is a Future, get its result
+            if hasattr(result, "result") and callable(result.result):
+                try:
+                    result = result.result(timeout=5)
+                except Exception as e:
+                    self.request.sendall(f"ERR {e}\n".encode())
+                    return
+
+            try:
+                payload = json.dumps(result)
+                reply: bytes = f"OK {payload}\n".encode()
+            except TypeError:                # result not JSON-serialisable
+                reply = b"OK\n"
+
+            self.request.sendall(reply)
         except Exception as exc:
             self.request.sendall(f"ERR {exc}\n".encode())
 

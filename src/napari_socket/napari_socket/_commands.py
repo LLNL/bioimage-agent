@@ -1,6 +1,8 @@
 from pathlib import Path
 from napari.viewer import Viewer
 import numpy as np
+import collections.abc
+import json
 
 def open_file(
     path: str | Path,                 # ① first (supplied by you)
@@ -9,7 +11,7 @@ def open_file(
     plugin: str | None = None,
     layer_type: str | None = None,
 ):
-    """Open *any* image file (TIFF, PNG, ND2…) with napari’s readers."""
+    """Open *any* image file (TIFF, PNG, ND2…) with napari's readers."""
     layers = viewer.open(
         Path(path),
         plugin=plugin or "napari",     # built-in reader first
@@ -89,3 +91,94 @@ def iso_contour(
             lyr.iso_threshold = threshold
 
     return len(targets)
+
+
+# ----------------------------------------------------------------------
+# screenshot helper
+# ----------------------------------------------------------------------
+
+def screenshot(
+    path: str | None = None,
+    viewer: Viewer | None = None,          # injected by napari
+    canvas_only: bool = True,
+) -> str:
+    """
+    Capture a PNG screenshot of the current napari viewer.
+
+    Parameters
+    ----------
+    path : str | None
+        If given, save the screenshot to this location *on the napari host*.
+        Otherwise a temporary file is created and its absolute path returned.
+    canvas_only : bool
+        Capture just the rendering canvas (default) or the full UI.
+
+    Returns
+    -------
+    str
+        Absolute path to the saved PNG.
+    """
+    import os, tempfile
+
+    if path is None:
+        fd, tmp = tempfile.mkstemp(prefix="napari_scr_", suffix=".png")
+        os.close(fd)
+        path = tmp
+
+    viewer.screenshot(path=path, canvas_only=canvas_only)
+    return os.path.abspath(path)
+
+# ----------------------------------------------------------------------
+# layer introspection
+# ----------------------------------------------------------------------
+
+def to_serializable(obj):
+    """Recursively convert an object to something JSON-serializable."""
+    if isinstance(obj, (str, int, float, bool)) or obj is None:
+        return obj
+    elif isinstance(obj, dict):
+        return {str(k): to_serializable(v) for k, v in obj.items()}
+    elif isinstance(obj, (list, tuple, set)):
+        return [to_serializable(v) for v in obj]
+    # numpy types
+    elif hasattr(obj, 'item') and callable(obj.item):
+        try:
+            return obj.item()
+        except Exception:
+            return str(obj)
+    # fallback: string representation
+    return str(obj)
+
+def list_layers(viewer: Viewer):
+    """
+    Return information about all loaded layers.
+
+    Returns
+    -------
+    list[dict]
+        One dict per layer with ``index``, ``name``, ``type``, and ``visible``.
+    """
+    result = to_serializable([
+        {
+            "index": i,
+            "name": layer.name,
+            "type": layer.__class__.__name__,
+            "visible": layer.visible,
+        }
+        for i, layer in enumerate(viewer.layers)
+    ])
+
+    # If result is a Future, get its result
+    if hasattr(result, "result") and callable(result.result):
+        try:
+            result = result.result(timeout=5)
+        except Exception as e:
+            return f"ERR {e}\n"
+
+    try:
+        payload = json.dumps(result)
+        reply: bytes = f"OK {payload}\n".encode()
+    except TypeError:                # result not JSON-serialisable
+        reply = b"OK\n"
+    
+    return reply.decode()

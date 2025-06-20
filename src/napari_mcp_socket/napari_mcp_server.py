@@ -21,6 +21,7 @@ import argparse
 import logging
 import os
 from pathlib import Path
+import argparse, json, logging, os
 
 from mcp.server.fastmcp import FastMCP
 
@@ -75,6 +76,8 @@ def build_mcp(manager: NapariManager) -> FastMCP:
         "• *open_file(path)* – load data\n"
         "• *toggle_view()* – switch between 2-D and 3-D rendering\n\n"
         "• *iso_contour(layer_name=None, threshold=None)* – iso-surface rendering\n\n"
+        "• *screenshot(path=None)* – save a PNG snapshot\n\n"
+        "• *list_layers()* – get loaded-layer info\n\n"
         "Each call returns 'OK' on success or an 'ERR …' string on failure."
     )
 
@@ -102,8 +105,22 @@ def build_mcp(manager: NapariManager) -> FastMCP:
         success, message = manager.iso_contour(layer_name, threshold)
         return message if success else f"❌ {message}"
 
+
+    @mcp.tool(name="screenshot")
+    def screenshot(path: str | None = None) -> str:  # noqa: WPS430
+        """Save a PNG screenshot of the current viewer."""
+        success, message = manager.screenshot(path)
+        return message if success else f"❌ {message}"
+
+    @mcp.tool(name="list_layers")
+    def list_layers() -> str:            # noqa: WPS430
+        """Return JSON describing every loaded layer."""
+        success, message = manager.list_layers()
+        return json.dumps(message, indent=2) if success else f"❌ {message}"
+
     return mcp
 
+    
 
 ###########################################################################
 # entry‑point

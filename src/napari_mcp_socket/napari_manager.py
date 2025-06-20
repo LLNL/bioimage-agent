@@ -57,12 +57,19 @@ class NapariManager:  # pylint: disable=too-few-public-methods
     # ------------------------------------------------------------------
     # public API
     # ------------------------------------------------------------------
-    def send_command(self, cmd_id: str, args: Sequence[Any] | None = None) -> Tuple[bool, str]:
+    def send_command(self, cmd_id: str, args: Sequence[Any] | None = None) -> Tuple[bool, Any]:
         """Invoke *cmd_id* inside napari and return *(success, message)*."""
         payload: list[Any] = [cmd_id, list(args or [])]
         reply = self._send(payload)
-        if reply.startswith("OK"):
-            return True, "Command executed successfully"
+        if reply == "OK":                 # no payload
+            return True, None
+        if reply.startswith("OK "):       # payload present
+            payload = reply[3:].strip()
+            try:
+                payload = json.loads(payload)
+            except json.JSONDecodeError:
+                pass                       # plain-text payload
+            return True, payload
         return False, reply
 
     # ------------------------------------------------------------------
@@ -103,6 +110,24 @@ class NapariManager:  # pylint: disable=too-few-public-methods
         if threshold is not None:
             args.append(float(threshold))
         return self.send_command("napari-socket.iso_contour", args)
+    
+
+    # ------------------------------------------------------------------
+    # screenshot helper
+    # ------------------------------------------------------------------
+    def screenshot(self, path: str | None = None) -> tuple[bool, str]:
+        """Ask the remote viewer to save a PNG screenshot."""
+        args: list[str] = []
+        if path is not None:
+            args.append(str(path))
+        return self.send_command("napari-socket.screenshot", args)
+
+    # ------------------------------------------------------------------
+    # layer introspection helper
+    # ------------------------------------------------------------------
+    def list_layers(self) -> Tuple[bool, Any]:
+        """Retrieve metadata for all currently loaded layers."""
+        return self.send_command("napari-socket.list_layers")
 # ---------------------------------------------------------------------------
 # quick manual test
 # ---------------------------------------------------------------------------
