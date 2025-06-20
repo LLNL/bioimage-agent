@@ -191,15 +191,27 @@ def _get_layer(viewer: Viewer, layer_name: str | int | None = None):
         return viewer.layers[layer_name]
     return viewer.layers.selection.active
 
-def set_opacity(viewer: Viewer, opacity: float, layer_name: str | int | None = None):
+def set_opacity(
+    layer_name: str | int,
+    opacity: float,
+    viewer: Viewer,
+    ):
     """Set the opacity for a given layer (or the active one)."""
-    layer = _get_layer(viewer, layer_name)
+    if isinstance(layer_name, int):
+        layer = viewer.layers[layer_name]
+    else:
+        layer = viewer.layers[layer_name]
+
     if hasattr(layer, 'opacity'):
         layer.opacity = opacity
         return f"Opacity for layer '{layer.name}' set to {opacity}."
     return f"Layer '{layer.name}' does not have an opacity attribute."
 
-def set_blending(viewer: Viewer, blending: str, layer_name: str | int | None = None):
+def set_blending(
+        layer_name: str | int,
+        blending: str,
+        viewer: Viewer,
+        ):
     """Set the blending mode for a given layer (or the active one)."""
     layer = _get_layer(viewer, layer_name)
     if hasattr(layer, 'blending'):
@@ -207,7 +219,12 @@ def set_blending(viewer: Viewer, blending: str, layer_name: str | int | None = N
         return f"Blending mode for layer '{layer.name}' set to '{blending}'."
     return f"Layer '{layer.name}' does not have a blending attribute."
 
-def set_contrast_limits(viewer: Viewer, contrast_min: float, contrast_max: float, layer_name: str | int | None = None):
+def set_contrast_limits(
+    layer_name: str | int, 
+    contrast_min: float, 
+    contrast_max: float, 
+    viewer: Viewer,
+    ):
     """Set the contrast limits for a given layer (or the active one)."""
     layer = _get_layer(viewer, layer_name)
     if hasattr(layer, 'contrast_limits'):
@@ -215,7 +232,10 @@ def set_contrast_limits(viewer: Viewer, contrast_min: float, contrast_max: float
         return f"Contrast limits for layer '{layer.name}' set to ({contrast_min}, {contrast_max})."
     return f"Layer '{layer.name}' does not have a contrast_limits attribute."
 
-def auto_contrast(viewer: Viewer, layer_name: str | int | None = None):
+def auto_contrast(
+        layer_name: str | int,
+        viewer: Viewer, 
+    ):
     """Auto-adjust contrast for a given layer (or the active one)."""
     layer = _get_layer(viewer, layer_name)
     if hasattr(layer, 'reset_contrast_limits'):
@@ -223,7 +243,11 @@ def auto_contrast(viewer: Viewer, layer_name: str | int | None = None):
         return f"Auto-contrasted layer '{layer.name}'. New limits: {layer.contrast_limits}."
     return f"Layer '{layer.name}' does not have auto-contrast capability."
 
-def set_gamma(viewer: Viewer, gamma: float, layer_name: str | int | None = None):
+def set_gamma(
+        layer_name: str | int, 
+        gamma: float, 
+        viewer: Viewer, 
+        ):
     """Set the gamma for a given layer (or the active one)."""
     layer = _get_layer(viewer, layer_name)
     if hasattr(layer, 'gamma'):
@@ -231,7 +255,11 @@ def set_gamma(viewer: Viewer, gamma: float, layer_name: str | int | None = None)
         return f"Gamma for layer '{layer.name}' set to {gamma}."
     return f"Layer '{layer.name}' does not have a gamma attribute."
 
-def set_interpolation(viewer: Viewer, interpolation: str, layer_name: str | int | None = None):
+def set_interpolation(
+        layer_name: str | int,
+        interpolation: str, 
+        viewer: Viewer, 
+        ):
     """Set the interpolation for a given layer (or the active one)."""
     layer = _get_layer(viewer, layer_name)
     if hasattr(layer, 'interpolation'):

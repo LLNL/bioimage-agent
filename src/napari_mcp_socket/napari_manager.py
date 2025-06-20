@@ -133,46 +133,34 @@ class NapariManager:  # pylint: disable=too-few-public-methods
         """Set the colormap for a given layer."""
         return self.send_command("napari-socket.set_colormap", [layer_name, colormap])
 
-    def set_opacity(self, opacity: float, layer_name: str | int | None = None) -> Tuple[bool, Any]:
+    def set_opacity(self, layer_name: str | int, opacity: float) -> Tuple[bool, Any]:
         """Set the opacity for a given layer (or the active one)."""
-        args = [opacity]
-        if layer_name is not None:
-            args.append(layer_name)
+        args = [layer_name, opacity]
         return self.send_command("napari-socket.set_opacity", args)
 
-    def set_blending(self, blending: str, layer_name: str | int | None = None) -> Tuple[bool, Any]:
+    def set_blending(self, layer_name: str | int, blending: str) -> Tuple[bool, Any]:
         """Set the blending mode for a given layer (or the active one)."""
-        args = [blending]
-        if layer_name is not None:
-            args.append(layer_name)
+        args = [layer_name, blending]
         return self.send_command("napari-socket.set_blending", args)
 
-    def set_contrast_limits(self, contrast_min: float, contrast_max: float, layer_name: str | int | None = None) -> Tuple[bool, Any]:
+    def set_contrast_limits(self, layer_name: str | int, contrast_min: float, contrast_max: float) -> Tuple[bool, Any]:
         """Set the contrast limits for a given layer (or the active one)."""
-        args = [contrast_min, contrast_max]
-        if layer_name is not None:
-            args.append(layer_name)
+        args = [layer_name, contrast_min, contrast_max]
         return self.send_command("napari-socket.set_contrast_limits", args)
 
-    def auto_contrast(self, layer_name: str | int | None = None) -> Tuple[bool, Any]:
+    def auto_contrast(self, layer_name: str | int) -> Tuple[bool, Any]:
         """Auto-adjust contrast for a given layer (or the active one)."""
-        args = []
-        if layer_name is not None:
-            args.append(layer_name)
+        args = [layer_name]
         return self.send_command("napari-socket.auto_contrast", args)
 
-    def set_gamma(self, gamma: float, layer_name: str | int | None = None) -> Tuple[bool, Any]:
+    def set_gamma(self, layer_name: str | int, gamma: float) -> Tuple[bool, Any]:
         """Set the gamma for a given layer (or the active one)."""
-        args = [gamma]
-        if layer_name is not None:
-            args.append(layer_name)
+        args = [layer_name, gamma]
         return self.send_command("napari-socket.set_gamma", args)
 
-    def set_interpolation(self, interpolation: str, layer_name: str | int | None = None) -> Tuple[bool, Any]:
+    def set_interpolation(self, layer_name: str | int, interpolation: str) -> Tuple[bool, Any]:
         """Set the interpolation for a given layer (or the active one)."""
-        args = [interpolation]
-        if layer_name is not None:
-            args.append(layer_name)
+        args = [layer_name, interpolation]
         return self.send_command("napari-socket.set_interpolation", args)
 
 # ---------------------------------------------------------------------------

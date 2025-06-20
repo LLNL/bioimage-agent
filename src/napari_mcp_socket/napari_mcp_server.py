@@ -131,21 +131,21 @@ def build_mcp(manager: NapariManager) -> FastMCP:
         return message if success else f"❌ {message}"
 
     @mcp.tool()
-    def set_opacity(opacity: float, layer_name: str | None = None) -> str:
+    def set_opacity(layer_name: str, opacity: float) -> str:
         """Set the opacity for a given layer (or the active one)."""
-        success, message = manager.set_opacity(opacity, layer_name)
+        success, message = manager.set_opacity(layer_name, opacity)
         return message if success else f"❌ {message}"
 
     @mcp.tool()
-    def set_blending(blending: str, layer_name: str | None = None) -> str:
+    def set_blending(layer_name: str, blending: str) -> str:
         """Set the blending mode for a given layer (or the active one)."""
-        success, message = manager.set_blending(blending, layer_name)
+        success, message = manager.set_blending(layer_name, blending)
         return message if success else f"❌ {message}"
 
     @mcp.tool()
-    def set_contrast_limits(contrast_min: float, contrast_max: float, layer_name: str | None = None) -> str:
+    def set_contrast_limits(layer_name: str, contrast_min: float, contrast_max: float) -> str:
         """Set the contrast limits for a given layer (or the active one)."""
-        success, message = manager.set_contrast_limits(contrast_min, contrast_max, layer_name)
+        success, message = manager.set_contrast_limits(layer_name, contrast_min, contrast_max)
         return message if success else f"❌ {message}"
 
     @mcp.tool()
@@ -155,15 +155,15 @@ def build_mcp(manager: NapariManager) -> FastMCP:
         return message if success else f"❌ {message}"
 
     @mcp.tool()
-    def set_gamma(gamma: float, layer_name: str | None = None) -> str:
+    def set_gamma(layer_name: str, gamma: float) -> str:
         """Set the gamma for a given layer (or the active one)."""
-        success, message = manager.set_gamma(gamma, layer_name)
+        success, message = manager.set_gamma(layer_name, gamma)
         return message if success else f"❌ {message}"
 
     @mcp.tool()
-    def set_interpolation(interpolation: str, layer_name: str | None = None) -> str:
+    def set_interpolation(layer_name: str, interpolation: str) -> str:
         """Set the interpolation for a given layer (or the active one)."""
-        success, message = manager.set_interpolation(interpolation, layer_name)
+        success, message = manager.set_interpolation(layer_name, interpolation)
         return message if success else f"❌ {message}"
 
     return mcp
