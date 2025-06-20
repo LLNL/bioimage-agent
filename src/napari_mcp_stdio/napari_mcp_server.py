@@ -122,19 +122,20 @@ def add_new_layer(layer_type: str = "image", name: str = None,
         return message
 
 @mcp.tool()
-def get_screenshot() -> str:
+def get_screenshot() -> dict:
     """
     Capture a screenshot of the current napari viewer and display it in chat.
     
     Returns:
-        Image data or error message
+        A dictionary containing the path to the saved screenshot and
+        the base64-encoded image data.
     """
-    success, message, img_path = napari_manager.get_screenshot()
+    success, message, img_path, img_base64 = napari_manager.get_screenshot()
     
     if not success:
-        return message
-    else:
-        return Image(path=img_path)
+        return {"error": message}
+    
+    return {"path": img_path, "base64_data": img_base64}
 
 @mcp.tool()
 def get_layers() -> str:

@@ -75,7 +75,7 @@ def build_mcp(manager: NapariManager) -> FastMCP:
         "• *open_file(path)* – load data\n"
         "• *toggle_view()* – switch between 2-D and 3-D rendering\n\n"
         "• *iso_contour(layer_name=None, threshold=None)* – iso-surface rendering\n\n"
-        "• *screenshot(path=None)* – save a PNG snapshot\n\n"
+        "• *screenshot(path=None)* – save a PNG snapshot, returns path and base64 data\n\n"
         "• *list_layers()* – get loaded-layer info\n\n"
         "• *set_colormap(layer_name, colormap)* – set a layer's colormap\n\n"
         "• *set_opacity(opacity, layer_name=None)* – set layer opacity (0-1)\n\n"
@@ -116,7 +116,7 @@ def build_mcp(manager: NapariManager) -> FastMCP:
     def screenshot(path: str | None = None) -> str:  # noqa: WPS430
         """Save a PNG screenshot of the current viewer."""
         success, message = manager.screenshot(path)
-        return message if success else f"❌ {message}"
+        return json.dumps(message) if success else f"❌ {message}"
 
     @mcp.tool(name="list_layers")
     def list_layers() -> str:            # noqa: WPS430

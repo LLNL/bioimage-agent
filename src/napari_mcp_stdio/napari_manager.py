@@ -12,6 +12,8 @@ import numpy as np
 from pathlib import Path
 from typing import Optional, Tuple, Any
 import tempfile
+import base64
+import io
 
 class NapariManager:
     """
@@ -182,16 +184,16 @@ class NapariManager:
             self.logger.error(f"Error adding new layer: {str(e)}")
             return False, f"Error adding new layer: {str(e)}", None, ""
     
-    def get_screenshot(self) -> Tuple[bool, str, Optional[str]]:
+    def get_screenshot(self) -> Tuple[bool, str, Optional[str], Optional[str]]:
         """
         Capture a screenshot from the current viewer.
         
         Returns:
-            tuple: (success, message, img_path)
+            tuple: (success, message, img_path, base64_encoding)
         """
         try:
             if not self.viewer:
-                return False, "Error: No viewer connected. Call connect() first.", None
+                return False, "Error: No viewer connected. Call connect() first.", None, None
             
             # Create a temporary file for the screenshot
             import tempfile
@@ -214,12 +216,17 @@ class NapariManager:
             img = Image.fromarray(screenshot_array)
             img.save(str(screenshot_path))
             
+            # Encode image to base64
+            buffered = io.BytesIO()
+            img.save(buffered, format="PNG")
+            img_str = base64.b64encode(buffered.getvalue()).decode("utf-8")
+
             self.logger.info(f"Screenshot saved to {screenshot_path}")
-            return True, "Screenshot captured", str(screenshot_path)
+            return True, "Screenshot captured", str(screenshot_path), img_str
             
         except Exception as e:
             self.logger.error(f"Error capturing screenshot: {str(e)}")
-            return False, f"Error capturing screenshot: {str(e)}", None
+            return False, f"Error capturing screenshot: {str(e)}", None, None
     
     def get_layers(self) -> Tuple[bool, str, list]:
         """

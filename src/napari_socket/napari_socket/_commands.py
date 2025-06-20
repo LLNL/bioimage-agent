@@ -101,7 +101,7 @@ def screenshot(
     path: str | None = None,
     viewer: Viewer | None = None,          # injected by napari
     canvas_only: bool = True,
-) -> str:
+) -> dict:
     """
     Capture a PNG screenshot of the current napari viewer.
 
@@ -115,18 +115,36 @@ def screenshot(
 
     Returns
     -------
-    str
-        Absolute path to the saved PNG.
+    dict
+        A dictionary with 'path' and 'base64_data'.
     """
-    import os, tempfile
+    import os
+    import tempfile
+    from PIL import Image
+    import base64
+    import io
 
     if path is None:
+        # get array and save it to a temp file
+        screenshot_array = viewer.screenshot(canvas_only=canvas_only)
+        img = Image.fromarray(screenshot_array)
+        
         fd, tmp = tempfile.mkstemp(prefix="napari_scr_", suffix=".png")
         os.close(fd)
         path = tmp
+        img.save(path)
+    else:
+        # save directly to path
+        viewer.screenshot(path=path, canvas_only=canvas_only)
+        # read back for base64 encoding
+        img = Image.open(path)
 
-    viewer.screenshot(path=path, canvas_only=canvas_only)
-    return os.path.abspath(path)
+    # base64 encode
+    buffered = io.BytesIO()
+    img.save(buffered, format="PNG")
+    img_str = base64.b64encode(buffered.getvalue()).decode("utf-8")
+
+    return {"path": os.path.abspath(path), "base64_data": img_str}
 
 # ----------------------------------------------------------------------
 # layer introspection
