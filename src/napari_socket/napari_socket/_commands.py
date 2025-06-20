@@ -284,3 +284,29 @@ def set_interpolation(
         layer.interpolation = interpolation
         return f"Interpolation for layer '{layer.name}' set to '{interpolation}'."
     return f"Layer '{layer.name}' does not have an interpolation attribute."
+
+def set_timestep(
+    timestep: int,
+    viewer: Viewer,
+    ):
+    """Set the timestep for the viewer."""
+    current_step = list(viewer.dims.current_step)
+    if not current_step:
+        return "Viewer has no dimensions with steps."
+    
+    if timestep >= viewer.dims.nsteps[0]:
+        return f"Timestep {timestep} is out of bounds (max: {viewer.dims.nsteps[0] - 1})."
+        
+    current_step[0] = timestep
+    viewer.dims.current_step = tuple(current_step)
+    return f"Timestep set to {timestep}."
+
+def get_dims_info(viewer: Viewer):
+    """Get information about the viewer's dimensions."""
+    dims_info = {
+        'ndim': viewer.dims.ndim,
+        'nsteps': viewer.dims.nsteps,
+        'current_step': viewer.dims.current_step,
+        'axis_labels': list(viewer.dims.axis_labels),
+    }
+    return to_serializable(dims_info)

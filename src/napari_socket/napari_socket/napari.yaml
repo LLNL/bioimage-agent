@@ -66,6 +66,14 @@ contributions:
       title: Set Interpolation
       python_name: napari_socket._commands:set_interpolation
 
+    - id: napari-socket.set_timestep
+      title: Set Timestep
+      python_name: napari_socket._commands:set_timestep
+
+    - id: napari-socket.get_dims_info
+      title: Get Dimensions Info
+      python_name: napari_socket._commands:get_dims_info
+
   # link the widget to the first command
   widgets:
     - command: napari-socket.socket_widget

@@ -163,6 +163,14 @@ class NapariManager:  # pylint: disable=too-few-public-methods
         args = [layer_name, interpolation]
         return self.send_command("napari-socket.set_interpolation", args)
 
+    def set_timestep(self, timestep: int) -> Tuple[bool, Any]:
+        """Set the timestep for the viewer."""
+        return self.send_command("napari-socket.set_timestep", [timestep])
+
+    def get_dims_info(self) -> Tuple[bool, Any]:
+        """Get information about the viewer's dimensions."""
+        return self.send_command("napari-socket.get_dims_info")
+
 # ---------------------------------------------------------------------------
 # quick manual test
 # ---------------------------------------------------------------------------

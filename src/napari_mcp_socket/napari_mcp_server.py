@@ -84,7 +84,10 @@ def build_mcp(manager: NapariManager) -> FastMCP:
         "• *auto_contrast(layer_name=None)* – auto-adjust layer contrast\n\n"
         "• *set_gamma(gamma, layer_name=None)* – set layer gamma\n\n"
         "• *set_interpolation(interpolation, layer_name=None)* – set layer interpolation\n\n"
+        "• *set_timestep(timestep)* – set the current timestep\n\n"
+        "• *get_dims_info()* – get information about the viewer's dimensions\n\n"
         "Each call returns 'OK' on success or an 'ERR …' string on failure."
+        "If you need to view the viewport, use the screenshot tool."
     )
 
     mcp = FastMCP("Napari‑Socket", system_prompt=prompt)
@@ -165,6 +168,18 @@ def build_mcp(manager: NapariManager) -> FastMCP:
         """Set the interpolation for a given layer (or the active one)."""
         success, message = manager.set_interpolation(layer_name, interpolation)
         return message if success else f"❌ {message}"
+
+    @mcp.tool()
+    def set_timestep(timestep: int) -> str:
+        """Set the current timestep."""
+        success, message = manager.set_timestep(timestep)
+        return message if success else f"❌ {message}"
+
+    @mcp.tool()
+    def get_dims_info() -> str:
+        """Get information about the viewer's dimensions."""
+        success, message = manager.get_dims_info()
+        return json.dumps(message, indent=2) if success else f"❌ {message}"
 
     return mcp
 

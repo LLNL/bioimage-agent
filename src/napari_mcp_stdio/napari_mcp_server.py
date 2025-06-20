@@ -20,7 +20,7 @@ import logging
 import argparse
 from pathlib import Path
 
-from mcp.server.fastmcp import FastMCP, Image
+from mcp.server.fastmcp import FastMCP
 from napari_manager import NapariManager
 
 # Configure logging
@@ -182,6 +182,36 @@ def set_active_layer(layer_name: str) -> str:
     return message
 
 @mcp.tool()
+def set_timestep(timestep: int) -> str:
+    """
+    Set the timestep for the viewer.
+    
+    Args:
+        timestep (int): The timestep to set.
+    
+    Returns:
+        Status message
+    """
+    success, message = napari_manager.set_timestep(timestep)
+    return message
+
+@mcp.tool()
+def get_dims_info() -> str:
+    """
+    Get information about the viewer's dimensions.
+    
+    Returns:
+        A formatted string with dimension information.
+    """
+    success, message, dims_info = napari_manager.get_dims_info()
+    
+    if not success:
+        return message
+    
+    import json
+    return json.dumps(dims_info, indent=2)
+
+@mcp.tool()
 def list_commands() -> str:
     """
     List all available commands in this napari MCP server.
@@ -195,6 +225,8 @@ def list_commands() -> str:
         "get_screenshot: Capture a screenshot of the viewer and display it in chat",
         "get_layers: List all layers in the viewer with their properties",
         "set_active_layer: Set the active layer by name",
+        "set_timestep: Set the current timestep",
+        "get_dims_info: Get information about the viewer's dimensions",
         "list_commands: Show this list of available commands"
     ]
     

@@ -270,6 +270,59 @@ class NapariManager:
             self.logger.error(f"Error getting layers: {str(e)}")
             return False, f"Error getting layers: {str(e)}", []
     
+    def set_timestep(self, timestep: int) -> Tuple[bool, str]:
+        """
+        Set the timestep for the viewer.
+        
+        Args:
+            timestep (int): The timestep to set.
+            
+        Returns:
+            tuple: (success, message)
+        """
+        try:
+            if not self.viewer:
+                return False, "Error: No viewer connected. Call connect() first."
+            
+            current_step = list(self.viewer.dims.current_step)
+            if not current_step:
+                return False, "Viewer has no dimensions with steps."
+            
+            if timestep >= self.viewer.dims.nsteps[0]:
+                return False, f"Timestep {timestep} is out of bounds (max: {self.viewer.dims.nsteps[0] - 1})."
+                
+            current_step[0] = timestep
+            self.viewer.dims.current_step = tuple(current_step)
+            self.logger.info(f"Timestep set to {timestep}")
+            return True, f"Timestep set to {timestep}."
+            
+        except Exception as e:
+            self.logger.error(f"Error setting timestep: {str(e)}")
+            return False, f"Error setting timestep: {str(e)}"
+
+    def get_dims_info(self) -> Tuple[bool, str, dict]:
+        """
+        Get information about the viewer's dimensions.
+        
+        Returns:
+            tuple: (success, message, dims_info)
+        """
+        try:
+            if not self.viewer:
+                return False, "Error: No viewer connected. Call connect() first.", {}
+            
+            dims_info = {
+                'ndim': self.viewer.dims.ndim,
+                'nsteps': self.viewer.dims.nsteps,
+                'current_step': self.viewer.dims.current_step,
+                'axis_labels': list(self.viewer.dims.axis_labels),
+            }
+            return True, "Successfully retrieved dimension info.", dims_info
+            
+        except Exception as e:
+            self.logger.error(f"Error getting dimension info: {str(e)}")
+            return False, f"Error getting dimension info: {str(e)}", {}
+
     def set_active_layer(self, layer_name: str) -> Tuple[bool, str]:
         """
         Set the active layer by name.
