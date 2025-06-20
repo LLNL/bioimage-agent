@@ -1,4 +1,3 @@
-
 # ---------------------------------------------------------------------------
 # ---------------------------------------------------------------------------
 
@@ -78,6 +77,13 @@ def build_mcp(manager: NapariManager) -> FastMCP:
         "• *iso_contour(layer_name=None, threshold=None)* – iso-surface rendering\n\n"
         "• *screenshot(path=None)* – save a PNG snapshot\n\n"
         "• *list_layers()* – get loaded-layer info\n\n"
+        "• *set_colormap(layer_name, colormap)* – set a layer's colormap\n\n"
+        "• *set_opacity(opacity, layer_name=None)* – set layer opacity (0-1)\n\n"
+        "• *set_blending(blending, layer_name=None)* – set layer blending mode\n\n"
+        "• *set_contrast_limits(min, max, layer_name=None)* – set layer contrast\n\n"
+        "• *auto_contrast(layer_name=None)* – auto-adjust layer contrast\n\n"
+        "• *set_gamma(gamma, layer_name=None)* – set layer gamma\n\n"
+        "• *set_interpolation(interpolation, layer_name=None)* – set layer interpolation\n\n"
         "Each call returns 'OK' on success or an 'ERR …' string on failure."
     )
 
@@ -117,6 +123,48 @@ def build_mcp(manager: NapariManager) -> FastMCP:
         """Return JSON describing every loaded layer."""
         success, message = manager.list_layers()
         return json.dumps(message, indent=2) if success else f"❌ {message}"
+
+    @mcp.tool(name="set_colormap")
+    def set_colormap(layer_name: str, colormap: str) -> str:
+        """Set the colormap for a specific layer."""
+        success, message = manager.set_colormap(layer_name, colormap)
+        return message if success else f"❌ {message}"
+
+    @mcp.tool()
+    def set_opacity(opacity: float, layer_name: str | None = None) -> str:
+        """Set the opacity for a given layer (or the active one)."""
+        success, message = manager.set_opacity(opacity, layer_name)
+        return message if success else f"❌ {message}"
+
+    @mcp.tool()
+    def set_blending(blending: str, layer_name: str | None = None) -> str:
+        """Set the blending mode for a given layer (or the active one)."""
+        success, message = manager.set_blending(blending, layer_name)
+        return message if success else f"❌ {message}"
+
+    @mcp.tool()
+    def set_contrast_limits(contrast_min: float, contrast_max: float, layer_name: str | None = None) -> str:
+        """Set the contrast limits for a given layer (or the active one)."""
+        success, message = manager.set_contrast_limits(contrast_min, contrast_max, layer_name)
+        return message if success else f"❌ {message}"
+
+    @mcp.tool()
+    def auto_contrast(layer_name: str | None = None) -> str:
+        """Auto-adjust contrast for a given layer (or the active one)."""
+        success, message = manager.auto_contrast(layer_name)
+        return message if success else f"❌ {message}"
+
+    @mcp.tool()
+    def set_gamma(gamma: float, layer_name: str | None = None) -> str:
+        """Set the gamma for a given layer (or the active one)."""
+        success, message = manager.set_gamma(gamma, layer_name)
+        return message if success else f"❌ {message}"
+
+    @mcp.tool()
+    def set_interpolation(interpolation: str, layer_name: str | None = None) -> str:
+        """Set the interpolation for a given layer (or the active one)."""
+        success, message = manager.set_interpolation(interpolation, layer_name)
+        return message if success else f"❌ {message}"
 
     return mcp
 

@@ -158,7 +158,7 @@ def list_layers(viewer: Viewer):
     list[dict]
         One dict per layer with ``index``, ``name``, ``type``, and ``visible``.
     """
-    result = to_serializable([
+    return to_serializable([
         {
             "index": i,
             "name": layer.name,
@@ -168,17 +168,73 @@ def list_layers(viewer: Viewer):
         for i, layer in enumerate(viewer.layers)
     ])
 
-    # If result is a Future, get its result
-    if hasattr(result, "result") and callable(result.result):
-        try:
-            result = result.result(timeout=5)
-        except Exception as e:
-            return f"ERR {e}\n"
+def set_colormap(
+    layer_name: str | int,
+    colormap: str,
+    viewer: Viewer,
+):
+    """Set the colormap for a given layer."""
+    if isinstance(layer_name, int):
+        layer = viewer.layers[layer_name]
+    else:
+        layer = viewer.layers[layer_name]
 
-    try:
-        payload = json.dumps(result)
-        reply: bytes = f"OK {payload}\n".encode()
-    except TypeError:                # result not JSON-serialisable
-        reply = b"OK\n"
+    if hasattr(layer, 'colormap'):
+        layer.colormap = colormap
+        return f"Colormap for layer '{layer.name}' set to '{colormap}'."
     
-    return reply.decode()
+    return f"Layer '{layer.name}' of type {type(layer).__name__} does not have a colormap attribute."
+
+def _get_layer(viewer: Viewer, layer_name: str | int | None = None):
+    """Helper to get a layer by name/index or the active layer."""
+    if layer_name is not None:
+        return viewer.layers[layer_name]
+    return viewer.layers.selection.active
+
+def set_opacity(viewer: Viewer, opacity: float, layer_name: str | int | None = None):
+    """Set the opacity for a given layer (or the active one)."""
+    layer = _get_layer(viewer, layer_name)
+    if hasattr(layer, 'opacity'):
+        layer.opacity = opacity
+        return f"Opacity for layer '{layer.name}' set to {opacity}."
+    return f"Layer '{layer.name}' does not have an opacity attribute."
+
+def set_blending(viewer: Viewer, blending: str, layer_name: str | int | None = None):
+    """Set the blending mode for a given layer (or the active one)."""
+    layer = _get_layer(viewer, layer_name)
+    if hasattr(layer, 'blending'):
+        layer.blending = blending
+        return f"Blending mode for layer '{layer.name}' set to '{blending}'."
+    return f"Layer '{layer.name}' does not have a blending attribute."
+
+def set_contrast_limits(viewer: Viewer, contrast_min: float, contrast_max: float, layer_name: str | int | None = None):
+    """Set the contrast limits for a given layer (or the active one)."""
+    layer = _get_layer(viewer, layer_name)
+    if hasattr(layer, 'contrast_limits'):
+        layer.contrast_limits = (contrast_min, contrast_max)
+        return f"Contrast limits for layer '{layer.name}' set to ({contrast_min}, {contrast_max})."
+    return f"Layer '{layer.name}' does not have a contrast_limits attribute."
+
+def auto_contrast(viewer: Viewer, layer_name: str | int | None = None):
+    """Auto-adjust contrast for a given layer (or the active one)."""
+    layer = _get_layer(viewer, layer_name)
+    if hasattr(layer, 'reset_contrast_limits'):
+        layer.reset_contrast_limits()
+        return f"Auto-contrasted layer '{layer.name}'. New limits: {layer.contrast_limits}."
+    return f"Layer '{layer.name}' does not have auto-contrast capability."
+
+def set_gamma(viewer: Viewer, gamma: float, layer_name: str | int | None = None):
+    """Set the gamma for a given layer (or the active one)."""
+    layer = _get_layer(viewer, layer_name)
+    if hasattr(layer, 'gamma'):
+        layer.gamma = gamma
+        return f"Gamma for layer '{layer.name}' set to {gamma}."
+    return f"Layer '{layer.name}' does not have a gamma attribute."
+
+def set_interpolation(viewer: Viewer, interpolation: str, layer_name: str | int | None = None):
+    """Set the interpolation for a given layer (or the active one)."""
+    layer = _get_layer(viewer, layer_name)
+    if hasattr(layer, 'interpolation'):
+        layer.interpolation = interpolation
+        return f"Interpolation for layer '{layer.name}' set to '{interpolation}'."
+    return f"Layer '{layer.name}' does not have an interpolation attribute."

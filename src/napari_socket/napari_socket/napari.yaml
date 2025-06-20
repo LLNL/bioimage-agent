@@ -35,8 +35,36 @@ contributions:
       python_name: napari_socket._commands:screenshot
 
     - id: napari-socket.list_layers
-      title: List layers
+      title: List Layers
       python_name: napari_socket._commands:list_layers
+
+    - id: napari-socket.set_colormap
+      title: Set Colormap
+      python_name: napari_socket._commands:set_colormap
+
+    - id: napari-socket.set_opacity
+      title: Set Opacity
+      python_name: napari_socket._commands:set_opacity
+
+    - id: napari-socket.set_blending
+      title: Set Blending Mode
+      python_name: napari_socket._commands:set_blending
+
+    - id: napari-socket.set_contrast_limits
+      title: Set Contrast Limits
+      python_name: napari_socket._commands:set_contrast_limits
+
+    - id: napari-socket.auto_contrast
+      title: Auto-Contrast
+      python_name: napari_socket._commands:auto_contrast
+
+    - id: napari-socket.set_gamma
+      title: Set Gamma
+      python_name: napari_socket._commands:set_gamma
+
+    - id: napari-socket.set_interpolation
+      title: Set Interpolation
+      python_name: napari_socket._commands:set_interpolation
 
   # link the widget to the first command
   widgets:
