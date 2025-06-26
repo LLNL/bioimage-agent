@@ -115,12 +115,9 @@ class NapariManager:  # pylint: disable=too-few-public-methods
     # ------------------------------------------------------------------
     # screenshot helper
     # ------------------------------------------------------------------
-    def screenshot(self, path: str | None = None) -> tuple[bool, str]:
-        """Ask the remote viewer to save a PNG screenshot."""
-        args: list[str] = []
-        if path is not None:
-            args.append(str(path))
-        return self.send_command("napari-socket.screenshot", args)
+    def screenshot(self) -> tuple[bool, str]:
+        """Ask the remote viewer to save a PNG screenshot and return the absolute path as a string."""
+        return self.send_command("napari-socket.screenshot")
 
     # ------------------------------------------------------------------
     # layer introspection helper

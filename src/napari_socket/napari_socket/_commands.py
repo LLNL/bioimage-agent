@@ -98,53 +98,32 @@ def iso_contour(
 # ----------------------------------------------------------------------
 
 def screenshot(
-    path: str | None = None,
     viewer: Viewer | None = None,          # injected by napari
     canvas_only: bool = True,
-) -> dict:
+) -> str:
     """
     Capture a PNG screenshot of the current napari viewer.
 
     Parameters
     ----------
-    path : str | None
-        If given, save the screenshot to this location *on the napari host*.
-        Otherwise a temporary file is created and its absolute path returned.
     canvas_only : bool
         Capture just the rendering canvas (default) or the full UI.
 
     Returns
     -------
-    dict
-        A dictionary with 'path' and 'base64_data'.
+    str
+        The absolute path to the saved screenshot in the temp folder.
     """
     import os
     import tempfile
     from PIL import Image
-    import base64
-    import io
 
-    if path is None:
-        # get array and save it to a temp file
-        screenshot_array = viewer.screenshot(canvas_only=canvas_only)
-        img = Image.fromarray(screenshot_array)
-        
-        fd, tmp = tempfile.mkstemp(prefix="napari_scr_", suffix=".png")
-        os.close(fd)
-        path = tmp
-        img.save(path)
-    else:
-        # save directly to path
-        viewer.screenshot(path=path, canvas_only=canvas_only)
-        # read back for base64 encoding
-        img = Image.open(path)
-
-    # base64 encode
-    buffered = io.BytesIO()
-    img.save(buffered, format="PNG")
-    img_str = base64.b64encode(buffered.getvalue()).decode("utf-8")
-
-    return {"path": os.path.abspath(path), "base64_data": img_str}
+    screenshot_array = viewer.screenshot(canvas_only=canvas_only)
+    img = Image.fromarray(screenshot_array)
+    fd, tmp = tempfile.mkstemp(prefix="napari_scr_", suffix=".png")
+    os.close(fd)
+    img.save(tmp)
+    return os.path.abspath(tmp)
 
 # ----------------------------------------------------------------------
 # layer introspection

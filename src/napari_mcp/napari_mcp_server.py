@@ -22,7 +22,7 @@ import os
 from pathlib import Path
 import argparse, json, logging, os
 
-from mcp.server.fastmcp import FastMCP
+from mcp.server.fastmcp import FastMCP, Image
 
 from napari_manager import NapariManager
 
@@ -71,6 +71,7 @@ def _setup_logging(level: str) -> None:
 def build_mcp(manager: NapariManager) -> FastMCP:
     prompt = (
         "You are controlling a remote napari GUI through a TCP socket. "
+        "You can use the screenshot tool to view the viewport."
         "Tools available:\n"
         "• *open_file(path)* – load data\n"
         "• *toggle_view()* – switch between 2-D and 3-D rendering\n\n"
@@ -114,13 +115,14 @@ def build_mcp(manager: NapariManager) -> FastMCP:
         success, message = manager.iso_contour(layer_name, threshold)
         return message if success else f"❌ {message}"
 
-
     @mcp.tool(name="screenshot")
-    def screenshot(path: str | None = None) -> str:  # noqa: WPS430
-        """Save a PNG screenshot of the current viewer."""
-        success, message = manager.screenshot(path)
-        return json.dumps(message) if success else f"❌ {message}"
-
+    def screenshot() -> str:  # noqa: WPS430
+        """Save a PNG screenshot of the current viewer and return the file path."""
+        success, message = manager.screenshot()
+        if success:
+            return Image(path=message)  # message is the absolute path to the screenshot
+        return f"\u274c {message}"
+    
     @mcp.tool(name="list_layers")
     def list_layers() -> str:            # noqa: WPS430
         """Return JSON describing every loaded layer."""
