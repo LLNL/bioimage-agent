@@ -1,2 +1,0 @@
-[napari.manifest]
-napari-socket = napari_socket:napari.yaml
