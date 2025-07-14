@@ -15,18 +15,20 @@ A lightweight [napari](https://napari.org) plugin that exposes the viewer over *
 
 ---
 
-## 📦 Installation
+## 📦 Napari Installation 
 
 ```bash
 python -m pip install "napari[all]"
 ```
+
+### Install Socket Server Plugin
 
 ```bash
 cd napari-mcp/src/napari_socket
 pip install -e .
 ```
 
-###Install the MCP tools in your MCP Client
+### Install MCP tools in your MCP Client
 
 e.g. For Claude Desktop, go to Developer->Open App Config File and add the below snippet to "mcpServers"
 ```
