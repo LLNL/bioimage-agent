@@ -102,7 +102,7 @@ def screenshot(
     canvas_only: bool = True,
 ) -> str:
     """
-    Capture a PNG screenshot of the current napari viewer.
+    Capture a JPG screenshot of the current napari viewer.
 
     Parameters
     ----------
@@ -120,9 +120,10 @@ def screenshot(
 
     screenshot_array = viewer.screenshot(canvas_only=canvas_only)
     img = Image.fromarray(screenshot_array)
-    fd, tmp = tempfile.mkstemp(prefix="napari_scr_", suffix=".png")
+    fd, tmp = tempfile.mkstemp(prefix="napari_scr_", suffix=".jpg")
     os.close(fd)
-    img.save(tmp)
+    img = img.convert("RGB")  # Ensure no alpha channel for JPG
+    img.save(tmp, format="JPEG")
     return os.path.abspath(tmp)
 
 # ----------------------------------------------------------------------
@@ -289,3 +290,42 @@ def get_dims_info(viewer: Viewer):
         'axis_labels': list(viewer.dims.axis_labels),
     }
     return to_serializable(dims_info)
+
+def set_camera(
+    center=None,
+    zoom=None,
+    angle=None,
+    viewer: Viewer = None,
+):
+    """Set the camera parameters: center (tuple), zoom (float), angle (tuple for 3D)."""
+    if center is not None:
+        viewer.camera.center = center
+    if zoom is not None:
+        viewer.camera.zoom = zoom
+    if angle is not None and getattr(viewer.dims, 'ndisplay', 2) == 3:
+        # Only set angles if it's a tuple/list of length 3 in 3D mode
+        if isinstance(angle, (tuple, list)) and len(angle) == 3:
+            viewer.camera.angles = angle
+        # else: optionally log a warning or ignore
+    return {
+        'center': tuple(viewer.camera.center),
+        'zoom': viewer.camera.zoom,
+        'angles': tuple(viewer.camera.angles) if hasattr(viewer.camera, 'angles') else None,
+    }
+
+def get_camera(viewer: Viewer = None):
+    """Get the current camera parameters."""
+    return {
+        'center': tuple(viewer.camera.center),
+        'zoom': viewer.camera.zoom,
+        'angles': tuple(viewer.camera.angles) if hasattr(viewer.camera, 'angles') else None,
+    }
+
+def reset_camera(viewer: Viewer = None):
+    """Reset the camera to the default view."""
+    viewer.camera.reset()
+    return {
+        'center': tuple(viewer.camera.center),
+        'zoom': viewer.camera.zoom,
+        'angles': tuple(viewer.camera.angles) if hasattr(viewer.camera, 'angles') else None,
+    }

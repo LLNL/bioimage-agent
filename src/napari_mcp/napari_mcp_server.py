@@ -76,7 +76,7 @@ def build_mcp(manager: NapariManager) -> FastMCP:
         "• *open_file(path)* – load data\n"
         "• *toggle_view()* – switch between 2-D and 3-D rendering\n\n"
         "• *iso_contour(layer_name=None, threshold=None)* – iso-surface rendering\n\n"
-        "• *screenshot(path=None)* – save a PNG snapshot, returns path and base64 data\n\n"
+        "• *screenshot(path=None)* – save a JPG snapshot, returns path and base64 data\n\n"
         "• *list_layers()* – get loaded-layer info\n\n"
         "• *set_colormap(layer_name, colormap)* – set a layer's colormap\n\n"
         "• *set_opacity(opacity, layer_name=None)* – set layer opacity (0-1)\n\n"
@@ -117,7 +117,7 @@ def build_mcp(manager: NapariManager) -> FastMCP:
 
     @mcp.tool(name="screenshot")
     def screenshot() -> str:  # noqa: WPS430
-        """Save a PNG screenshot of the current viewer and return the file path."""
+        """Save a JPG screenshot of the current viewer and return the file path."""
         success, message = manager.screenshot()
         if success:
             return Image(path=message)  # message is the absolute path to the screenshot
@@ -182,6 +182,24 @@ def build_mcp(manager: NapariManager) -> FastMCP:
         """Get information about the viewer's dimensions."""
         success, message = manager.get_dims_info()
         return json.dumps(message, indent=2) if success else f"❌ {message}"
+
+    @mcp.tool()
+    def set_camera(center=None, zoom=None, angle=None) -> str:
+        """Set the camera parameters: center (tuple), zoom (float), angle (tuple for 3D)."""
+        success, message = manager.set_camera(center, zoom, angle)
+        return json.dumps(message) if success else f"❌ {message}"
+
+    @mcp.tool()
+    def get_camera() -> str:
+        """Get the current camera parameters."""
+        success, message = manager.get_camera()
+        return json.dumps(message) if success else f"❌ {message}"
+
+    @mcp.tool()
+    def reset_camera() -> str:
+        """Reset the camera to the default view."""
+        success, message = manager.reset_camera()
+        return json.dumps(message) if success else f"❌ {message}"
 
     return mcp
 

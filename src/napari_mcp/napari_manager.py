@@ -116,7 +116,7 @@ class NapariManager:  # pylint: disable=too-few-public-methods
     # screenshot helper
     # ------------------------------------------------------------------
     def screenshot(self) -> tuple[bool, str]:
-        """Ask the remote viewer to save a PNG screenshot and return the absolute path as a string."""
+        """Ask the remote viewer to save a JPG screenshot and return the absolute path as a string."""
         return self.send_command("napari-socket.screenshot")
 
     # ------------------------------------------------------------------
@@ -167,6 +167,31 @@ class NapariManager:  # pylint: disable=too-few-public-methods
     def get_dims_info(self) -> Tuple[bool, Any]:
         """Get information about the viewer's dimensions."""
         return self.send_command("napari-socket.get_dims_info")
+
+    def set_camera(self, center=None, zoom=None, angle=None) -> Tuple[bool, Any]:
+        """Set the camera parameters: center (tuple), zoom (float), angle (float or tuple for 3D)."""
+        args = []
+        if center is not None:
+            args.append(center)
+        else:
+            args.append(None)
+        if zoom is not None:
+            args.append(zoom)
+        else:
+            args.append(None)
+        if angle is not None:
+            args.append(angle)
+        else:
+            args.append(None)
+        return self.send_command("napari-socket.set_camera", args)
+
+    def get_camera(self) -> Tuple[bool, Any]:
+        """Get the current camera parameters."""
+        return self.send_command("napari-socket.get_camera")
+
+    def reset_camera(self) -> Tuple[bool, Any]:
+        """Reset the camera to the default view."""
+        return self.send_command("napari-socket.reset_camera")
 
 # ---------------------------------------------------------------------------
 # quick manual test

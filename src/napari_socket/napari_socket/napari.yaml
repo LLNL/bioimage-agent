@@ -74,6 +74,18 @@ contributions:
       title: Get Dimensions Info
       python_name: napari_socket._commands:get_dims_info
 
+    - id: napari-socket.set_camera
+      title: Set Camera
+      python_name: napari_socket._commands:set_camera
+
+    - id: napari-socket.get_camera
+      title: Get Camera
+      python_name: napari_socket._commands:get_camera
+
+    - id: napari-socket.reset_camera
+      title: Reset Camera
+      python_name: napari_socket._commands:reset_camera
+
   # link the widget to the first command
   widgets:
     - command: napari-socket.socket_widget
