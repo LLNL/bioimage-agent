@@ -73,7 +73,8 @@ def build_mcp(manager: NapariManager) -> FastMCP:
         "You are controlling a remote napari GUI through a TCP socket. "
         "You can use the screenshot tool to view the viewport."
         "Tools available:\n"
-        "• *open_file(path)* – load data\n"
+        "• *open_file(path)* – load data (supports TIFF, PNG, ND2, NPZ, etc.)\n"
+        "• *remove_layer(name_or_index)* – remove a layer by name or index\n"
         "• *toggle_view()* – switch between 2-D and 3-D rendering\n\n"
         "• *iso_contour(layer_name=None, threshold=None)* – iso-surface rendering\n\n"
         "• *screenshot(path=None)* – save a JPG snapshot, returns path and base64 data\n\n"
@@ -97,6 +98,14 @@ def build_mcp(manager: NapariManager) -> FastMCP:
     def open_file(file_path: str) -> str:  # noqa: WPS430
         """Open *file_path* in napari via the socket plugin."""
         success, message = manager.open_file(file_path)
+        return message if success else f"❌ {message}"
+
+
+
+    @mcp.tool()
+    def remove_layer(name_or_index: str | int) -> str:  # noqa: WPS430
+        """Remove a layer by its name or positional index."""
+        success, message = manager.remove_layer(name_or_index)
         return message if success else f"❌ {message}"
 
 

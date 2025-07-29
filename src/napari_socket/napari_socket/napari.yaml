@@ -13,10 +13,6 @@ contributions:
     - id: napari-socket.open_file
       title: Open file via napari
       python_name: napari_socket._commands:open_file
-    
-    - id: napari-socket.open_npz
-      title: Open NPZ file
-      python_name: napari_socket._commands:open_npz
 
     - id: napari-socket.remove_layer
       title: Remove viewer layer

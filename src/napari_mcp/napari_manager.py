@@ -88,6 +88,16 @@ class NapariManager:  # pylint: disable=too-few-public-methods
         return self.send_command("napari-socket.open_file", [str(path)])
 
 
+
+    def remove_layer(self, name_or_index: str | int) -> Tuple[bool, str]:
+        """Remove a layer by its name or positional index using the plugin command.
+
+        The command id is *napari‑socket.remove_layer* as declared in the plugin's
+        manifest.
+        """
+        return self.send_command("napari-socket.remove_layer", [name_or_index])
+
+
     # ------------------------------------------------------------------
     # view helpers
     # ------------------------------------------------------------------
