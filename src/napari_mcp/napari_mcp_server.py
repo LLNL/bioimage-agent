@@ -88,6 +88,27 @@ def build_mcp(manager: NapariManager) -> FastMCP:
         "• *set_interpolation(interpolation, layer_name=None)* – set layer interpolation\n\n"
         "• *set_timestep(timestep)* – set the current timestep\n\n"
         "• *get_dims_info()* – get information about the viewer's dimensions\n\n"
+        "• *set_camera(center, zoom, angle)* – set camera parameters\n\n"
+        "• *get_camera()* – get current camera parameters\n\n"
+        "• *reset_camera()* – reset camera to default view\n\n"
+        "• *add_points(coordinates, properties=None, name=None)* – add point annotations\n\n"
+        "• *add_shapes(shape_data, shape_type='rectangle', name=None)* – add shape annotations\n\n"
+        "• *add_labels(label_image, name=None)* – add segmentation masks\n\n"
+        "• *add_surface(vertices, faces, name=None)* – add 3D surface meshes\n\n"
+        "• *add_vectors(vectors, name=None)* – add vector fields\n\n"
+        "• *save_layers(file_path, layer_names=None)* – save layers to file\n\n"
+        "• *export_screenshot(file_path, canvas_only=True)* – save screenshot to specific path\n\n"
+        "• *get_layer_data(layer_name)* – extract layer data as arrays\n\n"
+        "• *set_scale_bar(visible=True, unit='um')* – add/remove scale bar\n\n"
+        "• *set_axis_labels(labels)* – set axis labels\n\n"
+        "• *set_view_mode(mode)* – set view mode (2D, 3D)\n\n"
+        "• *set_layer_visibility(layer_name, visible)* – show/hide layers\n\n"
+        "• *measure_distance(point1, point2)* – measure distance between points\n\n"
+        "• *get_layer_statistics(layer_name)* – get layer statistics (min, max, mean, std)\n\n"
+        "• *crop_layer(layer_name, bounds)* – crop layer to specific bounds\n\n"
+        "• *set_channel(channel_index)* – set current channel\n\n"
+        "• *set_z_slice(z_index)* – set current z-slice\n\n"
+        "• *play_animation(start_frame, end_frame, fps=10)* – animate through time series\n\n"
         "Each call returns 'OK' on success or an 'ERR …' string on failure."
         "If you need to view the viewport, use the screenshot tool."
     )
@@ -209,6 +230,129 @@ def build_mcp(manager: NapariManager) -> FastMCP:
         """Reset the camera to the default view."""
         success, message = manager.reset_camera()
         return json.dumps(message) if success else f"❌ {message}"
+
+    # ------------------------------------------------------------------
+    # Layer Creation & Annotation Functions
+    # ------------------------------------------------------------------
+    @mcp.tool()
+    def add_points(coordinates: list, properties: dict | None = None, name: str | None = None) -> str:
+        """Add point annotations to the viewer."""
+        success, message = manager.add_points(coordinates, properties, name)
+        return message if success else f"❌ {message}"
+
+    @mcp.tool()
+    def add_shapes(shape_data: list, shape_type: str = 'rectangle', name: str | None = None) -> str:
+        """Add shape annotations to the viewer."""
+        success, message = manager.add_shapes(shape_data, shape_type, name)
+        return message if success else f"❌ {message}"
+
+    @mcp.tool()
+    def add_labels(label_image: list, name: str | None = None) -> str:
+        """Add label image (segmentation mask) to the viewer."""
+        success, message = manager.add_labels(label_image, name)
+        return message if success else f"❌ {message}"
+
+    @mcp.tool()
+    def add_surface(vertices: list, faces: list, name: str | None = None) -> str:
+        """Add 3D surface mesh to the viewer."""
+        success, message = manager.add_surface(vertices, faces, name)
+        return message if success else f"❌ {message}"
+
+    @mcp.tool()
+    def add_vectors(vectors: list, name: str | None = None) -> str:
+        """Add vector field to the viewer."""
+        success, message = manager.add_vectors(vectors, name)
+        return message if success else f"❌ {message}"
+
+    # ------------------------------------------------------------------
+    # Data Export & Save Functions
+    # ------------------------------------------------------------------
+    @mcp.tool()
+    def save_layers(file_path: str, layer_names: list | None = None) -> str:
+        """Save layers to file."""
+        success, message = manager.save_layers(file_path, layer_names)
+        return message if success else f"❌ {message}"
+
+    @mcp.tool()
+    def export_screenshot(file_path: str, canvas_only: bool = True) -> str:
+        """Export screenshot to specific file path."""
+        success, message = manager.export_screenshot(file_path, canvas_only)
+        return message if success else f"❌ {message}"
+
+    @mcp.tool()
+    def get_layer_data(layer_name: str | int) -> str:
+        """Extract layer data as numpy array."""
+        success, message = manager.get_layer_data(layer_name)
+        return json.dumps(message, indent=2) if success else f"❌ {message}"
+
+    # ------------------------------------------------------------------
+    # Advanced Visualization Controls
+    # ------------------------------------------------------------------
+    @mcp.tool()
+    def set_scale_bar(visible: bool = True, unit: str = 'um') -> str:
+        """Add or remove scale bar."""
+        success, message = manager.set_scale_bar(visible, unit)
+        return message if success else f"❌ {message}"
+
+    @mcp.tool()
+    def set_axis_labels(labels: list) -> str:
+        """Set axis labels."""
+        success, message = manager.set_axis_labels(labels)
+        return message if success else f"❌ {message}"
+
+    @mcp.tool()
+    def set_view_mode(mode: str) -> str:
+        """Set view mode (2D, 3D, etc.)."""
+        success, message = manager.set_view_mode(mode)
+        return message if success else f"❌ {message}"
+
+    @mcp.tool()
+    def set_layer_visibility(layer_name: str | int, visible: bool) -> str:
+        """Set layer visibility."""
+        success, message = manager.set_layer_visibility(layer_name, visible)
+        return message if success else f"❌ {message}"
+
+    # ------------------------------------------------------------------
+    # Measurement & Analysis Functions
+    # ------------------------------------------------------------------
+    @mcp.tool()
+    def measure_distance(point1: list, point2: list) -> str:
+        """Measure distance between two points."""
+        success, message = manager.measure_distance(point1, point2)
+        return json.dumps(message, indent=2) if success else f"❌ {message}"
+
+    @mcp.tool()
+    def get_layer_statistics(layer_name: str | int) -> str:
+        """Get statistics for a layer."""
+        success, message = manager.get_layer_statistics(layer_name)
+        return json.dumps(message, indent=2) if success else f"❌ {message}"
+
+    @mcp.tool()
+    def crop_layer(layer_name: str | int, bounds: list) -> str:
+        """Crop layer to specific bounds."""
+        success, message = manager.crop_layer(layer_name, bounds)
+        return message if success else f"❌ {message}"
+
+    # ------------------------------------------------------------------
+    # Time Series & Multi-dimensional Data
+    # ------------------------------------------------------------------
+    @mcp.tool()
+    def set_channel(channel_index: int) -> str:
+        """Set current channel."""
+        success, message = manager.set_channel(channel_index)
+        return message if success else f"❌ {message}"
+
+    @mcp.tool()
+    def set_z_slice(z_index: int) -> str:
+        """Set current z-slice."""
+        success, message = manager.set_z_slice(z_index)
+        return message if success else f"❌ {message}"
+
+    @mcp.tool()
+    def play_animation(start_frame: int, end_frame: int, fps: int = 10) -> str:
+        """Play animation through time series."""
+        success, message = manager.play_animation(start_frame, end_frame, fps)
+        return message if success else f"❌ {message}"
 
     return mcp
 

@@ -82,6 +82,83 @@ contributions:
       title: Reset Camera
       python_name: napari_socket._commands:reset_camera
 
+    # Layer Creation & Annotation Functions
+    - id: napari-socket.add_points
+      title: Add Points
+      python_name: napari_socket._commands:add_points
+
+    - id: napari-socket.add_shapes
+      title: Add Shapes
+      python_name: napari_socket._commands:add_shapes
+
+    - id: napari-socket.add_labels
+      title: Add Labels
+      python_name: napari_socket._commands:add_labels
+
+    - id: napari-socket.add_surface
+      title: Add Surface
+      python_name: napari_socket._commands:add_surface
+
+    - id: napari-socket.add_vectors
+      title: Add Vectors
+      python_name: napari_socket._commands:add_vectors
+
+    # Data Export & Save Functions
+    - id: napari-socket.save_layers
+      title: Save Layers
+      python_name: napari_socket._commands:save_layers
+
+    - id: napari-socket.export_screenshot
+      title: Export Screenshot
+      python_name: napari_socket._commands:export_screenshot
+
+    - id: napari-socket.get_layer_data
+      title: Get Layer Data
+      python_name: napari_socket._commands:get_layer_data
+
+    # Advanced Visualization Controls
+    - id: napari-socket.set_scale_bar
+      title: Set Scale Bar
+      python_name: napari_socket._commands:set_scale_bar
+
+    - id: napari-socket.set_axis_labels
+      title: Set Axis Labels
+      python_name: napari_socket._commands:set_axis_labels
+
+    - id: napari-socket.set_view_mode
+      title: Set View Mode
+      python_name: napari_socket._commands:set_view_mode
+
+    - id: napari-socket.set_layer_visibility
+      title: Set Layer Visibility
+      python_name: napari_socket._commands:set_layer_visibility
+
+    # Measurement & Analysis Functions
+    - id: napari-socket.measure_distance
+      title: Measure Distance
+      python_name: napari_socket._commands:measure_distance
+
+    - id: napari-socket.get_layer_statistics
+      title: Get Layer Statistics
+      python_name: napari_socket._commands:get_layer_statistics
+
+    - id: napari-socket.crop_layer
+      title: Crop Layer
+      python_name: napari_socket._commands:crop_layer
+
+    # Time Series & Multi-dimensional Data
+    - id: napari-socket.set_channel
+      title: Set Channel
+      python_name: napari_socket._commands:set_channel
+
+    - id: napari-socket.set_z_slice
+      title: Set Z Slice
+      python_name: napari_socket._commands:set_z_slice
+
+    - id: napari-socket.play_animation
+      title: Play Animation
+      python_name: napari_socket._commands:play_animation
+
   # link the widget to the first command
   widgets:
     - command: napari-socket.socket_widget

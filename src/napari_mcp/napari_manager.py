@@ -17,8 +17,21 @@ import logging
 import pathlib
 import socket
 from typing import Any, Sequence, Tuple
+import numpy as np
 
 _LOGGER = logging.getLogger(__name__)
+
+
+def _convert_numpy_for_json(obj):
+    """Convert numpy arrays to lists for JSON serialization."""
+    if isinstance(obj, np.ndarray):
+        return obj.tolist()
+    elif isinstance(obj, dict):
+        return {k: _convert_numpy_for_json(v) for k, v in obj.items()}
+    elif isinstance(obj, (list, tuple)):
+        return [_convert_numpy_for_json(v) for v in obj]
+    else:
+        return obj
 
 
 class NapariManager:  # pylint: disable=too-few-public-methods
@@ -44,6 +57,8 @@ class NapariManager:  # pylint: disable=too-few-public-methods
         connection and responds with a single line that starts with either
         ``"OK"`` or ``"ERR ..."``.
         """
+        # Convert numpy arrays to lists for JSON serialization
+        payload = _convert_numpy_for_json(payload)
         data = json.dumps(payload).encode() + b"\n"
         _LOGGER.debug("→ %s", data)
 
@@ -120,6 +135,10 @@ class NapariManager:  # pylint: disable=too-few-public-methods
         if threshold is not None:
             args.append(float(threshold))
         return self.send_command("napari-socket.iso_contour", args)
+    
+    def iso_contour_all_layers(self, threshold: float) -> Tuple[bool, str]:
+        """Apply iso-surface (contour) rendering to all layers with the given threshold."""
+        return self.send_command("napari-socket.iso_contour", [None, threshold])
     
 
     # ------------------------------------------------------------------
@@ -202,6 +221,113 @@ class NapariManager:  # pylint: disable=too-few-public-methods
     def reset_camera(self) -> Tuple[bool, Any]:
         """Reset the camera to the default view."""
         return self.send_command("napari-socket.reset_camera")
+
+    # ------------------------------------------------------------------
+    # Layer Creation & Annotation Functions
+    # ------------------------------------------------------------------
+    def add_points(self, coordinates: list | np.ndarray, properties: dict | None = None, name: str | None = None) -> Tuple[bool, Any]:
+        """Add point annotations to the viewer."""
+        args = [coordinates]
+        if properties is not None:
+            args.append(properties)
+        if name is not None:
+            args.append(name)
+        return self.send_command("napari-socket.add_points", args)
+
+    def add_shapes(self, shape_data: list | np.ndarray, shape_type: str = 'rectangle', name: str | None = None) -> Tuple[bool, Any]:
+        """Add shape annotations to the viewer."""
+        args = [shape_data, shape_type]
+        if name is not None:
+            args.append(name)
+        return self.send_command("napari-socket.add_shapes", args)
+
+    def add_labels(self, label_image: np.ndarray, name: str | None = None) -> Tuple[bool, Any]:
+        """Add label image (segmentation mask) to the viewer."""
+        args = [label_image]
+        if name is not None:
+            args.append(name)
+        return self.send_command("napari-socket.add_labels", args)
+
+    def add_surface(self, vertices: np.ndarray, faces: np.ndarray, name: str | None = None) -> Tuple[bool, Any]:
+        """Add 3D surface mesh to the viewer."""
+        args = [vertices, faces]
+        if name is not None:
+            args.append(name)
+        return self.send_command("napari-socket.add_surface", args)
+
+    def add_vectors(self, vectors: np.ndarray, name: str | None = None) -> Tuple[bool, Any]:
+        """Add vector field to the viewer."""
+        args = [vectors]
+        if name is not None:
+            args.append(name)
+        return self.send_command("napari-socket.add_vectors", args)
+
+    # ------------------------------------------------------------------
+    # Data Export & Save Functions
+    # ------------------------------------------------------------------
+    def save_layers(self, file_path: str, layer_names: list | None = None) -> Tuple[bool, Any]:
+        """Save layers to file."""
+        args = [file_path]
+        if layer_names is not None:
+            args.append(layer_names)
+        return self.send_command("napari-socket.save_layers", args)
+
+    def export_screenshot(self, file_path: str, canvas_only: bool = True) -> Tuple[bool, Any]:
+        """Export screenshot to specific file path."""
+        return self.send_command("napari-socket.export_screenshot", [file_path, canvas_only])
+
+    def get_layer_data(self, layer_name: str | int) -> Tuple[bool, Any]:
+        """Extract layer data as numpy array."""
+        return self.send_command("napari-socket.get_layer_data", [layer_name])
+
+    # ------------------------------------------------------------------
+    # Advanced Visualization Controls
+    # ------------------------------------------------------------------
+    def set_scale_bar(self, visible: bool = True, unit: str = 'um') -> Tuple[bool, Any]:
+        """Add or remove scale bar."""
+        return self.send_command("napari-socket.set_scale_bar", [visible, unit])
+
+    def set_axis_labels(self, labels: list) -> Tuple[bool, Any]:
+        """Set axis labels."""
+        return self.send_command("napari-socket.set_axis_labels", [labels])
+
+    def set_view_mode(self, mode: str) -> Tuple[bool, Any]:
+        """Set view mode (2D, 3D, etc.)."""
+        return self.send_command("napari-socket.set_view_mode", [mode])
+
+    def set_layer_visibility(self, layer_name: str | int, visible: bool) -> Tuple[bool, Any]:
+        """Set layer visibility."""
+        return self.send_command("napari-socket.set_layer_visibility", [layer_name, visible])
+
+    # ------------------------------------------------------------------
+    # Measurement & Analysis Functions
+    # ------------------------------------------------------------------
+    def measure_distance(self, point1: list, point2: list) -> Tuple[bool, Any]:
+        """Measure distance between two points."""
+        return self.send_command("napari-socket.measure_distance", [point1, point2])
+
+    def get_layer_statistics(self, layer_name: str | int) -> Tuple[bool, Any]:
+        """Get statistics for a layer."""
+        return self.send_command("napari-socket.get_layer_statistics", [layer_name])
+
+    def crop_layer(self, layer_name: str | int, bounds: list) -> Tuple[bool, Any]:
+        """Crop layer to specific bounds."""
+        return self.send_command("napari-socket.crop_layer", [layer_name, bounds])
+
+    # ------------------------------------------------------------------
+    # Time Series & Multi-dimensional Data
+    # ------------------------------------------------------------------
+    def set_channel(self, channel_index: int) -> Tuple[bool, Any]:
+        """Set current channel."""
+        return self.send_command("napari-socket.set_channel", [channel_index])
+
+    def set_z_slice(self, z_index: int) -> Tuple[bool, Any]:
+        """Set current z-slice."""
+        return self.send_command("napari-socket.set_z_slice", [z_index])
+
+    def play_animation(self, start_frame: int, end_frame: int, fps: int = 10) -> Tuple[bool, Any]:
+        """Play animation through time series."""
+        return self.send_command("napari-socket.play_animation", [start_frame, end_frame, fps])
 
 # ---------------------------------------------------------------------------
 # quick manual test
