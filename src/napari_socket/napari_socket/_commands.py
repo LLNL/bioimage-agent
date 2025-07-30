@@ -45,13 +45,10 @@ def iso_contour(
     viewer: Viewer | None = None,          # injected by napari
 ) -> int:
     """
-    Switch the specified image/volume layer (or all render-capable layers)
-    to *iso* rendering and optionally set the ``iso_threshold``.
-
-    Returns
-    -------
-    int
-        Number of layers that were modified.
+    Switch layers to iso-surface rendering mode.
+    
+    Enables 3D iso-surface visualization for image/volume layers.
+    Returns the number of layers that were modified.
     """
     # ensure a 3-D canvas so the surface is visible
     if viewer.dims.ndisplay != 3:
@@ -87,17 +84,10 @@ def screenshot(
     canvas_only: bool = True,
 ) -> str:
     """
-    Capture a JPG screenshot of the current napari viewer.
-
-    Parameters
-    ----------
-    canvas_only : bool
-        Capture just the rendering canvas (default) or the full UI.
-
-    Returns
-    -------
-    str
-        The absolute path to the saved screenshot in the temp folder.
+    Take a screenshot of the current napari viewer.
+    
+    Saves a JPG file to the temp folder and returns the file path.
+    Set canvas_only=False to capture the full UI instead of just the canvas.
     """
     import os
     import tempfile
@@ -156,7 +146,7 @@ def set_colormap(
     colormap: str,
     viewer: Viewer,
 ):
-    """Set the colormap for a given layer."""
+    """Change the colormap for a layer."""
     if isinstance(layer_name, int):
         layer = viewer.layers[layer_name]
     else:
@@ -169,7 +159,7 @@ def set_colormap(
     return f"Layer '{layer.name}' of type {type(layer).__name__} does not have a colormap attribute."
 
 def _get_layer(viewer: Viewer, layer_name: str | int | None = None):
-    """Helper to get a layer by name/index or the active layer."""
+    """Get a layer by name/index or return the active layer."""
     if layer_name is not None:
         return viewer.layers[layer_name]
     return viewer.layers.selection.active
@@ -179,7 +169,7 @@ def set_opacity(
     opacity: float,
     viewer: Viewer,
     ):
-    """Set the opacity for a given layer (or the active one)."""
+    """Adjust layer transparency (0=transparent, 1=opaque)."""
     if isinstance(layer_name, int):
         layer = viewer.layers[layer_name]
     else:
@@ -195,7 +185,7 @@ def set_blending(
         blending: str,
         viewer: Viewer,
         ):
-    """Set the blending mode for a given layer (or the active one)."""
+    """Set how the layer blends with layers below it."""
     layer = _get_layer(viewer, layer_name)
     if hasattr(layer, 'blending'):
         layer.blending = blending
@@ -208,7 +198,7 @@ def set_contrast_limits(
     contrast_max: float, 
     viewer: Viewer,
     ):
-    """Set the contrast limits for a given layer (or the active one)."""
+    """Set the min/max values for contrast scaling."""
     layer = _get_layer(viewer, layer_name)
     if hasattr(layer, 'contrast_limits'):
         layer.contrast_limits = (contrast_min, contrast_max)
@@ -219,7 +209,7 @@ def auto_contrast(
         layer_name: str | int,
         viewer: Viewer, 
     ):
-    """Auto-adjust contrast for a given layer (or the active one)."""
+    """Automatically adjust contrast to fit the data range."""
     layer = _get_layer(viewer, layer_name)
     if hasattr(layer, 'reset_contrast_limits'):
         layer.reset_contrast_limits()
@@ -231,7 +221,7 @@ def set_gamma(
         gamma: float, 
         viewer: Viewer, 
         ):
-    """Set the gamma for a given layer (or the active one)."""
+    """Adjust gamma correction for the layer."""
     layer = _get_layer(viewer, layer_name)
     if hasattr(layer, 'gamma'):
         layer.gamma = gamma
@@ -243,7 +233,7 @@ def set_interpolation(
         interpolation: str, 
         viewer: Viewer, 
         ):
-    """Set the interpolation for a given layer (or the active one)."""
+    """Set the interpolation method for zooming."""
     layer = _get_layer(viewer, layer_name)
     if hasattr(layer, 'interpolation'):
         layer.interpolation = interpolation
