@@ -71,6 +71,65 @@ tests:
     options:
       cache: false
       runSerially: true
+
+  # Test 3: add layer
+  - vars:
+      question: |
+        Load the "D:/Development/napari-mcp/eval/eval_examples/SNAP_IgM_BCR_Cell_1_ch1_t14.tif" file in Napari. 
+        Check if SNAP_IgM_BCR_Cell_1_ch1_t14 exists in layer list. 
+    assert:
+      - type: contains-all
+        value: 
+          - "SNAP_IgM_BCR_Cell_1_ch1_t14"
+      - type: llm-rubric
+        value: |
+          1. Layer shows up in the layer list
+    options:
+      cache: false
+      runSerially: true
+
+  # Test 4: adjust MIPs and 3D view
+  - vars:
+      question: |
+        Adjust the MIPs (Maximum Intensity Projections) for the loaded layers. Set channel 0 (SNAP_IgM_BCR_Cell_1_ch0_t14) to green color and channel 1 (SNAP_IgM_BCR_Cell_1_ch1_t14) to magenta color. Make sure the blending is set to "additive". Switch to 3D view and take a screenshot of the result.
+    assert:
+      - type: contains-all
+        value: 
+          - "green"
+          - "magenta"
+          - "3D"
+      - type: llm-rubric
+        value: |
+          1. Successfully adjusted MIP settings for both channels
+          2. Channel 0 is set to green color
+          3. Channel 1 is set to magenta color
+          4. Successfully switched to 3D view
+          5. Screenshot shows the 3D visualization with correct colors
+    options:
+      cache: false
+      runSerially: true
+
+  # Test 5: camera rotation
+  - vars:
+      question: |
+        Switch to 3D view. Control the camera by rotating the volume to the side. Rotate the 3D view so that the volume is viewed from a different angle (side view). Take a screenshot to verify the rotation has occurred.
+    assert:
+      - type: contains-all
+        value: 
+          - "rotate"
+          - "camera"
+          - "side"
+      - type: llm-rubric
+        value: |
+          1. Switched to 3D view. 
+          2. Successfully controlled the camera rotation
+          3. Volume is rotated to show a side view
+          4. Screenshot shows the rotated 3D volume from a different angle
+          5. The rotation is clearly visible compared to the previous view
+    options:
+      cache: false
+      runSerially: true
+
       
 evaluateOptions:
   cache: false  

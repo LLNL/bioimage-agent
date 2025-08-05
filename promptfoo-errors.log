@@ -1,23 +1,131 @@
-2025-07-24T18:04:50.763Z [ERROR] [pythonUtils.js:136]: 2025-07-24 11:04:50,756 napari_mcp_socket INFO Napari MCP (socket backend) listening�
-2025-07-24T18:04:50.767Z [ERROR] [pythonUtils.js:136]: 2025-07-24 11:04:50,767 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
-2025-07-24T18:04:52.841Z [ERROR] [pythonUtils.js:136]: 2025-07-24 11:04:52,838 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
-2025-07-24T18:04:53.306Z [ERROR] [pythonUtils.js:136]: 2025-07-24 11:04:53,305 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
-2025-07-24T18:10:38.640Z [ERROR] [pythonUtils.js:136]: 2025-07-24 11:10:38,634 napari_mcp_socket INFO Napari MCP (socket backend) listening�
-2025-07-24T18:10:38.648Z [ERROR] [pythonUtils.js:136]: 2025-07-24 11:10:38,647 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
-2025-07-24T18:10:41.274Z [ERROR] [pythonUtils.js:136]: 2025-07-24 11:10:41,274 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
-2025-07-24T18:10:41.417Z [ERROR] [pythonUtils.js:136]: 2025-07-24 11:10:41,417 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
-2025-07-24T18:10:56.943Z [ERROR] [pythonUtils.js:136]: 2025-07-24 11:10:56,937 napari_mcp_socket INFO Napari MCP (socket backend) listening�
-2025-07-24T18:10:56.949Z [ERROR] [pythonUtils.js:136]: 2025-07-24 11:10:56,948 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
-2025-07-24T18:10:58.429Z [ERROR] [pythonUtils.js:136]: 2025-07-24 11:10:58,429 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
-2025-07-24T18:10:58.634Z [ERROR] [pythonUtils.js:136]: 2025-07-24 11:10:58,634 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
-2025-07-24T18:11:09.240Z [ERROR] [pythonUtils.js:136]: 2025-07-24 11:11:09,239 napari_mcp_socket INFO Napari MCP (socket backend) listening�
-2025-07-24T18:11:09.252Z [ERROR] [pythonUtils.js:136]: 2025-07-24 11:11:09,251 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
-2025-07-24T18:11:11.060Z [ERROR] [pythonUtils.js:136]: 2025-07-24 11:11:11,060 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
-2025-07-24T18:11:11.065Z [ERROR] [pythonUtils.js:136]: 2025-07-24 11:11:11,065 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
-2025-07-24T18:12:56.823Z [ERROR] [pythonUtils.js:136]: 2025-07-24 11:12:56,814 napari_mcp_socket INFO Napari MCP (socket backend) listening�
-2025-07-24T18:12:56.844Z [ERROR] [pythonUtils.js:136]: 2025-07-24 11:12:56,842 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
-2025-07-24T18:12:59.225Z [ERROR] [pythonUtils.js:136]: 2025-07-24 11:12:59,224 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
-2025-07-24T18:12:59.428Z [ERROR] [pythonUtils.js:136]: 2025-07-24 11:12:59,426 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
-2025-07-24T18:13:12.747Z [ERROR] [pythonUtils.js:136]: 2025-07-24 11:13:12,745 napari_mcp_socket INFO Napari MCP (socket backend) listening�
-2025-07-24T18:13:12.757Z [ERROR] [pythonUtils.js:136]: 2025-07-24 11:13:12,756 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
-2025-07-24T18:13:13.782Z [ERROR] [pythonUtils.js:136]: 2025-07-24 11:13:13,781 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T00:51:42.741Z [ERROR]: 2025-08-04 17:51:42,732 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-05T00:51:42.743Z [ERROR]: 2025-08-04 17:51:42,741 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-05T00:51:44.550Z [ERROR]: 2025-08-04 17:51:44,548 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T00:51:44.924Z [ERROR]: 2025-08-04 17:51:44,923 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T00:51:54.513Z [ERROR]: 2025-08-04 17:51:54,511 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-05T00:51:54.522Z [ERROR]: 2025-08-04 17:51:54,522 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-05T00:51:55.525Z [ERROR]: 2025-08-04 17:51:55,525 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T00:51:59.774Z [ERROR]: 2025-08-04 17:51:59,773 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-05T00:51:59.783Z [ERROR]: 2025-08-04 17:51:59,782 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-05T00:52:00.990Z [ERROR]: 2025-08-04 17:52:00,989 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T00:53:45.080Z [ERROR]: 2025-08-04 17:53:45,074 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-05T00:53:45.086Z [ERROR]: 2025-08-04 17:53:45,085 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-05T00:53:46.460Z [ERROR]: 2025-08-04 17:53:46,459 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T00:53:46.586Z [ERROR]: 2025-08-04 17:53:46,585 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T00:53:55.781Z [ERROR]: 2025-08-04 17:53:55,779 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-05T00:53:55.791Z [ERROR]: 2025-08-04 17:53:55,790 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-05T00:53:56.603Z [ERROR]: 2025-08-04 17:53:56,602 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T00:54:00.300Z [ERROR]: 2025-08-04 17:54:00,299 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-05T00:54:00.309Z [ERROR]: 2025-08-04 17:54:00,309 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-05T00:54:01.437Z [ERROR]: 2025-08-04 17:54:01,436 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T00:54:05.008Z [ERROR]: 2025-08-04 17:54:05,008 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-05T00:54:05.018Z [ERROR]: 2025-08-04 17:54:05,018 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-05T00:54:05.876Z [ERROR]: 2025-08-04 17:54:05,874 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T00:54:07.153Z [ERROR]: 2025-08-04 17:54:07,153 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T00:54:07.168Z [ERROR]: 2025-08-04 17:54:07,167 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T00:54:07.187Z [ERROR]: 2025-08-04 17:54:07,186 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T00:54:07.249Z [ERROR]: 2025-08-04 17:54:07,248 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T00:55:41.860Z [ERROR]: 2025-08-04 17:55:41,854 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-05T00:55:41.877Z [ERROR]: 2025-08-04 17:55:41,876 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-05T00:55:44.122Z [ERROR]: 2025-08-04 17:55:44,121 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T00:55:44.463Z [ERROR]: 2025-08-04 17:55:44,463 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T00:55:56.216Z [ERROR]: 2025-08-04 17:55:56,215 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-05T00:55:56.226Z [ERROR]: 2025-08-04 17:55:56,226 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-05T00:55:57.450Z [ERROR]: 2025-08-04 17:55:57,450 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T00:56:00.372Z [ERROR]: 2025-08-04 17:56:00,371 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-05T00:56:00.383Z [ERROR]: 2025-08-04 17:56:00,383 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-05T00:56:01.457Z [ERROR]: 2025-08-04 17:56:01,456 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T00:56:04.480Z [ERROR]: 2025-08-04 17:56:04,479 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-05T00:56:04.489Z [ERROR]: 2025-08-04 17:56:04,489 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-05T00:56:05.320Z [ERROR]: 2025-08-04 17:56:05,320 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T00:56:07.173Z [ERROR]: 2025-08-04 17:56:07,173 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T00:56:07.209Z [ERROR]: 2025-08-04 17:56:07,208 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T00:56:07.247Z [ERROR]: 2025-08-04 17:56:07,247 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T00:56:07.277Z [ERROR]: 2025-08-04 17:56:07,276 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T00:56:08.020Z [ERROR]: 2025-08-04 17:56:08,019 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T00:56:08.718Z [ERROR]: 2025-08-04 17:56:08,717 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T00:59:18.732Z [ERROR]: 2025-08-04 17:59:18,727 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-05T00:59:18.738Z [ERROR]: 2025-08-04 17:59:18,737 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-05T00:59:21.019Z [ERROR]: 2025-08-04 17:59:21,019 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T00:59:21.246Z [ERROR]: 2025-08-04 17:59:21,245 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T00:59:37.308Z [ERROR]: 2025-08-04 17:59:37,308 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-05T00:59:37.317Z [ERROR]: 2025-08-04 17:59:37,318 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-05T00:59:38.620Z [ERROR]: 2025-08-04 17:59:38,620 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T00:59:42.132Z [ERROR]: 2025-08-04 17:59:42,131 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-05T00:59:42.141Z [ERROR]: 2025-08-04 17:59:42,141 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-05T00:59:43.487Z [ERROR]: 2025-08-04 17:59:43,486 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T00:59:44.258Z [ERROR]: 2025-08-04 17:59:44,258 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T00:59:48.617Z [ERROR]: 2025-08-04 17:59:48,617 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-05T00:59:48.640Z [ERROR]: 2025-08-04 17:59:48,640 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-05T00:59:51.349Z [ERROR]: 2025-08-04 17:59:51,349 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T00:59:53.671Z [ERROR]: 2025-08-04 17:59:53,671 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T00:59:53.683Z [ERROR]: 2025-08-04 17:59:53,684 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T00:59:53.719Z [ERROR]: 2025-08-04 17:59:53,719 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T00:59:53.757Z [ERROR]: 2025-08-04 17:59:53,757 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T00:59:54.425Z [ERROR]: 2025-08-04 17:59:54,424 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T00:59:55.174Z [ERROR]: 2025-08-04 17:59:55,174 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T01:00:10.845Z [ERROR]: 2025-08-04 18:00:10,846 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-05T01:00:10.856Z [ERROR]: 2025-08-04 18:00:10,856 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-05T01:00:12.216Z [ERROR]: 2025-08-04 18:00:12,217 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T01:00:12.231Z [ERROR]: 2025-08-04 18:00:12,231 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T01:01:55.496Z [ERROR]: 2025-08-04 18:01:55,490 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-05T01:01:55.507Z [ERROR]: 2025-08-04 18:01:55,507 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-05T01:01:57.483Z [ERROR]: 2025-08-04 18:01:57,483 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T01:01:57.688Z [ERROR]: 2025-08-04 18:01:57,688 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T01:02:08.816Z [ERROR]: 2025-08-04 18:02:08,815 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-05T01:02:08.825Z [ERROR]: 2025-08-04 18:02:08,825 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-05T01:02:09.980Z [ERROR]: 2025-08-04 18:02:09,979 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T01:02:13.641Z [ERROR]: 2025-08-04 18:02:13,641 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-05T01:02:13.651Z [ERROR]: 2025-08-04 18:02:13,651 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-05T01:02:14.914Z [ERROR]: 2025-08-04 18:02:14,915 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T01:02:15.018Z [ERROR]: 2025-08-04 18:02:15,018 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T01:02:18.469Z [ERROR]: 2025-08-04 18:02:18,469 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-05T01:02:18.481Z [ERROR]: 2025-08-04 18:02:18,481 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-05T01:02:19.327Z [ERROR]: 2025-08-04 18:02:19,327 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T01:02:22.641Z [ERROR]: 2025-08-04 18:02:22,641 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T01:02:22.658Z [ERROR]: 2025-08-04 18:02:22,659 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T01:02:22.678Z [ERROR]: 2025-08-04 18:02:22,678 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T01:02:22.695Z [ERROR]: 2025-08-04 18:02:22,695 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T01:02:23.433Z [ERROR]: 2025-08-04 18:02:23,434 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T01:02:24.152Z [ERROR]: 2025-08-04 18:02:24,153 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T01:02:33.472Z [ERROR]: 2025-08-04 18:02:33,472 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-05T01:02:33.483Z [ERROR]: 2025-08-04 18:02:33,484 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-05T01:02:34.869Z [ERROR]: 2025-08-04 18:02:34,870 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T01:02:35.786Z [ERROR]: 2025-08-04 18:02:35,787 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T01:02:36.437Z [ERROR]: 2025-08-04 18:02:36,438 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T01:03:50.281Z [ERROR]: 2025-08-04 18:03:50,273 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-05T01:03:50.297Z [ERROR]: 2025-08-04 18:03:50,295 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-05T01:03:51.996Z [ERROR]: 2025-08-04 18:03:51,995 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T01:03:52.897Z [ERROR]: 2025-08-04 18:03:52,897 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T01:04:04.374Z [ERROR]: 2025-08-04 18:04:04,374 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-05T01:04:04.383Z [ERROR]: 2025-08-04 18:04:04,384 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-05T01:04:05.304Z [ERROR]: 2025-08-04 18:04:05,299 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T01:04:08.313Z [ERROR]: 2025-08-04 18:04:08,314 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-05T01:04:08.323Z [ERROR]: 2025-08-04 18:04:08,323 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-05T01:04:09.802Z [ERROR]: 2025-08-04 18:04:09,801 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T01:04:10.406Z [ERROR]: 2025-08-04 18:04:10,405 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T01:04:13.558Z [ERROR]: 2025-08-04 18:04:13,558 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-05T01:04:13.568Z [ERROR]: 2025-08-04 18:04:13,568 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-05T01:04:14.438Z [ERROR]: 2025-08-04 18:04:14,439 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T01:04:16.315Z [ERROR]: 2025-08-04 18:04:16,315 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T01:04:16.336Z [ERROR]: 2025-08-04 18:04:16,336 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T01:04:16.363Z [ERROR]: 2025-08-04 18:04:16,362 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T01:04:16.379Z [ERROR]: 2025-08-04 18:04:16,379 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T01:04:17.268Z [ERROR]: 2025-08-04 18:04:17,268 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T01:04:17.315Z [ERROR]: 2025-08-04 18:04:17,315 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T01:04:32.639Z [ERROR]: 2025-08-04 18:04:32,640 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-05T01:04:32.649Z [ERROR]: 2025-08-04 18:04:32,649 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-05T01:04:33.536Z [ERROR]: 2025-08-04 18:04:33,536 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T01:04:34.190Z [ERROR]: 2025-08-04 18:04:34,190 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T01:04:34.751Z [ERROR]: 2025-08-04 18:04:34,751 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T01:05:10.721Z [ERROR]: 2025-08-04 18:05:10,716 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-05T01:05:10.728Z [ERROR]: 2025-08-04 18:05:10,726 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-05T01:05:12.593Z [ERROR]: 2025-08-04 18:05:12,593 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T01:05:12.752Z [ERROR]: 2025-08-04 18:05:12,751 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T01:05:25.050Z [ERROR]: 2025-08-04 18:05:25,050 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-05T01:05:25.059Z [ERROR]: 2025-08-04 18:05:25,059 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-05T01:05:26.244Z [ERROR]: 2025-08-04 18:05:26,244 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T01:05:29.282Z [ERROR]: 2025-08-04 18:05:29,282 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-05T01:05:29.291Z [ERROR]: 2025-08-04 18:05:29,291 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-05T01:05:30.602Z [ERROR]: 2025-08-04 18:05:30,602 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-05T01:05:31.209Z [ERROR]: 2025-08-04 18:05:31,208 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
