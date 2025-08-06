@@ -124,7 +124,6 @@ class ClaudeProvider(LLMProvider):
                 "content": str(result) if not isinstance(result, str) else result
             }
 
-
 class OpenAIProvider(LLMProvider):
     """OpenAI/OpenAI-compatible provider
     
@@ -525,7 +524,7 @@ class MCPClient:
         
         await self.session.initialize()
         
-    async def process_with_llm(self, prompt: str) -> str:
+    async def process_with_llm(self, prompt: str, debug: bool = False) -> str:
         """Process prompt using the configured LLM provider"""
         if not self.llm_provider:
             return "Error: No LLM provider configured"
@@ -544,20 +543,21 @@ class MCPClient:
         # Initialize messages
         messages = [{"role": "user", "content": prompt}]
         
-        # Process output
-        final_text: List[str] = []                       # UPDATED
-        collected_images: List[Dict[str, str]] = []      # NEW
+        # Process output - only collect actual LLM responses
+        final_text: List[str] = []
+        collected_images: List[Dict[str, str]] = []
         
-        # Add logging
-        final_text.append(f"[MCP Server Connected - {len(available_tools)} tools available]")
-        tool_names = [tool['name'] for tool in available_tools]
-        final_text.append(f"[Available tools: {', '.join(tool_names)}]")
-        final_text.append("")
-        
-        # Log provider type
-        provider_type = type(self.llm_provider).__name__
-        final_text.append(f"[Using LLM Provider: {provider_type}]")
-        final_text.append("")
+        # Add debug information if enabled
+        if debug:
+            final_text.append(f"[MCP Server Connected - {len(available_tools)} tools available]")
+            tool_names = [tool['name'] for tool in available_tools]
+            final_text.append(f"[Available tools: {', '.join(tool_names)}]")
+            final_text.append("")
+            
+            # Log provider type
+            provider_type = type(self.llm_provider).__name__
+            final_text.append(f"[Using LLM Provider: {provider_type}]")
+            final_text.append("")
         
         # Continue conversation until LLM stops using tools
         max_iterations = 15  # Reduced from 20 to prevent loops
@@ -629,12 +629,16 @@ class MCPClient:
                         tool_args = tool_call['arguments']
                         tool_id = tool_call['id']
                         
-                        final_text.append(f"\n[MCP Tool Call: {tool_name}]")
-                        final_text.append(f"[Arguments: {tool_args}]")
+                        # Add debug information if enabled
+                        if debug:
+                            final_text.append(f"\n[MCP Tool Call: {tool_name}]")
+                            final_text.append(f"[Arguments: {tool_args}]")
                         
                         try:
                             result = await self.session.call_tool(tool_name, tool_args)
-                            final_text.append(f"[Tool call successful]")
+                            
+                            if debug:
+                                final_text.append(f"[Tool call successful]")
                             
                             # Extract result content (including images)
                             result_text = ""
@@ -665,12 +669,12 @@ class MCPClient:
                                 else:
                                     result_text = str(result.content)
                             
-                            final_text.append("")
+                            if debug:
+                                final_text.append("")
                             
-                            # ----  NEW: keep images so we can embed later  ----
-                            if result_images:
+                            # Keep images for later embedding if debug is enabled
+                            if debug and result_images:
                                 collected_images.extend(result_images)
-                            # ---------------------------------------------------
                             
                             # Format result for provider
                             tool_results.append(
@@ -682,7 +686,8 @@ class MCPClient:
                             )
                             
                         except Exception as e:
-                            final_text.append(f"[Error: {str(e)}]")
+                            if debug:
+                                final_text.append(f"[Error: {str(e)}]")
                             tool_results.append(
                                 self.llm_provider.format_tool_result(
                                     tool_id, 
@@ -705,14 +710,20 @@ class MCPClient:
                     break
                     
             except Exception as e:
-                final_text.append(f"\n[Error during LLM call: {type(e).__name__}: {str(e)}]")
+                if debug:
+                    final_text.append(f"\n[Error during LLM call: {type(e).__name__}: {str(e)}]")
+                else:
+                    final_text.append(f"Error during LLM call: {type(e).__name__}: {str(e)}")
                 break
         
         if iteration >= max_iterations:
-            final_text.append("\n[Warning: Maximum iteration limit reached]")
+            if debug:
+                final_text.append("\n[Warning: Maximum iteration limit reached]")
+            else:
+                final_text.append("Warning: Maximum iteration limit reached")
         
-        # ----  NEW: embed collected images in Markdown  ----
-        if collected_images:
+        # Embed collected images in Markdown if debug is enabled
+        if debug and collected_images:
             final_text.append("\n### Images returned by tools\n")
             for idx, img in enumerate(collected_images, 1):
                 data = img.get("data")
@@ -722,7 +733,6 @@ class MCPClient:
                     b64 = base64.b64encode(data).decode()
                 mime = img.get("mime_type", "image/png")
                 final_text.append(f"![tool-image-{idx}](data:{mime};base64,{b64})")
-        # ---------------------------------------------------
         
         return "\n".join(final_text)
         
@@ -744,9 +754,12 @@ class MCPClient:
             # Connect to server
             await self.connect_to_server(server_config)
             
+            # Get debug flag from config (default to False)
+            debug = config.get('debug', False)
+            
             # Process with LLM
             if self.llm_provider:
-                output = await self.process_with_llm(prompt)
+                output = await self.process_with_llm(prompt, debug)
             else:
                 output = "Error: No LLM provider available"
             
