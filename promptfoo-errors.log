@@ -2262,3 +2262,1656 @@ KeyboardInterrupt
 2025-08-05T23:01:31.121Z [ERROR]: 2025-08-05 16:01:31,120 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
 2025-08-05T23:01:32.518Z [ERROR]: 2025-08-05 16:01:32,518 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
 2025-08-05T23:01:34.562Z [ERROR]: 2025-08-05 16:01:34,561 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T17:32:06.293Z [ERROR]: 2025-08-07 10:32:06,286 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T17:32:06.298Z [ERROR]: 2025-08-07 10:32:06,297 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T17:32:06.953Z [ERROR]: Traceback (most recent call last):
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+2025-08-07T17:32:06.954Z [ERROR]: yield
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpx\_transports\default.py", line 250, in handle_request
+2025-08-07T17:32:06.954Z [ERROR]: resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+2025-08-07T17:32:06.955Z [ERROR]: raise exc from None
+2025-08-07T17:32:06.956Z [ERROR]: File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpcore\_sync\connection.py", line 101, in handle_request
+2025-08-07T17:32:06.957Z [ERROR]: raise exc
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpcore\_sync\connection.py", line 78, in handle_request
+2025-08-07T17:32:06.957Z [ERROR]: stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpcore\_sync\connection.py", line 156, in _connect
+    stream = stream.start_tls(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpcore\_backends\sync.py", line 154, in start_tls
+2025-08-07T17:32:06.958Z [ERROR]: with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\contextlib.py", line 158, in __exit__
+2025-08-07T17:32:06.958Z [ERROR]: self.gen.throw(value)
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+2025-08-07T17:32:06.959Z [ERROR]: raise to_exc(exc) from exc
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1010)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\anthropic\_base_client.py", line 1047, in request
+2025-08-07T17:32:06.960Z [ERROR]: response = self._client.send(
+2025-08-07T17:32:06.961Z [ERROR]: ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpx\_client.py", line 914, in send
+2025-08-07T17:32:06.965Z [ERROR]: response = self._send_handling_auth(
+2025-08-07T17:32:06.967Z [ERROR]: ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1010)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\miao1\AppData\Roaming\npm\node_modules\promptfoo\dist\src\python\wrapper.py", line 39, in <module>
+    result = call_method(script_path, method_name, *data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Roaming\npm\node_modules\promptfoo\dist\src\python\wrapper.py", line 28, in call_method
+    return method_to_call(*args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Development\napari-mcp\eval\general_mcp_client.py", line 34, in call_api
+    result = loop.run_until_complete(client.process_prompt(prompt, options))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\base_events.py", line 678, in run_until_complete
+    self.run_forever()
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\windows_events.py", line 322, in run_forever
+2025-08-07T17:32:06.967Z [ERROR]: super().run_forever()
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\base_events.py", line 645, in run_forever
+    self._run_once()
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\base_events.py", line 1999, in _run_once
+    handle._run()
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\events.py", line 88, in _run
+2025-08-07T17:32:06.968Z [ERROR]: self._context.run(self._callback, *self._args)
+  File "D:\Development\napari-mcp\eval\general_mcp_client.py", line 762, in process_prompt
+2025-08-07T17:32:06.969Z [ERROR]: output = await self.process_with_llm(prompt, debug)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Development\napari-mcp\eval\general_mcp_client.py", line 571, in process_with_llm
+    response = await self.llm_provider.create_completion(messages, available_tools)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Development\napari-mcp\eval\general_mcp_client.py", line 69, in create_completion
+    response = self.client.messages.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\anthropic\_utils\_utils.py", line 283, in wrapper
+2025-08-07T17:32:06.970Z [ERROR]: return func(*args, **kwargs)
+2025-08-07T17:32:06.970Z [ERROR]: ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\anthropic\resources\messages\messages.py", line 997, in create
+2025-08-07T17:32:06.971Z [ERROR]: return self._post(
+2025-08-07T17:32:06.972Z [ERROR]: ^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\anthropic\_base_client.py", line 1324, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\anthropic\_base_client.py", line 1070, in request
+2025-08-07T17:32:06.972Z [ERROR]: self._sleep_for_retry(
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\anthropic\_base_client.py", line 1138, in _sleep_for_retry
+    time.sleep(timeout)
+KeyboardInterrupt
+2025-08-07T17:32:07.034Z [ERROR]: Error running Python script: 2025-08-07 10:32:06,286 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07 10:32:06,297 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+Traceback (most recent call last):
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpcore\_sync\connection.py", line 101, in handle_request
+    raise exc
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpcore\_sync\connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpcore\_sync\connection.py", line 156, in _connect
+    stream = stream.start_tls(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpcore\_backends\sync.py", line 154, in start_tls
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1010)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\anthropic\_base_client.py", line 1047, in request
+    response = self._client.send(
+               ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1010)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\miao1\AppData\Roaming\npm\node_modules\promptfoo\dist\src\python\wrapper.py", line 39, in <module>
+    result = call_method(script_path, method_name, *data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Roaming\npm\node_modules\promptfoo\dist\src\python\wrapper.py", line 28, in call_method
+    return method_to_call(*args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Development\napari-mcp\eval\general_mcp_client.py", line 34, in call_api
+    result = loop.run_until_complete(client.process_prompt(prompt, options))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\base_events.py", line 678, in run_until_complete
+    self.run_forever()
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\windows_events.py", line 322, in run_forever
+    super().run_forever()
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\base_events.py", line 645, in run_forever
+    self._run_once()
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\base_events.py", line 1999, in _run_once
+    handle._run()
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "D:\Development\napari-mcp\eval\general_mcp_client.py", line 762, in process_prompt
+    output = await self.process_with_llm(prompt, debug)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Development\napari-mcp\eval\general_mcp_client.py", line 571, in process_with_llm
+    response = await self.llm_provider.create_completion(messages, available_tools)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Development\napari-mcp\eval\general_mcp_client.py", line 69, in create_completion
+    response = self.client.messages.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\anthropic\_utils\_utils.py", line 283, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\anthropic\resources\messages\messages.py", line 997, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\anthropic\_base_client.py", line 1324, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\anthropic\_base_client.py", line 1070, in request
+    self._sleep_for_retry(
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\anthropic\_base_client.py", line 1138, in _sleep_for_retry
+    time.sleep(timeout)
+KeyboardInterrupt
+
+Stack Trace: Error: 2025-08-07 10:32:06,286 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07 10:32:06,297 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+Traceback (most recent call last):
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpcore\_sync\connection.py", line 101, in handle_request
+    raise exc
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpcore\_sync\connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpcore\_sync\connection.py", line 156, in _connect
+    stream = stream.start_tls(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpcore\_backends\sync.py", line 154, in start_tls
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1010)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\anthropic\_base_client.py", line 1047, in request
+    response = self._client.send(
+               ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1010)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\miao1\AppData\Roaming\npm\node_modules\promptfoo\dist\src\python\wrapper.py", line 39, in <module>
+    result = call_method(script_path, method_name, *data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Roaming\npm\node_modules\promptfoo\dist\src\python\wrapper.py", line 28, in call_method
+    return method_to_call(*args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Development\napari-mcp\eval\general_mcp_client.py", line 34, in call_api
+    result = loop.run_until_complete(client.process_prompt(prompt, options))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\base_events.py", line 678, in run_until_complete
+    self.run_forever()
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\windows_events.py", line 322, in run_forever
+    super().run_forever()
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\base_events.py", line 645, in run_forever
+    self._run_once()
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\base_events.py", line 1999, in _run_once
+    handle._run()
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "D:\Development\napari-mcp\eval\general_mcp_client.py", line 762, in process_prompt
+    output = await self.process_with_llm(prompt, debug)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Development\napari-mcp\eval\general_mcp_client.py", line 571, in process_with_llm
+    response = await self.llm_provider.create_completion(messages, available_tools)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Development\napari-mcp\eval\general_mcp_client.py", line 69, in create_completion
+    response = self.client.messages.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\anthropic\_utils\_utils.py", line 283, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\anthropic\resources\messages\messages.py", line 997, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\anthropic\_base_client.py", line 1324, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\anthropic\_base_client.py", line 1070, in request
+    self._sleep_for_retry(
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\anthropic\_base_client.py", line 1138, in _sleep_for_retry
+    time.sleep(timeout)
+KeyboardInterrupt
+
+    at PythonShell.parseError (C:\Users\miao1\AppData\Roaming\npm\node_modules\promptfoo\node_modules\python-shell\index.js:311:21)
+    at terminateIfNeeded (C:\Users\miao1\AppData\Roaming\npm\node_modules\promptfoo\node_modules\python-shell\index.js:193:32)
+    at ChildProcess.<anonymous> (C:\Users\miao1\AppData\Roaming\npm\node_modules\promptfoo\node_modules\python-shell\index.js:185:13)
+    at ChildProcess.emit (node:events:518:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:293:12)
+2025-08-07T17:32:07.035Z [ERROR]: Error removing C:\Users\miao1\AppData\Local\Temp\promptfoo-python-output-json-1754587923751-c70422e0443db.json: Error: ENOENT: no such file or directory, unlink 'C:\Users\miao1\AppData\Local\Temp\promptfoo-python-output-json-1754587923751-c70422e0443db.json'
+2025-08-07T17:32:07.102Z [ERROR]: Traceback (most recent call last):
+  File "C:\Users\miao1\AppData\Roaming\npm\node_modules\promptfoo\dist\src\python\wrapper.py", line 1, in <module>
+2025-08-07T17:33:11.247Z [ERROR]: 2025-08-07 10:33:11,242 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T17:33:11.253Z [ERROR]: 2025-08-07 10:33:11,253 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T17:33:14.288Z [ERROR]: 2025-08-07 10:33:14,287 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T17:33:14.300Z [ERROR]: 2025-08-07 10:33:14,299 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T17:33:17.291Z [ERROR]: 2025-08-07 10:33:17,290 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T17:33:17.302Z [ERROR]: 2025-08-07 10:33:17,302 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T17:33:20.403Z [ERROR]: Anthropic Messages API call error: Connection error.
+2025-08-07T17:33:21.960Z [ERROR]: 2025-08-07 10:33:21,960 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T17:33:21.973Z [ERROR]: 2025-08-07 10:33:21,973 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T17:33:25.440Z [ERROR]: 2025-08-07 10:33:25,438 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T17:33:25.465Z [ERROR]: 2025-08-07 10:33:25,463 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T17:33:28.549Z [ERROR]: Anthropic Messages API call error: Connection error.
+2025-08-07T17:33:30.125Z [ERROR]: 2025-08-07 10:33:30,125 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T17:33:30.136Z [ERROR]: 2025-08-07 10:33:30,134 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T17:33:32.863Z [ERROR]: Anthropic Messages API call error: Connection error.
+2025-08-07T17:33:34.516Z [ERROR]: 2025-08-07 10:33:34,516 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T17:33:34.526Z [ERROR]: 2025-08-07 10:33:34,526 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T17:33:35.092Z [ERROR]: Traceback (most recent call last):
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+2025-08-07T17:33:35.092Z [ERROR]: raise exc from None
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpcore\_sync\connection.py", line 101, in handle_request
+    raise exc
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpcore\_sync\connection.py", line 78, in handle_request
+2025-08-07T17:33:35.093Z [ERROR]: stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpcore\_sync\connection.py", line 156, in _connect
+    stream = stream.start_tls(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpcore\_backends\sync.py", line 154, in start_tls
+    with map_exceptions(exc_map):
+2025-08-07T17:33:35.094Z [ERROR]: ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1010)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\anthropic\_base_client.py", line 1047, in request
+    response = self._client.send(
+               ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpx\_client.py", line 914, in send
+2025-08-07T17:33:35.094Z [ERROR]: response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+2025-08-07T17:33:35.094Z [ERROR]: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+2025-08-07T17:33:35.094Z [ERROR]: response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpx\_transports\default.py", line 249, in handle_request
+2025-08-07T17:33:35.095Z [ERROR]: with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+2025-08-07T17:33:35.096Z [ERROR]: File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1010)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\miao1\AppData\Roaming\npm\node_modules\promptfoo\dist\src\python\wrapper.py", line 39, in <module>
+    result = call_method(script_path, method_name, *data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Roaming\npm\node_modules\promptfoo\dist\src\python\wrapper.py", line 28, in call_method
+    return method_to_call(*args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Development\napari-mcp\eval\general_mcp_client.py", line 34, in call_api
+2025-08-07T17:33:35.097Z [ERROR]: result = loop.run_until_complete(client.process_prompt(prompt, options))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\base_events.py", line 678, in run_until_complete
+    self.run_forever()
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\windows_events.py", line 322, in run_forever
+    super().run_forever()
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\base_events.py", line 645, in run_forever
+2025-08-07T17:33:35.097Z [ERROR]: self._run_once()
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\base_events.py", line 1999, in _run_once
+    handle._run()
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\events.py", line 88, in _run
+2025-08-07T17:33:35.101Z [ERROR]: self._context.run(self._callback, *self._args)
+  File "D:\Development\napari-mcp\eval\general_mcp_client.py", line 762, in process_prompt
+    output = await self.process_with_llm(prompt, debug)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Development\napari-mcp\eval\general_mcp_client.py", line 571, in process_with_llm
+2025-08-07T17:33:35.108Z [ERROR]: response = await self.llm_provider.create_completion(messages, available_tools)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Development\napari-mcp\eval\general_mcp_client.py", line 69, in create_completion
+    response = self.client.messages.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\anthropic\_utils\_utils.py", line 283, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\anthropic\resources\messages\messages.py", line 997, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\anthropic\_base_client.py", line 1324, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\anthropic\_base_client.py", line 1070, in request
+    self._sleep_for_retry(
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\anthropic\_base_client.py", line 1138, in _sleep_for_retry
+    time.sleep(timeout)
+KeyboardInterrupt
+2025-08-07T17:33:35.163Z [ERROR]: Error running Python script: 2025-08-07 10:33:34,516 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07 10:33:34,526 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+Traceback (most recent call last):
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpcore\_sync\connection.py", line 101, in handle_request
+    raise exc
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpcore\_sync\connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpcore\_sync\connection.py", line 156, in _connect
+    stream = stream.start_tls(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpcore\_backends\sync.py", line 154, in start_tls
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1010)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\anthropic\_base_client.py", line 1047, in request
+    response = self._client.send(
+               ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1010)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\miao1\AppData\Roaming\npm\node_modules\promptfoo\dist\src\python\wrapper.py", line 39, in <module>
+    result = call_method(script_path, method_name, *data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Roaming\npm\node_modules\promptfoo\dist\src\python\wrapper.py", line 28, in call_method
+    return method_to_call(*args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Development\napari-mcp\eval\general_mcp_client.py", line 34, in call_api
+    result = loop.run_until_complete(client.process_prompt(prompt, options))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\base_events.py", line 678, in run_until_complete
+    self.run_forever()
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\windows_events.py", line 322, in run_forever
+    super().run_forever()
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\base_events.py", line 645, in run_forever
+    self._run_once()
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\base_events.py", line 1999, in _run_once
+    handle._run()
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "D:\Development\napari-mcp\eval\general_mcp_client.py", line 762, in process_prompt
+    output = await self.process_with_llm(prompt, debug)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Development\napari-mcp\eval\general_mcp_client.py", line 571, in process_with_llm
+    response = await self.llm_provider.create_completion(messages, available_tools)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Development\napari-mcp\eval\general_mcp_client.py", line 69, in create_completion
+    response = self.client.messages.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\anthropic\_utils\_utils.py", line 283, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\anthropic\resources\messages\messages.py", line 997, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\anthropic\_base_client.py", line 1324, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\anthropic\_base_client.py", line 1070, in request
+    self._sleep_for_retry(
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\anthropic\_base_client.py", line 1138, in _sleep_for_retry
+    time.sleep(timeout)
+KeyboardInterrupt
+
+Stack Trace: Error: 2025-08-07 10:33:34,516 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07 10:33:34,526 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+Traceback (most recent call last):
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpcore\_sync\connection.py", line 101, in handle_request
+    raise exc
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpcore\_sync\connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpcore\_sync\connection.py", line 156, in _connect
+    stream = stream.start_tls(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpcore\_backends\sync.py", line 154, in start_tls
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1010)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\anthropic\_base_client.py", line 1047, in request
+    response = self._client.send(
+               ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1010)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\miao1\AppData\Roaming\npm\node_modules\promptfoo\dist\src\python\wrapper.py", line 39, in <module>
+    result = call_method(script_path, method_name, *data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Roaming\npm\node_modules\promptfoo\dist\src\python\wrapper.py", line 28, in call_method
+    return method_to_call(*args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Development\napari-mcp\eval\general_mcp_client.py", line 34, in call_api
+    result = loop.run_until_complete(client.process_prompt(prompt, options))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\base_events.py", line 678, in run_until_complete
+    self.run_forever()
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\windows_events.py", line 322, in run_forever
+    super().run_forever()
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\base_events.py", line 645, in run_forever
+    self._run_once()
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\base_events.py", line 1999, in _run_once
+    handle._run()
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "D:\Development\napari-mcp\eval\general_mcp_client.py", line 762, in process_prompt
+    output = await self.process_with_llm(prompt, debug)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Development\napari-mcp\eval\general_mcp_client.py", line 571, in process_with_llm
+    response = await self.llm_provider.create_completion(messages, available_tools)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Development\napari-mcp\eval\general_mcp_client.py", line 69, in create_completion
+    response = self.client.messages.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\anthropic\_utils\_utils.py", line 283, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\anthropic\resources\messages\messages.py", line 997, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\anthropic\_base_client.py", line 1324, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\anthropic\_base_client.py", line 1070, in request
+    self._sleep_for_retry(
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\anthropic\_base_client.py", line 1138, in _sleep_for_retry
+    time.sleep(timeout)
+KeyboardInterrupt
+
+    at PythonShell.parseError (C:\Users\miao1\AppData\Roaming\npm\node_modules\promptfoo\node_modules\python-shell\index.js:311:21)
+    at terminateIfNeeded (C:\Users\miao1\AppData\Roaming\npm\node_modules\promptfoo\node_modules\python-shell\index.js:193:32)
+    at ChildProcess.<anonymous> (C:\Users\miao1\AppData\Roaming\npm\node_modules\promptfoo\node_modules\python-shell\index.js:185:13)
+    at ChildProcess.emit (node:events:518:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:293:12)
+2025-08-07T17:33:35.164Z [ERROR]: Error removing C:\Users\miao1\AppData\Local\Temp\promptfoo-python-output-json-1754588013097-3c055ec8e31bb.json: Error: ENOENT: no such file or directory, unlink 'C:\Users\miao1\AppData\Local\Temp\promptfoo-python-output-json-1754588013097-3c055ec8e31bb.json'
+2025-08-07T17:33:56.762Z [ERROR]: 2025-08-07 10:33:56,756 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T17:33:56.770Z [ERROR]: 2025-08-07 10:33:56,769 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T17:33:58.601Z [ERROR]: 2025-08-07 10:33:58,600 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T17:34:02.018Z [ERROR]: 2025-08-07 10:34:02,017 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T17:34:02.031Z [ERROR]: 2025-08-07 10:34:02,030 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T17:34:04.040Z [ERROR]: 2025-08-07 10:34:04,039 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T17:34:04.893Z [ERROR]: 2025-08-07 10:34:04,893 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T17:34:07.496Z [ERROR]: 2025-08-07 10:34:07,496 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T17:34:07.510Z [ERROR]: 2025-08-07 10:34:07,507 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T17:34:09.142Z [ERROR]: 2025-08-07 10:34:09,141 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T17:34:13.994Z [ERROR]: 2025-08-07 10:34:13,993 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T17:34:14.006Z [ERROR]: 2025-08-07 10:34:14,005 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T17:34:15.185Z [ERROR]: 2025-08-07 10:34:15,185 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T17:34:19.476Z [ERROR]: 2025-08-07 10:34:19,476 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T17:34:19.508Z [ERROR]: 2025-08-07 10:34:19,507 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T17:34:19.550Z [ERROR]: 2025-08-07 10:34:19,549 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T17:34:19.574Z [ERROR]: 2025-08-07 10:34:19,573 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T17:34:19.599Z [ERROR]: 2025-08-07 10:34:19,599 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T17:34:19.634Z [ERROR]: 2025-08-07 10:34:19,634 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T17:34:20.441Z [ERROR]: 2025-08-07 10:34:20,441 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T17:34:26.513Z [ERROR]: 2025-08-07 10:34:26,513 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T17:34:26.525Z [ERROR]: 2025-08-07 10:34:26,524 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T17:34:27.940Z [ERROR]: 2025-08-07 10:34:27,940 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T17:34:34.982Z [ERROR]: 2025-08-07 10:34:34,981 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T17:34:34.998Z [ERROR]: 2025-08-07 10:34:34,993 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T17:34:36.239Z [ERROR]: 2025-08-07 10:34:36,238 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T17:34:43.146Z [ERROR]: 2025-08-07 10:34:43,144 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T17:34:43.161Z [ERROR]: 2025-08-07 10:34:43,156 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T17:34:44.542Z [ERROR]: 2025-08-07 10:34:44,541 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T17:34:45.543Z [ERROR]: 2025-08-07 10:34:45,543 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T17:34:46.661Z [ERROR]: 2025-08-07 10:34:46,661 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T17:34:52.139Z [ERROR]: 2025-08-07 10:34:52,139 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T17:34:52.153Z [ERROR]: 2025-08-07 10:34:52,151 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T17:34:54.063Z [ERROR]: 2025-08-07 10:34:54,062 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T17:34:55.020Z [ERROR]: 2025-08-07 10:34:55,018 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T17:34:57.760Z [ERROR]: 2025-08-07 10:34:57,759 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T17:35:02.172Z [ERROR]: 2025-08-07 10:35:02,171 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T17:35:02.186Z [ERROR]: 2025-08-07 10:35:02,185 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T17:35:03.281Z [ERROR]: 2025-08-07 10:35:03,280 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T17:35:04.608Z [ERROR]: 2025-08-07 10:35:04,607 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T17:35:05.598Z [ERROR]: 2025-08-07 10:35:05,596 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T17:35:11.582Z [ERROR]: 2025-08-07 10:35:11,580 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T17:35:11.592Z [ERROR]: 2025-08-07 10:35:11,591 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T17:35:12.548Z [ERROR]: 2025-08-07 10:35:12,547 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T17:35:13.434Z [ERROR]: 2025-08-07 10:35:13,433 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T17:35:19.627Z [ERROR]: 2025-08-07 10:35:19,626 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T17:35:27.159Z [ERROR]: 2025-08-07 10:35:27,158 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T17:35:27.171Z [ERROR]: 2025-08-07 10:35:27,170 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T17:35:28.698Z [ERROR]: 2025-08-07 10:35:28,697 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T17:35:36.131Z [ERROR]: 2025-08-07 10:35:36,130 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T17:35:36.144Z [ERROR]: 2025-08-07 10:35:36,141 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T17:35:37.885Z [ERROR]: 2025-08-07 10:35:37,884 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T17:35:42.913Z [ERROR]: 2025-08-07 10:35:42,912 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T17:35:50.294Z [ERROR]: 2025-08-07 10:35:50,293 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T17:35:50.304Z [ERROR]: 2025-08-07 10:35:50,304 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T17:35:51.586Z [ERROR]: 2025-08-07 10:35:51,585 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T17:35:57.259Z [ERROR]: 2025-08-07 10:35:57,258 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T17:36:01.866Z [ERROR]: 2025-08-07 10:36:01,864 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T17:36:01.878Z [ERROR]: 2025-08-07 10:36:01,878 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T17:36:03.103Z [ERROR]: 2025-08-07 10:36:03,102 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T17:36:07.485Z [ERROR]: 2025-08-07 10:36:07,484 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T17:36:07.501Z [ERROR]: 2025-08-07 10:36:07,498 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T17:36:08.645Z [ERROR]: 2025-08-07 10:36:08,644 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T17:36:12.909Z [ERROR]: 2025-08-07 10:36:12,907 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T17:36:12.918Z [ERROR]: 2025-08-07 10:36:12,918 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T17:36:13.951Z [ERROR]: 2025-08-07 10:36:13,951 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T17:36:18.208Z [ERROR]: 2025-08-07 10:36:18,207 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T17:36:18.220Z [ERROR]: 2025-08-07 10:36:18,219 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T17:36:19.382Z [ERROR]: 2025-08-07 10:36:19,380 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T17:36:23.755Z [ERROR]: 2025-08-07 10:36:23,753 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T17:36:23.767Z [ERROR]: 2025-08-07 10:36:23,766 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T17:36:25.291Z [ERROR]: 2025-08-07 10:36:25,290 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T17:36:29.638Z [ERROR]: 2025-08-07 10:36:29,636 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T17:36:29.648Z [ERROR]: 2025-08-07 10:36:29,648 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T17:36:31.209Z [ERROR]: 2025-08-07 10:36:31,208 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T17:36:35.719Z [ERROR]: 2025-08-07 10:36:35,717 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T17:36:35.729Z [ERROR]: 2025-08-07 10:36:35,729 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T17:36:36.744Z [ERROR]: 2025-08-07 10:36:36,743 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T17:36:39.200Z [ERROR]: 2025-08-07 10:36:39,199 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T17:36:39.214Z [ERROR]: 2025-08-07 10:36:39,213 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T17:36:40.617Z [ERROR]: 2025-08-07 10:36:40,616 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T17:36:45.127Z [ERROR]: 2025-08-07 10:36:45,126 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T17:36:45.138Z [ERROR]: 2025-08-07 10:36:45,137 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T17:36:46.339Z [ERROR]: 2025-08-07 10:36:46,338 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T17:36:48.687Z [ERROR]: 2025-08-07 10:36:48,686 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T17:36:48.699Z [ERROR]: 2025-08-07 10:36:48,699 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T17:36:50.023Z [ERROR]: 2025-08-07 10:36:50,022 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T17:36:54.370Z [ERROR]: 2025-08-07 10:36:54,368 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T17:36:54.381Z [ERROR]: 2025-08-07 10:36:54,380 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T17:36:55.472Z [ERROR]: 2025-08-07 10:36:55,472 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T17:37:04.003Z [ERROR]: 2025-08-07 10:37:04,002 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T17:37:04.015Z [ERROR]: 2025-08-07 10:37:04,014 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T17:37:05.556Z [ERROR]: 2025-08-07 10:37:05,555 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T17:37:07.595Z [ERROR]: 2025-08-07 10:37:07,594 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T18:04:58.291Z [ERROR]: 2025-08-07 11:04:58,284 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T18:04:58.298Z [ERROR]: 2025-08-07 11:04:58,297 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T18:05:00.448Z [ERROR]: 2025-08-07 11:05:00,446 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T18:05:04.448Z [ERROR]: 2025-08-07 11:05:04,447 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T18:05:04.460Z [ERROR]: 2025-08-07 11:05:04,459 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T18:05:06.750Z [ERROR]: 2025-08-07 11:05:06,748 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T18:05:08.449Z [ERROR]: 2025-08-07 11:05:08,448 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T18:05:11.511Z [ERROR]: 2025-08-07 11:05:11,511 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T18:05:11.523Z [ERROR]: 2025-08-07 11:05:11,522 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T18:05:13.552Z [ERROR]: 2025-08-07 11:05:13,551 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T18:05:19.565Z [ERROR]: 2025-08-07 11:05:19,564 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T18:05:19.575Z [ERROR]: 2025-08-07 11:05:19,575 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T18:05:21.909Z [ERROR]: 2025-08-07 11:05:21,906 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T18:05:24.395Z [ERROR]: 2025-08-07 11:05:24,394 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T18:05:26.861Z [ERROR]: 2025-08-07 11:05:26,860 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T18:09:10.351Z [ERROR]: 2025-08-07 11:05:59,115 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07 11:06:01,096 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07 11:06:03,020 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07 11:06:05,148 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07 11:06:06,786 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T18:09:11.869Z [ERROR]: 2025-08-07 11:09:11,869 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T18:09:11.880Z [ERROR]: 2025-08-07 11:09:11,879 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T18:09:13.786Z [ERROR]: 2025-08-07 11:09:13,785 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T18:09:39.420Z [ERROR]: 2025-08-07 11:09:39,420 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T18:09:39.431Z [ERROR]: 2025-08-07 11:09:39,431 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T18:09:41.751Z [ERROR]: 2025-08-07 11:09:41,751 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T18:09:51.103Z [ERROR]: 2025-08-07 11:09:51,103 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T18:09:51.117Z [ERROR]: 2025-08-07 11:09:51,115 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T18:09:53.109Z [ERROR]: 2025-08-07 11:09:53,109 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T18:09:54.442Z [ERROR]: 2025-08-07 11:09:54,442 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T18:09:57.608Z [ERROR]: 2025-08-07 11:09:57,608 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T18:09:57.619Z [ERROR]: 2025-08-07 11:09:57,619 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T18:09:59.677Z [ERROR]: 2025-08-07 11:09:59,676 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T18:10:01.178Z [ERROR]: 2025-08-07 11:10:01,052 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T18:10:03.088Z [ERROR]: 2025-08-07 11:10:03,088 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T18:10:06.156Z [ERROR]: 2025-08-07 11:10:06,156 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T18:10:06.166Z [ERROR]: 2025-08-07 11:10:06,167 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T18:10:08.359Z [ERROR]: 2025-08-07 11:10:08,359 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T18:10:18.474Z [ERROR]: 2025-08-07 11:10:18,473 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T18:10:18.485Z [ERROR]: 2025-08-07 11:10:18,484 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T18:10:21.761Z [ERROR]: 2025-08-07 11:10:21,761 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T18:10:21.779Z [ERROR]: 2025-08-07 11:10:21,778 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T18:10:21.901Z [ERROR]: 2025-08-07 11:10:21,900 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T18:10:24.885Z [ERROR]: 2025-08-07 11:10:24,885 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T18:10:24.918Z [ERROR]: 2025-08-07 11:10:24,917 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T18:10:27.102Z [ERROR]: 2025-08-07 11:10:27,101 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T18:10:27.111Z [ERROR]: 2025-08-07 11:10:27,111 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T18:10:31.165Z [ERROR]: 2025-08-07 11:10:31,163 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T18:10:31.176Z [ERROR]: 2025-08-07 11:10:31,175 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T18:10:32.800Z [ERROR]: 2025-08-07 11:10:32,799 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T18:10:32.830Z [ERROR]: 2025-08-07 11:10:32,830 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T18:10:35.968Z [ERROR]: 2025-08-07 11:10:35,967 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T18:10:35.978Z [ERROR]: 2025-08-07 11:10:35,978 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T18:10:37.726Z [ERROR]: 2025-08-07 11:10:37,726 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T18:10:39.326Z [ERROR]: 2025-08-07 11:10:39,325 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T18:10:40.720Z [ERROR]: 2025-08-07 11:10:40,720 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T18:10:44.567Z [ERROR]: 2025-08-07 11:10:44,567 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T18:10:44.592Z [ERROR]: 2025-08-07 11:10:44,591 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T18:10:47.459Z [ERROR]: 2025-08-07 11:10:47,459 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T18:10:50.423Z [ERROR]: 2025-08-07 11:10:50,423 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T18:10:52.100Z [ERROR]: 2025-08-07 11:10:52,099 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T18:10:55.746Z [ERROR]: 2025-08-07 11:10:55,745 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T18:10:55.758Z [ERROR]: 2025-08-07 11:10:55,758 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T18:10:58.325Z [ERROR]: 2025-08-07 11:10:58,325 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T18:11:00.463Z [ERROR]: 2025-08-07 11:11:00,463 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T18:11:06.033Z [ERROR]: 2025-08-07 11:11:06,033 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T18:11:06.047Z [ERROR]: 2025-08-07 11:11:06,046 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T18:11:07.992Z [ERROR]: 2025-08-07 11:11:07,991 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T18:11:07.995Z [ERROR]: 2025-08-07 11:11:07,995 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T18:11:11.449Z [ERROR]: 2025-08-07 11:11:11,448 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T18:11:11.460Z [ERROR]: 2025-08-07 11:11:11,459 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T18:11:13.372Z [ERROR]: 2025-08-07 11:11:13,371 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T18:11:14.864Z [ERROR]: 2025-08-07 11:11:14,863 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T18:11:18.380Z [ERROR]: 2025-08-07 11:11:18,379 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T18:11:18.391Z [ERROR]: 2025-08-07 11:11:18,391 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T18:11:20.083Z [ERROR]: 2025-08-07 11:11:20,082 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T18:11:23.200Z [ERROR]: 2025-08-07 11:11:23,199 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T18:11:23.212Z [ERROR]: 2025-08-07 11:11:23,211 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T18:11:28.331Z [ERROR]: 2025-08-07 11:11:28,330 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T18:11:28.343Z [ERROR]: 2025-08-07 11:11:28,342 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T18:11:30.136Z [ERROR]: 2025-08-07 11:11:30,135 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T18:11:33.185Z [ERROR]: 2025-08-07 11:11:33,184 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T18:11:33.197Z [ERROR]: 2025-08-07 11:11:33,196 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T18:11:35.182Z [ERROR]: 2025-08-07 11:11:35,182 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T18:12:12.553Z [ERROR]: 2025-08-07 11:12:12,552 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T18:12:12.565Z [ERROR]: 2025-08-07 11:12:12,563 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T18:12:16.417Z [ERROR]: 2025-08-07 11:12:16,415 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T18:12:16.429Z [ERROR]: 2025-08-07 11:12:16,428 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T18:12:18.775Z [ERROR]: 2025-08-07 11:12:18,774 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T18:12:27.883Z [ERROR]: 2025-08-07 11:12:27,883 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T18:12:27.896Z [ERROR]: 2025-08-07 11:12:27,894 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T18:12:29.804Z [ERROR]: 2025-08-07 11:12:29,803 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T18:12:40.538Z [ERROR]: 2025-08-07 11:12:40,536 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-07T18:12:40.550Z [ERROR]: 2025-08-07 11:12:40,549 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-07T18:12:42.914Z [ERROR]: 2025-08-07 11:12:42,913 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T18:12:47.919Z [ERROR]: 2025-08-07 11:12:47,918 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-07T18:12:55.705Z [ERROR]: 2025-08-07 11:12:55,703 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T17:16:04.931Z [ERROR]: 2025-08-15 10:16:04,919 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-15T17:16:04.939Z [ERROR]: 2025-08-15 10:16:04,939 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-15T17:16:07.253Z [ERROR]: 2025-08-15 10:16:07,252 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T17:16:10.852Z [ERROR]: 2025-08-15 10:16:10,851 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-15T17:16:10.861Z [ERROR]: 2025-08-15 10:16:10,860 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-15T17:16:12.817Z [ERROR]: 2025-08-15 10:16:12,816 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T17:16:14.377Z [ERROR]: 2025-08-15 10:16:14,374 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T17:16:17.374Z [ERROR]: 2025-08-15 10:16:17,373 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-15T17:16:17.383Z [ERROR]: 2025-08-15 10:16:17,383 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-15T17:16:19.379Z [ERROR]: 2025-08-15 10:16:19,378 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T17:16:24.803Z [ERROR]: 2025-08-15 10:16:24,802 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-15T17:16:24.813Z [ERROR]: 2025-08-15 10:16:24,812 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-15T17:16:27.023Z [ERROR]: 2025-08-15 10:16:27,022 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T17:16:29.807Z [ERROR]: 2025-08-15 10:16:29,805 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T17:16:32.280Z [ERROR]: 2025-08-15 10:16:32,280 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T17:16:34.647Z [ERROR]: 2025-08-15 10:16:34,645 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T17:16:36.520Z [ERROR]: 2025-08-15 10:16:36,519 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T17:16:38.741Z [ERROR]: 2025-08-15 10:16:38,739 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T17:16:40.742Z [ERROR]: 2025-08-15 10:16:40,741 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T17:16:42.230Z [ERROR]: 2025-08-15 10:16:42,229 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T17:16:45.680Z [ERROR]: 2025-08-15 10:16:45,680 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-15T17:16:45.690Z [ERROR]: 2025-08-15 10:16:45,689 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-15T17:16:47.553Z [ERROR]: 2025-08-15 10:16:47,552 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T17:16:58.705Z [ERROR]: 2025-08-15 10:16:58,704 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-15T17:16:58.716Z [ERROR]: 2025-08-15 10:16:58,715 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-15T17:17:00.582Z [ERROR]: 2025-08-15 10:17:00,581 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T17:59:30.374Z [ERROR]: 2025-08-15 10:59:30,365 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-15T17:59:30.394Z [ERROR]: 2025-08-15 10:59:30,391 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-15T17:59:32.523Z [ERROR]: 2025-08-15 10:59:32,521 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T17:59:36.504Z [ERROR]: 2025-08-15 10:59:36,503 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-15T17:59:36.515Z [ERROR]: 2025-08-15 10:59:36,513 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-15T17:59:38.476Z [ERROR]: 2025-08-15 10:59:38,473 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T17:59:40.264Z [ERROR]: 2025-08-15 10:59:40,263 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T17:59:43.161Z [ERROR]: 2025-08-15 10:59:43,160 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-15T17:59:43.171Z [ERROR]: 2025-08-15 10:59:43,170 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-15T17:59:45.192Z [ERROR]: 2025-08-15 10:59:45,190 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T17:59:50.874Z [ERROR]: 2025-08-15 10:59:50,872 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-15T17:59:50.885Z [ERROR]: 2025-08-15 10:59:50,884 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-15T17:59:53.473Z [ERROR]: 2025-08-15 10:59:53,471 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T17:59:56.070Z [ERROR]: 2025-08-15 10:59:56,069 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T17:59:57.887Z [ERROR]: 2025-08-15 10:59:57,885 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T18:00:00.386Z [ERROR]: 2025-08-15 11:00:00,386 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T18:00:02.643Z [ERROR]: 2025-08-15 11:00:02,642 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T18:00:04.876Z [ERROR]: 2025-08-15 11:00:04,874 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T18:00:06.664Z [ERROR]: 2025-08-15 11:00:06,662 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T18:00:08.205Z [ERROR]: 2025-08-15 11:00:08,204 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T18:00:14.046Z [ERROR]: 2025-08-15 11:00:14,045 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-15T18:00:14.075Z [ERROR]: 2025-08-15 11:00:14,073 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-15T18:00:16.117Z [ERROR]: 2025-08-15 11:00:16,116 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T18:00:28.617Z [ERROR]: 2025-08-15 11:00:28,616 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-15T18:00:28.629Z [ERROR]: 2025-08-15 11:00:28,628 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-15T18:00:30.974Z [ERROR]: 2025-08-15 11:00:30,973 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T18:00:39.042Z [ERROR]: 2025-08-15 11:00:39,040 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-15T18:00:39.054Z [ERROR]: 2025-08-15 11:00:39,053 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-15T18:00:40.845Z [ERROR]: 2025-08-15 11:00:40,842 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T18:00:40.864Z [ERROR]: 2025-08-15 11:00:40,864 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T18:00:44.530Z [ERROR]: 2025-08-15 11:00:44,529 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-15T18:00:44.541Z [ERROR]: 2025-08-15 11:00:44,540 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-15T18:00:46.858Z [ERROR]: 2025-08-15 11:00:46,857 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T18:00:48.435Z [ERROR]: 2025-08-15 11:00:48,433 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T18:00:50.975Z [ERROR]: 2025-08-15 11:00:50,975 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T18:00:54.090Z [ERROR]: 2025-08-15 11:00:54,088 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-15T18:00:54.113Z [ERROR]: 2025-08-15 11:00:54,113 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-15T18:00:56.677Z [ERROR]: 2025-08-15 11:00:56,676 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T18:01:09.596Z [ERROR]: 2025-08-15 11:01:09,595 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-15T18:01:09.616Z [ERROR]: 2025-08-15 11:01:09,615 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-15T18:01:11.747Z [ERROR]: 2025-08-15 11:01:11,746 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T18:01:13.568Z [ERROR]: 2025-08-15 11:01:13,567 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T18:01:15.996Z [ERROR]: 2025-08-15 11:01:15,995 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T18:01:19.534Z [ERROR]: 2025-08-15 11:01:19,533 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-15T18:01:19.556Z [ERROR]: 2025-08-15 11:01:19,555 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-15T18:01:22.529Z [ERROR]: 2025-08-15 11:01:22,529 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T18:01:22.561Z [ERROR]: 2025-08-15 11:01:22,560 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T18:01:26.226Z [ERROR]: 2025-08-15 11:01:26,224 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-15T18:01:26.236Z [ERROR]: 2025-08-15 11:01:26,235 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-15T18:01:28.289Z [ERROR]: 2025-08-15 11:01:28,288 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T18:01:28.298Z [ERROR]: 2025-08-15 11:01:28,297 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T18:01:31.851Z [ERROR]: 2025-08-15 11:01:31,850 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-15T18:01:31.881Z [ERROR]: 2025-08-15 11:01:31,877 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-15T18:01:34.177Z [ERROR]: 2025-08-15 11:01:34,176 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T18:01:36.152Z [ERROR]: 2025-08-15 11:01:36,150 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T18:01:37.700Z [ERROR]: 2025-08-15 11:01:37,698 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T18:01:41.155Z [ERROR]: 2025-08-15 11:01:41,154 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-15T18:01:41.168Z [ERROR]: 2025-08-15 11:01:41,166 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-15T18:01:43.448Z [ERROR]: 2025-08-15 11:01:43,448 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T18:01:45.104Z [ERROR]: 2025-08-15 11:01:45,103 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T18:01:48.114Z [ERROR]: 2025-08-15 11:01:48,114 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T18:01:49.767Z [ERROR]: 2025-08-15 11:01:49,766 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T18:01:53.067Z [ERROR]: 2025-08-15 11:01:53,066 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-15T18:01:53.079Z [ERROR]: 2025-08-15 11:01:53,079 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-15T18:01:55.246Z [ERROR]: 2025-08-15 11:01:55,245 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T18:01:57.020Z [ERROR]: 2025-08-15 11:01:57,019 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T18:02:01.587Z [ERROR]: 2025-08-15 11:02:01,584 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-15T18:02:01.599Z [ERROR]: 2025-08-15 11:02:01,598 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-15T18:02:03.859Z [ERROR]: 2025-08-15 11:02:03,859 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T18:02:03.879Z [ERROR]: 2025-08-15 11:02:03,878 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T18:02:07.479Z [ERROR]: 2025-08-15 11:02:07,478 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-15T18:02:07.490Z [ERROR]: 2025-08-15 11:02:07,489 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-15T18:02:09.731Z [ERROR]: 2025-08-15 11:02:09,730 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T18:02:10.955Z [ERROR]: 2025-08-15 11:02:10,954 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T18:02:14.147Z [ERROR]: 2025-08-15 11:02:14,146 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-15T18:02:14.159Z [ERROR]: 2025-08-15 11:02:14,158 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-15T18:02:16.121Z [ERROR]: 2025-08-15 11:02:16,121 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T18:02:19.560Z [ERROR]: 2025-08-15 11:02:19,560 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-15T18:02:19.571Z [ERROR]: 2025-08-15 11:02:19,570 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-15T18:02:22.801Z [ERROR]: 2025-08-15 11:02:22,801 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-15T18:02:22.812Z [ERROR]: 2025-08-15 11:02:22,812 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-15T18:02:24.612Z [ERROR]: 2025-08-15 11:02:24,610 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T18:02:27.491Z [ERROR]: 2025-08-15 11:02:27,490 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-15T18:02:27.501Z [ERROR]: 2025-08-15 11:02:27,500 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-15T18:02:29.523Z [ERROR]: 2025-08-15 11:02:29,522 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T18:02:37.633Z [ERROR]: 2025-08-15 11:02:37,633 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-15T18:02:37.645Z [ERROR]: 2025-08-15 11:02:37,645 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-15T18:02:41.392Z [ERROR]: 2025-08-15 11:02:41,391 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-15T18:02:41.402Z [ERROR]: 2025-08-15 11:02:41,402 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-15T18:02:43.793Z [ERROR]: 2025-08-15 11:02:43,793 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T18:02:52.087Z [ERROR]: 2025-08-15 11:02:52,086 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-15T18:02:52.097Z [ERROR]: 2025-08-15 11:02:52,097 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-15T18:02:54.062Z [ERROR]: 2025-08-15 11:02:54,061 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T18:03:01.274Z [ERROR]: 2025-08-15 11:03:01,273 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T18:03:15.103Z [ERROR]: 2025-08-15 11:03:15,101 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-15T18:03:15.114Z [ERROR]: 2025-08-15 11:03:15,113 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-15T18:03:17.756Z [ERROR]: 2025-08-15 11:03:17,755 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T18:03:22.786Z [ERROR]: 2025-08-15 11:03:22,785 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-15T18:03:31.817Z [ERROR]: 2025-08-15 11:03:31,817 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T19:37:30.539Z [ERROR]: 2025-08-21 12:37:30,527 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T19:37:30.541Z [ERROR]: 2025-08-21 12:37:30,540 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T19:37:32.913Z [ERROR]: 2025-08-21 12:37:32,912 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T19:37:33.837Z [ERROR]: Traceback (most recent call last):
+  File "C:\Users\miao1\AppData\Roaming\npm\node_modules\promptfoo\dist\src\python\wrapper.py", line 39, in <module>
+    result = call_method(script_path, method_name, *data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Roaming\npm\node_modules\promptfoo\dist\src\python\wrapper.py", line 28, in call_method
+    return method_to_call(*args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Development\napari-mcp\eval\general_mcp_client.py", line 34, in call_api
+    result = loop.run_until_complete(client.process_prompt(prompt, options))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\base_events.py", line 678, in run_until_complete
+2025-08-21T19:37:33.838Z [ERROR]: self.run_forever()
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\windows_events.py", line 322, in run_forever
+2025-08-21T19:37:33.838Z [ERROR]: super().run_forever()
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\base_events.py", line 645, in run_forever
+2025-08-21T19:37:33.839Z [ERROR]: self._run_once()
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\base_events.py", line 1961, in _run_once
+2025-08-21T19:37:33.839Z [ERROR]: event_list = self._selector.select(timeout)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\windows_events.py", line 445, in select
+    self._poll(timeout)
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\windows_events.py", line 774, in _poll
+2025-08-21T19:37:33.840Z [ERROR]: status = _overlapped.GetQueuedCompletionStatus(self._iocp, ms)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+2025-08-21T19:38:37.677Z [ERROR]: 2025-08-21 12:38:37,672 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T19:38:37.682Z [ERROR]: 2025-08-21 12:38:37,682 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T19:38:39.258Z [ERROR]: 2025-08-21 12:38:39,258 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T19:38:41.612Z [ERROR]: 2025-08-21 12:38:41,611 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T19:38:41.622Z [ERROR]: 2025-08-21 12:38:41,621 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T19:38:42.842Z [ERROR]: 2025-08-21 12:38:42,842 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T19:38:43.506Z [ERROR]: 2025-08-21 12:38:43,506 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T19:38:45.506Z [ERROR]: 2025-08-21 12:38:45,505 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T19:38:45.519Z [ERROR]: 2025-08-21 12:38:45,518 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T19:38:46.681Z [ERROR]: 2025-08-21 12:38:46,681 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T19:38:50.039Z [ERROR]: 2025-08-21 12:38:50,038 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T19:38:50.049Z [ERROR]: 2025-08-21 12:38:50,048 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T19:38:50.993Z [ERROR]: 2025-08-21 12:38:50,993 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T19:38:52.971Z [ERROR]: 2025-08-21 12:38:52,971 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T19:38:53.001Z [ERROR]: 2025-08-21 12:38:53,000 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T19:38:53.025Z [ERROR]: 2025-08-21 12:38:53,024 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T19:38:53.041Z [ERROR]: 2025-08-21 12:38:53,041 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T19:38:53.050Z [ERROR]: 2025-08-21 12:38:53,050 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T19:38:53.770Z [ERROR]: 2025-08-21 12:38:53,770 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T19:38:58.163Z [ERROR]: 2025-08-21 12:38:58,162 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T19:38:58.174Z [ERROR]: 2025-08-21 12:38:58,174 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T19:38:59.107Z [ERROR]: 2025-08-21 12:38:59,105 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T19:39:05.831Z [ERROR]: 2025-08-21 12:39:05,831 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T19:39:05.842Z [ERROR]: 2025-08-21 12:39:05,842 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T19:39:06.811Z [ERROR]: 2025-08-21 12:39:06,811 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T19:39:12.105Z [ERROR]: 2025-08-21 12:39:12,104 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T19:39:12.114Z [ERROR]: 2025-08-21 12:39:12,114 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T19:39:13.032Z [ERROR]: 2025-08-21 12:39:13,031 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T19:39:13.597Z [ERROR]: 2025-08-21 12:39:13,597 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T19:39:18.723Z [ERROR]: 2025-08-21 12:39:18,723 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T19:39:18.733Z [ERROR]: 2025-08-21 12:39:18,733 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T19:39:19.859Z [ERROR]: 2025-08-21 12:39:19,859 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T19:39:20.503Z [ERROR]: 2025-08-21 12:39:20,503 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T19:39:23.784Z [ERROR]: 2025-08-21 12:39:23,784 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T19:39:27.975Z [ERROR]: 2025-08-21 12:39:27,974 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T19:39:27.988Z [ERROR]: 2025-08-21 12:39:27,987 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T19:39:29.069Z [ERROR]: 2025-08-21 12:39:29,069 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T19:39:29.943Z [ERROR]: 2025-08-21 12:39:29,943 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T19:39:31.592Z [ERROR]: 2025-08-21 12:39:31,592 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T19:39:35.220Z [ERROR]: 2025-08-21 12:39:35,220 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T19:39:35.230Z [ERROR]: 2025-08-21 12:39:35,229 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T19:39:36.135Z [ERROR]: 2025-08-21 12:39:36,133 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T19:39:36.889Z [ERROR]: 2025-08-21 12:39:36,888 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T19:39:42.879Z [ERROR]: 2025-08-21 12:39:42,878 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T19:39:46.140Z [ERROR]: 2025-08-21 12:39:46,139 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T19:39:48.928Z [ERROR]: 2025-08-21 12:39:48,928 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T19:39:53.080Z [ERROR]: 2025-08-21 12:39:53,078 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T19:39:53.089Z [ERROR]: 2025-08-21 12:39:53,088 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T19:39:54.654Z [ERROR]: 2025-08-21 12:39:54,653 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T19:39:56.699Z [ERROR]: 2025-08-21 12:39:56,699 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T19:40:01.194Z [ERROR]: 2025-08-21 12:40:01,193 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T19:40:01.204Z [ERROR]: 2025-08-21 12:40:01,203 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T19:40:02.599Z [ERROR]: 2025-08-21 12:40:02,598 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T19:40:04.653Z [ERROR]: 2025-08-21 12:40:04,652 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T19:40:07.786Z [ERROR]: Traceback (most recent call last):
+  File "C:\Users\miao1\AppData\Roaming\npm\node_modules\promptfoo\dist\src\python\wrapper.py", line 39, in <module>
+    result = call_method(script_path, method_name, *data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Roaming\npm\node_modules\promptfoo\dist\src\python\wrapper.py", line 18, in call_method
+    spec.loader.exec_module(script_module)
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "D:\Development\napari-mcp\eval\general_mcp_client.py", line 21, in <module>
+    from mcp import ClientSession, StdioServerParameters
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\mcp\__init__.py", line 1, in <module>
+2025-08-21T19:40:07.787Z [ERROR]: from .client.session import ClientSession
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\mcp\client\session.py", line 6, in <module>
+    from pydantic import AnyUrl, TypeAdapter
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\pydantic\__init__.py", line 413, in <module>
+2025-08-21T19:40:07.788Z [ERROR]: _getattr_migration = getattr_migration(__name__)
+2025-08-21T19:40:07.788Z [ERROR]: ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\pydantic\_migration.py", line 260, in getattr_migration
+2025-08-21T19:40:07.788Z [ERROR]: from .errors import PydanticImportError
+  File "<frozen importlib._bootstrap>", line 1357, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 417, in __enter__
+  File "<frozen importlib._bootstrap>", line 443, in _get_module_lock
+  File "<frozen importlib._bootstrap>", line 253, in __init__
+KeyboardInterrupt
+2025-08-21T19:40:07.803Z [ERROR]: Error running Python script: KeyboardInterrupt
+Stack Trace: Error: KeyboardInterrupt
+    at PythonShell.parseError (C:\Users\miao1\AppData\Roaming\npm\node_modules\promptfoo\node_modules\python-shell\index.js:303:21)
+    at terminateIfNeeded (C:\Users\miao1\AppData\Roaming\npm\node_modules\promptfoo\node_modules\python-shell\index.js:193:32)
+    at ChildProcess.<anonymous> (C:\Users\miao1\AppData\Roaming\npm\node_modules\promptfoo\node_modules\python-shell\index.js:185:13)
+    at ChildProcess.emit (node:events:518:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:293:12)
+    --Python Traceback: --
+    File "C:\Users\miao1\AppData\Roaming\npm\node_modules\promptfoo\dist\src\python\wrapper.py", line 39, in <module>
+      result = call_method(script_path, method_name, *data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "C:\Users\miao1\AppData\Roaming\npm\node_modules\promptfoo\dist\src\python\wrapper.py", line 18, in call_method
+      spec.loader.exec_module(script_module)
+    File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+    File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+    File "D:\Development\napari-mcp\eval\general_mcp_client.py", line 21, in <module>
+      from mcp import ClientSession, StdioServerParameters
+    File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\mcp\__init__.py", line 1, in <module>
+      from .client.session import ClientSession
+    File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\mcp\client\session.py", line 6, in <module>
+      from pydantic import AnyUrl, TypeAdapter
+    File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\pydantic\__init__.py", line 413, in <module>
+      _getattr_migration = getattr_migration(__name__)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\site-packages\pydantic\_migration.py", line 260, in getattr_migration
+      from .errors import PydanticImportError
+    File "<frozen importlib._bootstrap>", line 1357, in _find_and_load
+    File "<frozen importlib._bootstrap>", line 417, in __enter__
+    File "<frozen importlib._bootstrap>", line 443, in _get_module_lock
+    File "<frozen importlib._bootstrap>", line 253, in __init__
+2025-08-21T19:40:07.804Z [ERROR]: Error removing C:\Users\miao1\AppData\Local\Temp\promptfoo-python-output-json-1755805207606-89af79577598e.json: Error: ENOENT: no such file or directory, unlink 'C:\Users\miao1\AppData\Local\Temp\promptfoo-python-output-json-1755805207606-89af79577598e.json'
+2025-08-21T20:54:10.703Z [ERROR]: 2025-08-21 13:54:10,695 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T20:54:10.711Z [ERROR]: 2025-08-21 13:54:10,709 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T20:54:12.708Z [ERROR]: 2025-08-21 13:54:12,707 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T20:54:15.448Z [ERROR]: 2025-08-21 13:54:15,447 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T20:54:15.457Z [ERROR]: 2025-08-21 13:54:15,457 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T20:54:17.536Z [ERROR]: 2025-08-21 13:54:17,536 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T20:54:17.641Z [ERROR]: 2025-08-21 13:54:17,640 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T20:54:19.768Z [ERROR]: 2025-08-21 13:54:19,767 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T20:54:19.778Z [ERROR]: 2025-08-21 13:54:19,777 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T20:54:21.487Z [ERROR]: 2025-08-21 13:54:21,486 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T20:54:25.172Z [ERROR]: 2025-08-21 13:54:25,172 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T20:54:25.182Z [ERROR]: 2025-08-21 13:54:25,181 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T20:54:26.278Z [ERROR]: 2025-08-21 13:54:26,277 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T20:54:28.686Z [ERROR]: 2025-08-21 13:54:28,686 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T20:54:28.710Z [ERROR]: 2025-08-21 13:54:28,709 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T20:54:28.742Z [ERROR]: 2025-08-21 13:54:28,741 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T20:54:28.758Z [ERROR]: 2025-08-21 13:54:28,757 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T20:54:29.534Z [ERROR]: 2025-08-21 13:54:29,534 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T20:55:05.625Z [ERROR]: 2025-08-21 13:55:05,624 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T20:55:05.635Z [ERROR]: 2025-08-21 13:55:05,635 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T20:55:09.494Z [ERROR]: 2025-08-21 13:55:09,493 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T20:55:17.497Z [ERROR]: 2025-08-21 13:55:17,496 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T20:55:17.508Z [ERROR]: 2025-08-21 13:55:17,507 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T20:55:18.597Z [ERROR]: 2025-08-21 13:55:18,597 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T20:55:23.944Z [ERROR]: 2025-08-21 13:55:23,943 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T20:55:23.953Z [ERROR]: 2025-08-21 13:55:23,952 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T20:55:25.233Z [ERROR]: 2025-08-21 13:55:25,232 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T20:55:26.031Z [ERROR]: 2025-08-21 13:55:26,028 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T20:55:28.479Z [ERROR]: 2025-08-21 13:55:28,479 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T20:55:33.105Z [ERROR]: 2025-08-21 13:55:33,105 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T20:55:33.115Z [ERROR]: 2025-08-21 13:55:33,115 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T20:55:34.980Z [ERROR]: 2025-08-21 13:55:34,979 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T20:55:36.083Z [ERROR]: Traceback (most recent call last):
+  File "C:\Users\miao1\AppData\Roaming\npm\node_modules\promptfoo\dist\src\python\wrapper.py", line 39, in <module>
+    result = call_method(script_path, method_name, *data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Roaming\npm\node_modules\promptfoo\dist\src\python\wrapper.py", line 28, in call_method
+    return method_to_call(*args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Development\napari-mcp\eval\general_mcp_client.py", line 34, in call_api
+    result = loop.run_until_complete(client.process_prompt(prompt, options))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\base_events.py", line 678, in run_until_complete
+    self.run_forever()
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\windows_events.py", line 322, in run_forever
+    super().run_forever()
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\base_events.py", line 645, in run_forever
+2025-08-21T20:55:36.083Z [ERROR]: self._run_once()
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\base_events.py", line 1961, in _run_once
+    event_list = self._selector.select(timeout)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\windows_events.py", line 445, in select
+2025-08-21T20:55:36.084Z [ERROR]: self._poll(timeout)
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\windows_events.py", line 774, in _poll
+    status = _overlapped.GetQueuedCompletionStatus(self._iocp, ms)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+2025-08-21T21:04:06.319Z [ERROR]: 2025-08-21 14:04:06,313 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:04:06.324Z [ERROR]: 2025-08-21 14:04:06,324 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:04:08.462Z [ERROR]: 2025-08-21 14:04:08,461 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:04:11.151Z [ERROR]: 2025-08-21 14:04:11,151 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:04:11.160Z [ERROR]: 2025-08-21 14:04:11,160 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:04:13.089Z [ERROR]: 2025-08-21 14:04:13,088 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:04:13.191Z [ERROR]: 2025-08-21 14:04:13,190 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:04:15.664Z [ERROR]: 2025-08-21 14:04:15,664 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:04:15.677Z [ERROR]: 2025-08-21 14:04:15,676 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:04:16.785Z [ERROR]: 2025-08-21 14:04:16,785 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:04:20.504Z [ERROR]: 2025-08-21 14:04:20,504 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:04:20.516Z [ERROR]: 2025-08-21 14:04:20,515 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:04:21.570Z [ERROR]: 2025-08-21 14:04:21,569 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:04:23.099Z [ERROR]: 2025-08-21 14:04:23,099 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:04:23.113Z [ERROR]: 2025-08-21 14:04:23,113 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:04:24.602Z [ERROR]: 2025-08-21 14:04:24,602 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:04:24.630Z [ERROR]: 2025-08-21 14:04:24,630 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:04:25.457Z [ERROR]: 2025-08-21 14:04:25,456 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:04:26.299Z [ERROR]: 2025-08-21 14:04:26,298 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:04:30.459Z [ERROR]: 2025-08-21 14:04:30,458 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:04:30.470Z [ERROR]: 2025-08-21 14:04:30,470 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:04:31.536Z [ERROR]: 2025-08-21 14:04:31,536 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:04:38.368Z [ERROR]: 2025-08-21 14:04:38,368 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:04:38.378Z [ERROR]: 2025-08-21 14:04:38,377 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:04:39.352Z [ERROR]: 2025-08-21 14:04:39,352 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:04:44.307Z [ERROR]: 2025-08-21 14:04:44,307 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:04:44.317Z [ERROR]: 2025-08-21 14:04:44,317 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:04:45.476Z [ERROR]: 2025-08-21 14:04:45,476 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:04:46.372Z [ERROR]: 2025-08-21 14:04:46,372 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:04:47.094Z [ERROR]: 2025-08-21 14:04:47,094 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:04:49.501Z [ERROR]: 2025-08-21 14:04:49,501 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:04:53.824Z [ERROR]: 2025-08-21 14:04:53,824 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:04:53.835Z [ERROR]: 2025-08-21 14:04:53,835 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:04:55.138Z [ERROR]: 2025-08-21 14:04:55,138 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:04:55.966Z [ERROR]: 2025-08-21 14:04:55,966 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:04:56.810Z [ERROR]: 2025-08-21 14:04:56,811 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:04:59.386Z [ERROR]: 2025-08-21 14:04:59,386 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:05:02.952Z [ERROR]: 2025-08-21 14:05:02,952 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:05:02.962Z [ERROR]: 2025-08-21 14:05:02,961 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:05:04.437Z [ERROR]: 2025-08-21 14:05:04,436 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:05:06.131Z [ERROR]: 2025-08-21 14:05:06,130 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:05:08.117Z [ERROR]: 2025-08-21 14:05:08,116 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:05:08.126Z [ERROR]: 2025-08-21 14:05:08,125 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:05:09.318Z [ERROR]: 2025-08-21 14:05:09,316 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:05:14.066Z [ERROR]: 2025-08-21 14:05:14,063 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:05:14.076Z [ERROR]: 2025-08-21 14:05:14,075 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:05:15.971Z [ERROR]: 2025-08-21 14:05:15,969 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:05:15.990Z [ERROR]: 2025-08-21 14:05:15,990 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:05:18.527Z [ERROR]: 2025-08-21 14:05:18,526 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:05:22.328Z [ERROR]: 2025-08-21 14:05:22,327 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:05:22.339Z [ERROR]: 2025-08-21 14:05:22,338 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:05:23.420Z [ERROR]: 2025-08-21 14:05:23,419 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:05:24.167Z [ERROR]: 2025-08-21 14:05:24,166 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:05:28.326Z [ERROR]: 2025-08-21 14:05:28,324 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:05:28.336Z [ERROR]: 2025-08-21 14:05:28,334 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:05:29.457Z [ERROR]: 2025-08-21 14:05:29,456 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:05:30.185Z [ERROR]: 2025-08-21 14:05:30,184 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:05:34.798Z [ERROR]: 2025-08-21 14:05:34,798 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:05:34.807Z [ERROR]: 2025-08-21 14:05:34,807 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:05:36.224Z [ERROR]: 2025-08-21 14:05:36,223 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:05:37.107Z [ERROR]: 2025-08-21 14:05:37,106 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:05:37.842Z [ERROR]: 2025-08-21 14:05:37,840 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:05:41.343Z [ERROR]: 2025-08-21 14:05:41,343 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:05:41.366Z [ERROR]: 2025-08-21 14:05:41,365 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:05:42.435Z [ERROR]: 2025-08-21 14:05:42,434 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:05:43.622Z [ERROR]: 2025-08-21 14:05:43,620 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:05:44.937Z [ERROR]: 2025-08-21 14:05:44,937 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:05:44.964Z [ERROR]: 2025-08-21 14:05:44,963 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:05:45.804Z [ERROR]: 2025-08-21 14:05:45,803 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:05:46.910Z [ERROR]: 2025-08-21 14:05:46,909 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:05:47.661Z [ERROR]: 2025-08-21 14:05:47,660 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:05:51.489Z [ERROR]: 2025-08-21 14:05:51,488 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:05:51.499Z [ERROR]: 2025-08-21 14:05:51,498 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:05:53.393Z [ERROR]: 2025-08-21 14:05:53,393 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:05:54.663Z [ERROR]: 2025-08-21 14:05:54,662 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:05:56.375Z [ERROR]: 2025-08-21 14:05:56,374 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:06:00.021Z [ERROR]: 2025-08-21 14:06:00,021 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:06:00.030Z [ERROR]: 2025-08-21 14:06:00,030 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:06:01.364Z [ERROR]: 2025-08-21 14:06:01,363 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:06:02.471Z [ERROR]: 2025-08-21 14:06:02,470 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:06:06.674Z [ERROR]: 2025-08-21 14:06:06,672 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:06:06.684Z [ERROR]: 2025-08-21 14:06:06,682 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:06:08.728Z [ERROR]: 2025-08-21 14:06:08,726 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:06:09.538Z [ERROR]: 2025-08-21 14:06:09,537 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:06:13.138Z [ERROR]: 2025-08-21 14:06:13,137 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:06:13.147Z [ERROR]: 2025-08-21 14:06:13,146 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:06:14.195Z [ERROR]: 2025-08-21 14:06:14,194 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:06:17.794Z [ERROR]: 2025-08-21 14:06:17,791 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:06:17.804Z [ERROR]: 2025-08-21 14:06:17,803 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:06:18.892Z [ERROR]: 2025-08-21 14:06:18,891 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:06:21.301Z [ERROR]: 2025-08-21 14:06:21,299 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:06:21.323Z [ERROR]: 2025-08-21 14:06:21,320 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:06:22.821Z [ERROR]: 2025-08-21 14:06:22,821 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:06:24.931Z [ERROR]: 2025-08-21 14:06:24,929 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:06:24.940Z [ERROR]: 2025-08-21 14:06:24,939 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:06:26.036Z [ERROR]: 2025-08-21 14:06:26,035 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:06:31.042Z [ERROR]: 2025-08-21 14:06:31,041 napari_manager WARNING Attempt 1 failed: Connection timeout after 5.0s. Retrying in 1.0s...
+2025-08-21T21:06:37.077Z [ERROR]: 2025-08-21 14:06:37,076 napari_manager WARNING Attempt 2 failed: Connection timeout after 5.0s. Retrying in 1.0s...
+2025-08-21T21:06:45.601Z [ERROR]: 2025-08-21 14:06:45,600 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:06:45.611Z [ERROR]: 2025-08-21 14:06:45,610 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:06:46.902Z [ERROR]: 2025-08-21 14:06:46,900 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:06:49.152Z [ERROR]: 2025-08-21 14:06:49,152 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:06:49.163Z [ERROR]: 2025-08-21 14:06:49,162 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:06:50.474Z [ERROR]: 2025-08-21 14:06:50,473 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:06:55.489Z [ERROR]: 2025-08-21 14:06:55,489 napari_manager WARNING Attempt 1 failed: Connection timeout after 5.0s. Retrying in 1.0s...
+2025-08-21T21:07:01.502Z [ERROR]: 2025-08-21 14:07:01,501 napari_manager WARNING Attempt 2 failed: Connection timeout after 5.0s. Retrying in 1.0s...
+2025-08-21T21:07:08.646Z [ERROR]: 2025-08-21 14:07:08,645 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:07:10.675Z [ERROR]: 2025-08-21 14:07:10,673 napari_manager WARNING Attempt 1 failed: Connection refused to 127.0.0.1:64908. Retrying in 1.0s...
+2025-08-21T21:07:10.703Z [ERROR]: Traceback (most recent call last):
+  File "C:\Users\miao1\AppData\Roaming\npm\node_modules\promptfoo\dist\src\python\wrapper.py", line 39, in <module>
+    result = call_method(script_path, method_name, *data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Roaming\npm\node_modules\promptfoo\dist\src\python\wrapper.py", line 28, in call_method
+    return method_to_call(*args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Development\napari-mcp\eval\general_mcp_client.py", line 34, in call_api
+    result = loop.run_until_complete(client.process_prompt(prompt, options))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\base_events.py", line 678, in run_until_complete
+    self.run_forever()
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\windows_events.py", line 322, in run_forever
+    super().run_forever()
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\base_events.py", line 645, in run_forever
+    self._run_once()
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\base_events.py", line 1961, in _run_once
+2025-08-21T21:07:10.704Z [ERROR]: event_list = self._selector.select(timeout)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\windows_events.py", line 445, in select
+    self._poll(timeout)
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\windows_events.py", line 774, in _poll
+2025-08-21T21:07:10.704Z [ERROR]: status = _overlapped.GetQueuedCompletionStatus(self._iocp, ms)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+2025-08-21T21:11:32.218Z [ERROR]: 2025-08-21 14:11:32,212 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:11:32.224Z [ERROR]: 2025-08-21 14:11:32,224 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:11:34.173Z [ERROR]: 2025-08-21 14:11:34,172 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:11:36.695Z [ERROR]: 2025-08-21 14:11:36,694 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:11:36.704Z [ERROR]: 2025-08-21 14:11:36,704 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:11:38.774Z [ERROR]: 2025-08-21 14:11:38,774 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:11:38.875Z [ERROR]: 2025-08-21 14:11:38,874 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:11:42.064Z [ERROR]: 2025-08-21 14:11:42,063 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:11:42.073Z [ERROR]: 2025-08-21 14:11:42,073 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:11:43.434Z [ERROR]: 2025-08-21 14:11:43,433 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:11:46.499Z [ERROR]: 2025-08-21 14:11:46,499 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:11:46.508Z [ERROR]: 2025-08-21 14:11:46,508 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:11:47.514Z [ERROR]: 2025-08-21 14:11:47,514 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:11:49.576Z [ERROR]: 2025-08-21 14:11:49,576 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:11:49.586Z [ERROR]: 2025-08-21 14:11:49,585 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:11:51.930Z [ERROR]: 2025-08-21 14:11:51,930 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:11:55.377Z [ERROR]: 2025-08-21 14:11:55,376 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:11:55.387Z [ERROR]: 2025-08-21 14:11:55,387 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:11:56.367Z [ERROR]: 2025-08-21 14:11:56,365 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:11:58.469Z [ERROR]: 2025-08-21 14:11:58,469 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:11:58.480Z [ERROR]: 2025-08-21 14:11:58,479 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:11:59.740Z [ERROR]: 2025-08-21 14:11:59,740 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:12:00.519Z [ERROR]: 2025-08-21 14:12:00,520 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:12:04.595Z [ERROR]: 2025-08-21 14:12:04,595 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:12:04.604Z [ERROR]: 2025-08-21 14:12:04,604 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:12:06.350Z [ERROR]: 2025-08-21 14:12:06,350 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:12:07.755Z [ERROR]: 2025-08-21 14:12:07,755 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:12:11.654Z [ERROR]: 2025-08-21 14:12:11,654 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:12:11.664Z [ERROR]: 2025-08-21 14:12:11,664 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:12:12.797Z [ERROR]: 2025-08-21 14:12:12,796 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:12:13.771Z [ERROR]: 2025-08-21 14:12:13,771 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:12:14.514Z [ERROR]: 2025-08-21 14:12:14,514 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:12:18.257Z [ERROR]: 2025-08-21 14:12:18,257 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:12:18.267Z [ERROR]: 2025-08-21 14:12:18,267 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:12:19.882Z [ERROR]: 2025-08-21 14:12:19,882 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:12:23.412Z [ERROR]: 2025-08-21 14:12:23,411 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:12:25.214Z [ERROR]: 2025-08-21 14:12:25,214 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:12:30.243Z [ERROR]: 2025-08-21 14:12:30,242 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:12:31.152Z [ERROR]: Traceback (most recent call last):
+  File "C:\Users\miao1\AppData\Roaming\npm\node_modules\promptfoo\dist\src\python\wrapper.py", line 39, in <module>
+    result = call_method(script_path, method_name, *data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Roaming\npm\node_modules\promptfoo\dist\src\python\wrapper.py", line 28, in call_method
+    return method_to_call(*args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Development\napari-mcp\eval\general_mcp_client.py", line 34, in call_api
+    result = loop.run_until_complete(client.process_prompt(prompt, options))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\base_events.py", line 678, in run_until_complete
+    self.run_forever()
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\windows_events.py", line 322, in run_forever
+    super().run_forever()
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\base_events.py", line 645, in run_forever
+    self._run_once()
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\base_events.py", line 1961, in _run_once
+2025-08-21T21:12:31.152Z [ERROR]: event_list = self._selector.select(timeout)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\windows_events.py", line 445, in select
+    self._poll(timeout)
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\windows_events.py", line 774, in _poll
+2025-08-21T21:12:31.153Z [ERROR]: status = _overlapped.GetQueuedCompletionStatus(self._iocp, ms)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+2025-08-21T21:15:05.575Z [ERROR]: 2025-08-21 14:15:05,570 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:15:05.582Z [ERROR]: 2025-08-21 14:15:05,581 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:15:07.261Z [ERROR]: 2025-08-21 14:15:07,261 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:15:14.502Z [ERROR]: 2025-08-21 14:15:14,500 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:15:14.513Z [ERROR]: 2025-08-21 14:15:14,513 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:15:15.795Z [ERROR]: 2025-08-21 14:15:15,795 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:15:22.943Z [ERROR]: 2025-08-21 14:15:22,942 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:15:22.952Z [ERROR]: 2025-08-21 14:15:22,951 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:15:23.884Z [ERROR]: 2025-08-21 14:15:23,883 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:15:30.129Z [ERROR]: 2025-08-21 14:15:30,129 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:18:27.355Z [ERROR] [pythonUtils.js:137]: 2025-08-21 14:18:27,350 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:18:27.361Z [ERROR] [pythonUtils.js:137]: 2025-08-21 14:18:27,361 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:18:29.158Z [ERROR] [pythonUtils.js:137]: 2025-08-21 14:18:29,157 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:18:31.767Z [ERROR] [pythonUtils.js:137]: 2025-08-21 14:18:31,766 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:18:31.777Z [ERROR] [pythonUtils.js:137]: 2025-08-21 14:18:31,776 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:18:33.301Z [ERROR] [pythonUtils.js:137]: 2025-08-21 14:18:33,300 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:18:34.077Z [ERROR] [pythonUtils.js:137]: 2025-08-21 14:18:34,077 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:18:36.147Z [ERROR] [pythonUtils.js:137]: 2025-08-21 14:18:36,146 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:18:36.157Z [ERROR] [pythonUtils.js:137]: 2025-08-21 14:18:36,156 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:18:37.209Z [ERROR] [pythonUtils.js:137]: 2025-08-21 14:18:37,207 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:18:41.007Z [ERROR] [pythonUtils.js:137]: 2025-08-21 14:18:41,006 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:18:41.018Z [ERROR] [pythonUtils.js:137]: 2025-08-21 14:18:41,017 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:18:42.203Z [ERROR] [pythonUtils.js:137]: 2025-08-21 14:18:42,203 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:18:43.190Z [ERROR] [pythonUtils.js:137]: 2025-08-21 14:18:43,190 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:18:44.162Z [ERROR] [pythonUtils.js:137]: 2025-08-21 14:18:44,161 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:18:47.945Z [ERROR] [pythonUtils.js:137]: 2025-08-21 14:18:47,945 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:18:47.954Z [ERROR] [pythonUtils.js:137]: 2025-08-21 14:18:47,954 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:18:49.118Z [ERROR] [pythonUtils.js:137]: 2025-08-21 14:18:49,117 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:25:35.811Z [ERROR]: 2025-08-21 14:25:35,806 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:25:35.816Z [ERROR]: 2025-08-21 14:25:35,816 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:25:37.429Z [ERROR]: 2025-08-21 14:25:37,428 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:25:40.384Z [ERROR]: 2025-08-21 14:25:40,384 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:25:40.394Z [ERROR]: 2025-08-21 14:25:40,394 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:25:42.099Z [ERROR]: 2025-08-21 14:25:42,098 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:25:43.000Z [ERROR]: 2025-08-21 14:25:42,999 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:25:45.095Z [ERROR]: 2025-08-21 14:25:45,094 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:25:45.109Z [ERROR]: 2025-08-21 14:25:45,109 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:25:46.461Z [ERROR]: 2025-08-21 14:25:46,445 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:25:49.523Z [ERROR]: 2025-08-21 14:25:49,522 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:25:49.532Z [ERROR]: 2025-08-21 14:25:49,532 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:25:50.562Z [ERROR]: 2025-08-21 14:25:50,562 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:25:51.321Z [ERROR]: 2025-08-21 14:25:51,320 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:25:52.204Z [ERROR]: 2025-08-21 14:25:52,204 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:25:55.536Z [ERROR]: 2025-08-21 14:25:55,535 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:25:55.546Z [ERROR]: 2025-08-21 14:25:55,545 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:25:57.052Z [ERROR]: 2025-08-21 14:25:57,051 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:26:02.061Z [ERROR]: 2025-08-21 14:26:02,060 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:26:04.294Z [ERROR]: Traceback (most recent call last):
+  File "C:\Users\miao1\AppData\Roaming\npm\node_modules\promptfoo\dist\src\python\wrapper.py", line 39, in <module>
+    result = call_method(script_path, method_name, *data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Roaming\npm\node_modules\promptfoo\dist\src\python\wrapper.py", line 28, in call_method
+    return method_to_call(*args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Development\napari-mcp\eval\general_mcp_client.py", line 34, in call_api
+    result = loop.run_until_complete(client.process_prompt(prompt, options))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\base_events.py", line 678, in run_until_complete
+    self.run_forever()
+2025-08-21T21:26:04.295Z [ERROR]: File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\windows_events.py", line 322, in run_forever
+    super().run_forever()
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\base_events.py", line 645, in run_forever
+    self._run_once()
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\base_events.py", line 1961, in _run_once
+2025-08-21T21:26:04.295Z [ERROR]: event_list = self._selector.select(timeout)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\windows_events.py", line 445, in select
+    self._poll(timeout)
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\windows_events.py", line 774, in _poll
+2025-08-21T21:26:04.296Z [ERROR]: status = _overlapped.GetQueuedCompletionStatus(self._iocp, ms)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+2025-08-21T21:29:48.864Z [ERROR]: 2025-08-21 14:29:48,859 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:29:48.870Z [ERROR]: 2025-08-21 14:29:48,869 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:29:50.358Z [ERROR]: 2025-08-21 14:29:50,357 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:29:53.335Z [ERROR]: 2025-08-21 14:29:53,333 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:29:53.344Z [ERROR]: 2025-08-21 14:29:53,343 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:29:54.826Z [ERROR]: 2025-08-21 14:29:54,825 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:29:55.741Z [ERROR]: 2025-08-21 14:29:55,739 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:29:57.873Z [ERROR]: 2025-08-21 14:29:57,872 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:29:57.883Z [ERROR]: 2025-08-21 14:29:57,882 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:29:59.234Z [ERROR]: 2025-08-21 14:29:59,234 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:30:02.367Z [ERROR]: 2025-08-21 14:30:02,366 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:30:02.375Z [ERROR]: 2025-08-21 14:30:02,375 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:30:03.360Z [ERROR]: 2025-08-21 14:30:03,357 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:30:04.241Z [ERROR]: 2025-08-21 14:30:04,240 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:30:05.099Z [ERROR]: 2025-08-21 14:30:05,096 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:30:05.966Z [ERROR]: 2025-08-21 14:30:05,962 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:30:09.183Z [ERROR]: 2025-08-21 14:30:09,183 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:30:09.193Z [ERROR]: 2025-08-21 14:30:09,193 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:30:10.454Z [ERROR]: 2025-08-21 14:30:10,451 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:30:14.233Z [ERROR]: Traceback (most recent call last):
+  File "C:\Users\miao1\AppData\Roaming\npm\node_modules\promptfoo\dist\src\python\wrapper.py", line 39, in <module>
+    result = call_method(script_path, method_name, *data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Roaming\npm\node_modules\promptfoo\dist\src\python\wrapper.py", line 28, in call_method
+    return method_to_call(*args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Development\napari-mcp\eval\general_mcp_client.py", line 34, in call_api
+    result = loop.run_until_complete(client.process_prompt(prompt, options))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\base_events.py", line 678, in run_until_complete
+    self.run_forever()
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\windows_events.py", line 322, in run_forever
+2025-08-21T21:30:14.234Z [ERROR]: super().run_forever()
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\base_events.py", line 645, in run_forever
+    self._run_once()
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\base_events.py", line 1961, in _run_once
+    event_list = self._selector.select(timeout)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\windows_events.py", line 445, in select
+    self._poll(timeout)
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\windows_events.py", line 774, in _poll
+2025-08-21T21:30:14.234Z [ERROR]: status = _overlapped.GetQueuedCompletionStatus(self._iocp, ms)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+2025-08-21T21:34:48.920Z [ERROR]: 2025-08-21 14:34:48,916 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:34:48.925Z [ERROR]: 2025-08-21 14:34:48,925 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:34:50.449Z [ERROR]: 2025-08-21 14:34:50,448 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:34:53.445Z [ERROR]: 2025-08-21 14:34:53,444 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:34:53.455Z [ERROR]: 2025-08-21 14:34:53,455 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:34:54.990Z [ERROR]: 2025-08-21 14:34:54,981 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:34:55.902Z [ERROR]: 2025-08-21 14:34:55,901 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:34:57.954Z [ERROR]: 2025-08-21 14:34:57,955 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:34:57.964Z [ERROR]: 2025-08-21 14:34:57,964 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:34:58.985Z [ERROR]: 2025-08-21 14:34:58,983 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:35:02.402Z [ERROR]: 2025-08-21 14:35:02,402 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:35:02.411Z [ERROR]: 2025-08-21 14:35:02,411 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:35:03.523Z [ERROR]: 2025-08-21 14:35:03,523 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:35:04.353Z [ERROR]: 2025-08-21 14:35:04,352 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:35:05.224Z [ERROR]: 2025-08-21 14:35:05,223 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:35:08.663Z [ERROR]: 2025-08-21 14:35:08,663 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:35:08.672Z [ERROR]: 2025-08-21 14:35:08,672 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:35:09.824Z [ERROR]: 2025-08-21 14:35:09,822 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:35:10.853Z [ERROR]: 2025-08-21 14:35:10,853 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:35:11.706Z [ERROR]: 2025-08-21 14:35:11,706 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:35:14.852Z [ERROR]: 2025-08-21 14:35:14,852 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:35:18.575Z [ERROR]: 2025-08-21 14:35:18,575 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:35:18.584Z [ERROR]: 2025-08-21 14:35:18,585 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:35:19.992Z [ERROR]: 2025-08-21 14:35:19,992 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:35:20.798Z [ERROR]: 2025-08-21 14:35:20,798 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:35:24.918Z [ERROR]: 2025-08-21 14:35:24,918 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:35:24.928Z [ERROR]: 2025-08-21 14:35:24,928 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:35:25.995Z [ERROR]: 2025-08-21 14:35:25,993 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:35:26.794Z [ERROR]: 2025-08-21 14:35:26,794 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:35:33.121Z [ERROR]: 2025-08-21 14:35:33,120 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:35:33.131Z [ERROR]: 2025-08-21 14:35:33,131 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:35:34.455Z [ERROR]: 2025-08-21 14:35:34,455 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:35:35.356Z [ERROR]: 2025-08-21 14:35:35,356 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:35:36.093Z [ERROR]: 2025-08-21 14:35:36,094 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:35:40.499Z [ERROR]: 2025-08-21 14:35:40,499 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:35:40.508Z [ERROR]: 2025-08-21 14:35:40,509 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:35:43.002Z [ERROR]: 2025-08-21 14:35:43,002 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:35:43.011Z [ERROR]: 2025-08-21 14:35:43,012 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:35:51.401Z [ERROR]: 2025-08-21 14:35:51,399 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:35:52.442Z [ERROR]: 2025-08-21 14:35:52,441 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:35:53.471Z [ERROR]: 2025-08-21 14:35:53,471 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:35:57.880Z [ERROR]: 2025-08-21 14:35:57,879 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:35:57.892Z [ERROR]: 2025-08-21 14:35:57,891 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:35:59.492Z [ERROR]: 2025-08-21 14:35:59,492 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:36:01.546Z [ERROR]: 2025-08-21 14:36:01,545 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:36:05.748Z [ERROR]: 2025-08-21 14:36:05,747 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:36:05.757Z [ERROR]: 2025-08-21 14:36:05,757 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:36:07.361Z [ERROR]: 2025-08-21 14:36:07,360 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:36:09.376Z [ERROR]: 2025-08-21 14:36:09,375 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:36:13.724Z [ERROR]: 2025-08-21 14:36:13,724 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:36:13.734Z [ERROR]: 2025-08-21 14:36:13,734 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:36:14.788Z [ERROR]: 2025-08-21 14:36:14,788 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:36:19.169Z [ERROR]: 2025-08-21 14:36:19,169 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:36:19.179Z [ERROR]: 2025-08-21 14:36:19,179 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:36:20.693Z [ERROR]: 2025-08-21 14:36:20,611 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:36:20.888Z [ERROR]: Traceback (most recent call last):
+  File "C:\Users\miao1\AppData\Roaming\npm\node_modules\promptfoo\dist\src\python\wrapper.py", line 39, in <module>
+    result = call_method(script_path, method_name, *data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Roaming\npm\node_modules\promptfoo\dist\src\python\wrapper.py", line 28, in call_method
+    return method_to_call(*args)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Development\napari-mcp\eval\general_mcp_client.py", line 34, in call_api
+    result = loop.run_until_complete(client.process_prompt(prompt, options))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\base_events.py", line 678, in run_until_complete
+    self.run_forever()
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\windows_events.py", line 322, in run_forever
+    super().run_forever()
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\base_events.py", line 645, in run_forever
+2025-08-21T21:36:20.888Z [ERROR]: self._run_once()
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\base_events.py", line 1961, in _run_once
+    event_list = self._selector.select(timeout)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\windows_events.py", line 445, in select
+    self._poll(timeout)
+  File "C:\Users\miao1\AppData\Local\anaconda3\envs\mcp\Lib\asyncio\windows_events.py", line 774, in _poll
+2025-08-21T21:36:20.889Z [ERROR]: status = _overlapped.GetQueuedCompletionStatus(self._iocp, ms)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+2025-08-21T21:36:28.449Z [ERROR]: 2025-08-21 14:36:28,440 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:36:28.469Z [ERROR]: 2025-08-21 14:36:28,468 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:36:30.030Z [ERROR]: 2025-08-21 14:36:30,029 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:36:33.241Z [ERROR]: 2025-08-21 14:36:33,240 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:36:33.264Z [ERROR]: 2025-08-21 14:36:33,264 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:36:35.183Z [ERROR]: 2025-08-21 14:36:35,182 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:36:36.171Z [ERROR]: 2025-08-21 14:36:36,170 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:36:38.328Z [ERROR]: 2025-08-21 14:36:38,327 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:36:38.346Z [ERROR]: 2025-08-21 14:36:38,345 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:36:39.620Z [ERROR]: 2025-08-21 14:36:39,620 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:36:42.861Z [ERROR]: 2025-08-21 14:36:42,860 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:36:42.872Z [ERROR]: 2025-08-21 14:36:42,871 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:36:43.918Z [ERROR]: 2025-08-21 14:36:43,917 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:36:46.177Z [ERROR]: 2025-08-21 14:36:46,176 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:36:46.190Z [ERROR]: 2025-08-21 14:36:46,189 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:36:46.218Z [ERROR]: 2025-08-21 14:36:46,217 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:36:46.237Z [ERROR]: 2025-08-21 14:36:46,237 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:36:46.980Z [ERROR]: 2025-08-21 14:36:46,978 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:36:51.273Z [ERROR]: 2025-08-21 14:36:51,272 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:36:51.284Z [ERROR]: 2025-08-21 14:36:51,284 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:36:52.332Z [ERROR]: 2025-08-21 14:36:52,331 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:36:58.605Z [ERROR]: 2025-08-21 14:36:58,604 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:36:58.616Z [ERROR]: 2025-08-21 14:36:58,615 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:37:00.042Z [ERROR]: 2025-08-21 14:37:00,041 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:37:05.268Z [ERROR]: 2025-08-21 14:37:05,267 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:37:05.277Z [ERROR]: 2025-08-21 14:37:05,277 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:37:06.544Z [ERROR]: 2025-08-21 14:37:06,543 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:37:07.274Z [ERROR]: 2025-08-21 14:37:07,274 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:37:09.644Z [ERROR]: 2025-08-21 14:37:09,644 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:37:13.339Z [ERROR]: 2025-08-21 14:37:13,339 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:37:13.351Z [ERROR]: 2025-08-21 14:37:13,351 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:37:14.701Z [ERROR]: 2025-08-21 14:37:14,701 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:37:15.491Z [ERROR]: 2025-08-21 14:37:15,491 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:37:18.178Z [ERROR]: 2025-08-21 14:37:18,178 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:37:21.901Z [ERROR]: 2025-08-21 14:37:21,900 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:37:21.911Z [ERROR]: 2025-08-21 14:37:21,910 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:37:23.797Z [ERROR]: 2025-08-21 14:37:23,797 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:37:24.609Z [ERROR]: 2025-08-21 14:37:24,609 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:37:25.473Z [ERROR]: 2025-08-21 14:37:25,472 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:37:30.145Z [ERROR]: 2025-08-21 14:37:30,144 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:37:30.155Z [ERROR]: 2025-08-21 14:37:30,154 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:37:31.724Z [ERROR]: 2025-08-21 14:37:31,723 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:37:31.745Z [ERROR]: 2025-08-21 14:37:31,744 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:37:35.706Z [ERROR]: 2025-08-21 14:37:35,705 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:37:35.715Z [ERROR]: 2025-08-21 14:37:35,714 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:37:37.209Z [ERROR]: 2025-08-21 14:37:37,208 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:37:38.048Z [ERROR]: 2025-08-21 14:37:38,048 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:37:38.854Z [ERROR]: 2025-08-21 14:37:38,854 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:37:43.193Z [ERROR]: 2025-08-21 14:37:43,192 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:37:43.220Z [ERROR]: 2025-08-21 14:37:43,219 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:37:44.342Z [ERROR]: 2025-08-21 14:37:44,342 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:37:45.086Z [ERROR]: 2025-08-21 14:37:45,085 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:37:48.982Z [ERROR]: 2025-08-21 14:37:48,981 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:37:48.992Z [ERROR]: 2025-08-21 14:37:48,991 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:37:50.316Z [ERROR]: 2025-08-21 14:37:50,315 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:37:51.246Z [ERROR]: 2025-08-21 14:37:51,246 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:37:52.174Z [ERROR]: 2025-08-21 14:37:52,174 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:37:56.029Z [ERROR]: 2025-08-21 14:37:56,028 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:37:56.040Z [ERROR]: 2025-08-21 14:37:56,039 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:37:57.319Z [ERROR]: 2025-08-21 14:37:57,317 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:38:02.803Z [ERROR]: 2025-08-21 14:38:02,803 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:38:02.827Z [ERROR]: 2025-08-21 14:38:02,827 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:38:04.569Z [ERROR]: 2025-08-21 14:38:04,568 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:38:05.624Z [ERROR]: 2025-08-21 14:38:05,624 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:38:06.525Z [ERROR]: 2025-08-21 14:38:06,524 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:38:07.968Z [ERROR]: 2025-08-21 14:38:07,967 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:38:08.026Z [ERROR]: 2025-08-21 14:38:08,026 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:38:15.562Z [ERROR]: 2025-08-21 14:38:15,561 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:38:15.574Z [ERROR]: 2025-08-21 14:38:15,573 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:38:16.794Z [ERROR]: 2025-08-21 14:38:16,794 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:38:16.815Z [ERROR]: 2025-08-21 14:38:16,815 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:38:21.981Z [ERROR]: 2025-08-21 14:38:21,981 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:38:21.990Z [ERROR]: 2025-08-21 14:38:21,991 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:38:23.387Z [ERROR]: 2025-08-21 14:38:23,387 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:38:24.129Z [ERROR]: 2025-08-21 14:38:24,129 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:38:27.847Z [ERROR]: 2025-08-21 14:38:27,846 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:38:27.855Z [ERROR]: 2025-08-21 14:38:27,855 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:38:29.102Z [ERROR]: 2025-08-21 14:38:29,102 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:38:31.370Z [ERROR]: 2025-08-21 14:38:31,369 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:38:31.381Z [ERROR]: 2025-08-21 14:38:31,381 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:38:32.908Z [ERROR]: 2025-08-21 14:38:32,908 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:38:35.145Z [ERROR]: 2025-08-21 14:38:35,145 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:38:35.154Z [ERROR]: 2025-08-21 14:38:35,154 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:38:36.758Z [ERROR]: 2025-08-21 14:38:36,757 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:38:38.879Z [ERROR]: 2025-08-21 14:38:38,878 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:38:38.888Z [ERROR]: 2025-08-21 14:38:38,888 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:38:40.048Z [ERROR]: 2025-08-21 14:38:40,047 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:38:42.262Z [ERROR]: 2025-08-21 14:38:42,261 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:38:42.273Z [ERROR]: 2025-08-21 14:38:42,272 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:38:43.423Z [ERROR]: 2025-08-21 14:38:43,422 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:38:45.468Z [ERROR]: 2025-08-21 14:38:45,467 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:38:45.478Z [ERROR]: 2025-08-21 14:38:45,476 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:38:46.494Z [ERROR]: 2025-08-21 14:38:46,494 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:38:49.714Z [ERROR]: 2025-08-21 14:38:49,713 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:38:49.716Z [ERROR]: 2025-08-21 14:38:49,716 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:38:49.731Z [ERROR]: 2025-08-21 14:38:49,731 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:38:49.767Z [ERROR]: 2025-08-21 14:38:49,767 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:38:49.812Z [ERROR]: 2025-08-21 14:38:49,812 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:38:49.851Z [ERROR]: 2025-08-21 14:38:49,848 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:38:52.168Z [ERROR]: 2025-08-21 14:38:52,168 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:38:52.194Z [ERROR]: 2025-08-21 14:38:52,194 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:38:53.398Z [ERROR]: 2025-08-21 14:38:53,398 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:38:56.590Z [ERROR]: 2025-08-21 14:38:56,590 napari_mcp_socket INFO Napari MCP (socket backend) listening�
+2025-08-21T21:38:56.612Z [ERROR]: 2025-08-21 14:38:56,612 mcp.server.lowlevel.server INFO Processing request of type ListToolsRequest
+2025-08-21T21:38:58.376Z [ERROR]: 2025-08-21 14:38:58,376 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest
+2025-08-21T21:38:58.381Z [ERROR]: 2025-08-21 14:38:58,380 mcp.server.lowlevel.server INFO Processing request of type CallToolRequest

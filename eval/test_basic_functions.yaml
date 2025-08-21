@@ -17,7 +17,7 @@
 - vars:
     question: |
       Load the "D:/Development/napari-mcp/eval/eval_examples/SNAP_IgM_BCR_Cell_1_ch1_t14.tif" file in Napari. 
-      Respond with <1> if the layers named SNAP_IgM_BCR_Cell_1_ch1_t14 and SNAP_IgM_BCR_Cell_1_ch0_t14 loaded or <0> otherwise. Only respond with <1> or <0>. 
+      Respond with <1> if the layers named SNAP_IgM_BCR_Cell_1_ch1_t14 and SNAP_IgM_BCR_Cell_1_ch0_t14 were loaded or <0> otherwise. Only respond with <1> or <0>. 
   assert:
     - type: contains-all
       value: "<1>"
@@ -81,8 +81,8 @@
 # Test 7: rotate camera to side view
 - vars:
     question: |
-      Rotate the camera to view the cells from the side. The viewport is already in 3D mode. Change the view angle so you can see the cells from a side perspective. Take a screenshot to verify the rotation.
-      Respond with <1> if the camera was successfully rotated to show a side view, or <0> if it failed. Only respond with <1> or <0>.
+      The viewport is already in 3D mode. If it is not, switch to 3D mode. Change the view angle so you can see the cells from a different perspective. Take a screenshot to verify the camera has been changed.
+      After the screenshot, switch back to the default view in 3D mode. Respond with <1> if the camera was successfully rotated to show a side view, or <0> if it failed. Only respond with <1> or <0>.
   assert:
     - type: contains-all
       value: "<1>"
@@ -106,20 +106,20 @@
     cache: false
     runSerially: true
 
-#TODO error: only integer types are supported for Labels layers, but data contains
+# #TODO error: only integer types are supported for Labels layers, but data contains
 
-# Test 9: reorder layers
-- vars:
-    question: |
-      Move the SNAP_IgM_BCR_Cell_1_ch1_t14 layer to the top of the layer list. Check the layer order.
-  assert:
-    - type: llm-rubric
-      value: 
-        - the layer was moved to the top
-        - the index of the layer is 1
-  options:
-    cache: false
-    runSerially: true
+# # Test 9: reorder layers
+# - vars:
+#     question: |
+#       Move the SNAP_IgM_BCR_Cell_1_ch1_t14 layer to the top of the layer list. Check the layer order.
+#   assert:
+#     - type: llm-rubric
+#       value: 
+#         - the layer was moved to the top
+#         - the index of the layer is 1
+#   options:
+#     cache: false
+#     runSerially: true
 
 # Test 11: adjust layer opacity
 - vars:

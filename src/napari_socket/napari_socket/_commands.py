@@ -22,12 +22,14 @@ def open_file(
 
 def remove_layer(name_or_index: str | int, viewer: Viewer):
     """Remove a layer by its name or positional index."""
-    layers = viewer.layers
-    if isinstance(name_or_index, int):
-        layer = layers[name_or_index]
-    else:
-        layer = layers[name_or_index]
-    viewer.layers.remove(layer)
+    try:
+        layer = _get_layer(viewer, name_or_index)
+        viewer.layers.remove(layer)
+        return f"Layer '{layer.name}' removed successfully."
+    except (KeyError, IndexError) as e:
+        # Get available layer names for better error message
+        available_layers = [layer.name for layer in viewer.layers]
+        return f"Layer '{name_or_index}' not found. Available layers: {available_layers}"
 
 def toggle_ndisplay(viewer: Viewer):
     """Toggle napari between 2-D (ndisplay = 2) and 3-D (ndisplay = 3)."""
@@ -141,27 +143,44 @@ def list_layers(viewer: Viewer):
         for i, layer in enumerate(viewer.layers)
     ])
 
+def get_layer_names(viewer: Viewer):
+    """
+    Return a simple list of available layer names.
+    
+    Returns
+    -------
+    list[str]
+        List of layer names that can be used with other commands.
+    """
+    return [layer.name for layer in viewer.layers]
+
 def set_colormap(
     layer_name: str | int,
     colormap: str,
     viewer: Viewer,
 ):
     """Change the colormap for a layer."""
-    if isinstance(layer_name, int):
-        layer = viewer.layers[layer_name]
-    else:
-        layer = viewer.layers[layer_name]
-
-    if hasattr(layer, 'colormap'):
-        layer.colormap = colormap
-        return f"Colormap for layer '{layer.name}' set to '{colormap}'."
-    
-    return f"Layer '{layer.name}' of type {type(layer).__name__} does not have a colormap attribute."
+    try:
+        layer = _get_layer(viewer, layer_name)
+        if hasattr(layer, 'colormap'):
+            layer.colormap = colormap
+            return f"Colormap for layer '{layer.name}' set to '{colormap}'."
+        
+        return f"Layer '{layer.name}' of type {type(layer).__name__} does not have a colormap attribute."
+    except (KeyError, IndexError) as e:
+        # Get available layer names for better error message
+        available_layers = [layer.name for layer in viewer.layers]
+        return f"Layer '{layer_name}' not found. Available layers: {available_layers}"
 
 def _get_layer(viewer: Viewer, layer_name: str | int | None = None):
     """Get a layer by name/index or return the active layer."""
     if layer_name is not None:
-        return viewer.layers[layer_name]
+        try:
+            return viewer.layers[layer_name]
+        except (KeyError, IndexError):
+            # Re-raise with more context
+            available_layers = [layer.name for layer in viewer.layers]
+            raise KeyError(f"Layer '{layer_name}' not found. Available layers: {available_layers}")
     return viewer.layers.selection.active
 
 def set_opacity(
@@ -170,15 +189,16 @@ def set_opacity(
     viewer: Viewer,
     ):
     """Adjust layer transparency (0=transparent, 1=opaque)."""
-    if isinstance(layer_name, int):
-        layer = viewer.layers[layer_name]
-    else:
-        layer = viewer.layers[layer_name]
-
-    if hasattr(layer, 'opacity'):
-        layer.opacity = opacity
-        return f"Opacity for layer '{layer.name}' set to {opacity}."
-    return f"Layer '{layer.name}' does not have an opacity attribute."
+    try:
+        layer = _get_layer(viewer, layer_name)
+        if hasattr(layer, 'opacity'):
+            layer.opacity = opacity
+            return f"Opacity for layer '{layer.name}' set to {opacity}."
+        return f"Layer '{layer.name}' does not have an opacity attribute."
+    except (KeyError, IndexError) as e:
+        # Get available layer names for better error message
+        available_layers = [layer.name for layer in viewer.layers]
+        return f"Layer '{layer_name}' not found. Available layers: {available_layers}"
 
 def set_blending(
         layer_name: str | int,

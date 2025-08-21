@@ -20,6 +20,9 @@ class NapariSocketWidget(QWidget):
 
         lay = QVBoxLayout(self)
         lay.addWidget(self._lbl); lay.addWidget(btn_on); lay.addWidget(btn_off)
+        
+        # Automatically start the server when widget is created
+        self._start()
 
     # --------------------------------------------------------------------- #
     def _start(self):

@@ -34,6 +34,10 @@ contributions:
       title: List Layers
       python_name: napari_socket._commands:list_layers
 
+    - id: napari-socket.get_layer_names
+      title: Get Layer Names
+      python_name: napari_socket._commands:get_layer_names
+
     - id: napari-socket.set_colormap
       title: Set Colormap
       python_name: napari_socket._commands:set_colormap
