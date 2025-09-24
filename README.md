@@ -1,4 +1,4 @@
-# napari-mcp
+# Napari-Mcp
 
 A lightweight [napari](https://napari.org) plugin that exposes the viewer over **MCP (Message-Control Protocol)** via a Python socket server. Built on top of **[FastMCP](https://github.com/fastmcp/fastmcp)**, it lets external MCP-speaking clients—such as autonomous AI agents running on Claude or OpenAI—**call napari’s public API remotely**.
 
