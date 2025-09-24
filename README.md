@@ -2,6 +2,8 @@
 
 A lightweight [napari](https://napari.org) plugin that exposes the viewer over **MCP (Message-Control Protocol)** via a Python socket server. Built on top of **[FastMCP](https://github.com/fastmcp/fastmcp)**, it lets external MCP-speaking clients—such as autonomous AI agents running on Claude or OpenAI—**call napari’s public API remotely**.
 
+[![Watch the demo](https://img.youtube.com/vi/WM3gkBIt6A8/maxresdefault.jpg)](https://youtu.be/WM3gkBIt6A8)
+
 ---
 
 ## 🔧 Requirements
@@ -58,28 +60,6 @@ e.g. For Claude Desktop, go to Developer->Open App Config File and add the below
 
 ---
 
-## 🧪 Testing
-
-The project includes comprehensive test suites to ensure the MCP server and client functionality work correctly.
-
-### Unit Tests
-
-Run the main test suite:
-
-```bash
-cd tests
-python test_napari_manager.py
-```
-
-This test suite includes:
-- **Connection diagnostics** - Tests connection with different timeout values
-- **Basic functionality** - Core napari operations (load files, list layers, etc.)
-- **Layer management** - Create, modify, and remove layers
-- **Data export** - Screenshots, data extraction
-- **Visualization controls** - Camera, view controls, colormaps
-- **Time series functions** - Multi-dimensional data handling
-- **Measurement tools** - Distance, area calculations
-
 ### Interactive Testing
 
 For interactive testing and exploration, use the Jupyter notebook:
@@ -89,19 +69,6 @@ cd tests
 jupyter notebook test_napari_manager_socket.ipynb
 ```
 
-This notebook provides step-by-step examples of:
-- Loading different file formats (TIF, NPZ)
-- Managing layers
-- Taking screenshots
-- Basic napari operations
-
-### Test Data
-
-The `tests/test_files/` directory contains sample data for testing:
-- `test_layers.tif` - Sample image data
-- `test_screenshot.png` - Expected screenshot output
-
----
 
 ## 📊 Evaluation
 
@@ -152,4 +119,6 @@ Napari_MCP was created by Haichao Miao (miao1@llnl.gov) and Shusen Liu (liu42@ll
 ## License
 Napari_MCP is distributed under the terms of the BSD-3 license.
 
-LLNL-CODE-XXXXXXX
+LLNL-CODE-2011142
+
+
