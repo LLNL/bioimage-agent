@@ -117,7 +117,7 @@ The evaluation setup supports:
 Napari_MCP was created by Haichao Miao (miao1@llnl.gov) and Shusen Liu (liu42@llnl.gov)
 
 ## License
-Napari_MCP is distributed under the terms of the BSD-3 license.
+Napari_MCP is distributed under the terms of the BSD 3‑Clause with Commercial License.
 
 LLNL-CODE-2011142
 
