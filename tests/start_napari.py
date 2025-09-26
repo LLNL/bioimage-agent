@@ -1,4 +1,5 @@
 import napari
+import numpy as np
 
 viewer = napari.Viewer()
 

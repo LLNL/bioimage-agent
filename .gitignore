@@ -1,0 +1,11 @@
+# Python
+**/__pycache__/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# PEP 582
+__pypackages__/
+
+# napari-mcp specific
+src/napari_socket/napari_socket.egg-info/

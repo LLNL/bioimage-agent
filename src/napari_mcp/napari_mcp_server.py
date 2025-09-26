@@ -44,7 +44,7 @@ def _parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Napari MCP server (socket backend)")
     parser.add_argument("--host", default="127.0.0.1", help="Napari‑socket host [default: %(default)s]")
     parser.add_argument("--port", type=int, default=64908, help="Napari‑socket port [default: %(default)s]")
-    parser.add_argument("--timeout", type=float, default=5.0, help="TCP timeout seconds [default: %(default)s]")
+    parser.add_argument("--timeout", type=float, default=20.0, help="TCP timeout seconds [default: %(default)s]")
     parser.add_argument(
         "--loglevel",
         default="INFO",
@@ -131,6 +131,9 @@ def build_mcp(manager: NapariManager) -> FastMCP:
         "• set_channel(index) - set current channel\n"
         "• set_z_slice(index) - set current z-slice\n"
         "• play_animation(start, end, fps) - play time series\n"
+        "• get_channel_info(layer_name) - get channel information for a layer\n"
+        "• split_channels(layer_name) - split multi-channel layer into separate layers\n"
+        "• merge_channels(layer_names, output_name) - merge layers into multi-channel layer\n"
     )
 
     mcp = FastMCP("Napari‑Socket", system_prompt=prompt)
@@ -774,6 +777,63 @@ def build_mcp(manager: NapariManager) -> FastMCP:
             Currently limited functionality - sets animation range but doesn't play continuously.
         """
         success, message = manager.play_animation(start_frame, end_frame, fps)
+        return message if success else f"❌ {message}"
+
+    # ------------------------------------------------------------------
+    # Enhanced Channel Management Functions
+    # ------------------------------------------------------------------
+    @mcp.tool()
+    def get_channel_info(layer_name: str | int) -> str:
+        """Get information about channels in a layer.
+        
+        Args:
+            layer_name: Layer name (str) or index (int) to analyze
+            
+        Returns:
+            str: JSON-formatted channel information including shape, channel axis, and number of channels
+                 or error message prefixed with ❌
+                 
+        Note:
+            Returns detailed information about the layer's channel structure.
+            Useful for understanding how multi-dimensional data is organized.
+        """
+        success, message = manager.get_channel_info(layer_name)
+        return json.dumps(message, indent=2) if success else f"❌ {message}"
+
+    @mcp.tool()
+    def split_channels(layer_name: str | int) -> str:
+        """Split a multi-channel layer into separate single-channel layers.
+        
+        Args:
+            layer_name: Layer name (str) or index (int) to split
+                        
+        Returns:
+            str: Success message with list of created layers or error message prefixed with ❌
+                
+        Note:
+            Automatically detects the channel axis and creates separate layers for each channel.
+            Each new layer will be named with '_ch0', '_ch1', etc. suffix.
+        """
+        success, message = manager.split_channels(layer_name)
+        return message if success else f"❌ {message}"
+
+    @mcp.tool()
+    def merge_channels(layer_names: list, output_name: str | None = None) -> str:
+        """Merge multiple single-channel layers into one multi-channel layer.
+        
+        Args:
+            layer_names: List of layer names to merge
+            output_name: Optional name for the merged layer (default: auto-generated)
+                        
+        Returns:
+            str: Success message with merged layer name or error message prefixed with ❌
+                
+        Note:
+            All input layers must have the same spatial dimensions.
+            The merged layer will have channels as the first dimension.
+            Useful for combining separate channel files into one multi-channel dataset.
+        """
+        success, message = manager.merge_channels(layer_names, output_name)
         return message if success else f"❌ {message}"
 
     return mcp

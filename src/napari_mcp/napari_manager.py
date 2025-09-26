@@ -41,7 +41,7 @@ class NapariManager:  # pylint: disable=too-few-public-methods
         self,
         host: str = "127.0.0.1",
         port: int = 64908,
-        timeout: float = 5.0,
+        timeout: float = 20.0,
     ) -> None:
         self.host = host
         self.port = port
@@ -328,6 +328,24 @@ class NapariManager:  # pylint: disable=too-few-public-methods
     def play_animation(self, start_frame: int, end_frame: int, fps: int = 10) -> Tuple[bool, Any]:
         """Animate through a time series at specified FPS."""
         return self.send_command("napari-socket.play_animation", [start_frame, end_frame, fps])
+
+    # ------------------------------------------------------------------
+    # Enhanced Channel Management Functions
+    # ------------------------------------------------------------------
+    def get_channel_info(self, layer_name: str | int) -> Tuple[bool, Any]:
+        """Get information about channels in a layer."""
+        return self.send_command("napari-socket.get_channel_info", [layer_name])
+
+    def split_channels(self, layer_name: str | int) -> Tuple[bool, Any]:
+        """Split a multi-channel layer into separate single-channel layers."""
+        return self.send_command("napari-socket.split_channels", [layer_name])
+
+    def merge_channels(self, layer_names: list, output_name: str = None) -> Tuple[bool, Any]:
+        """Merge multiple single-channel layers into one multi-channel layer."""
+        args = [layer_names]
+        if output_name is not None:
+            args.append(output_name)
+        return self.send_command("napari-socket.merge_channels", args)
 
 # ---------------------------------------------------------------------------
 # quick manual test

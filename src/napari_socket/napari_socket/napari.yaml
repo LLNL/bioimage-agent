@@ -163,6 +163,19 @@ contributions:
       title: Play Animation
       python_name: napari_socket._commands:play_animation
 
+    # Enhanced Channel Management Functions
+    - id: napari-socket.get_channel_info
+      title: Get Channel Info
+      python_name: napari_socket._commands:get_channel_info
+
+    - id: napari-socket.split_channels
+      title: Split Channels
+      python_name: napari_socket._commands:split_channels
+
+    - id: napari-socket.merge_channels
+      title: Merge Channels
+      python_name: napari_socket._commands:merge_channels
+
   # link the widget to the first command
   widgets:
     - command: napari-socket.socket_widget
