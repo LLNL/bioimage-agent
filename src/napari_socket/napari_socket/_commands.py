@@ -175,14 +175,16 @@ def iso_contour(
 # ----------------------------------------------------------------------
 
 def screenshot(
-    viewer: Viewer | None = None,          # injected by napari
     canvas_only: bool = True,
+    filename: str | None = None,           # optional filename parameter
+    viewer: Viewer | None = None,          # injected by napari
 ) -> str:
     """
     Take a screenshot of the current napari viewer.
     
-    Saves a JPG file to the temp folder and returns the file path.
+    Saves a JPG file and returns the file path.
     Set canvas_only=False to capture the full UI instead of just the canvas.
+    If filename is provided, saves to that location; otherwise saves to temp folder.
     """
     import os
     import tempfile
@@ -190,11 +192,21 @@ def screenshot(
 
     screenshot_array = viewer.screenshot(canvas_only=canvas_only)
     img = Image.fromarray(screenshot_array)
-    fd, tmp = tempfile.mkstemp(prefix="napari_scr_", suffix=".jpg")
-    os.close(fd)
-    img = img.convert("RGB")  # Ensure no alpha channel for JPG
-    img.save(tmp, format="JPEG")
-    return os.path.abspath(tmp)
+    
+    if filename is not None:
+        # Use provided filename
+        if not filename.endswith(('.jpg', '.jpeg')):
+            filename += '.jpg'  # Add .jpg extension if not present
+        img = img.convert("RGB")  # Ensure no alpha channel for JPG
+        img.save(filename, format="JPEG")
+        return os.path.abspath(filename)
+    else:
+        # Use temporary file as before
+        fd, tmp = tempfile.mkstemp(prefix="napari_scr_", suffix=".jpg")
+        os.close(fd)
+        img = img.convert("RGB")  # Ensure no alpha channel for JPG
+        img.save(tmp, format="JPEG")
+        return os.path.abspath(tmp)
 
 # ----------------------------------------------------------------------
 # layer introspection
@@ -533,21 +545,6 @@ def save_layers(
         return "No layers were saved"
     
     return f"Saved {saved_count} layer(s) to {path}"
-
-def export_screenshot(
-    file_path: str | Path,
-    canvas_only: bool = True,
-    viewer: Viewer = None,
-):
-    """Export screenshot to specific file path."""
-    path = Path(file_path)
-    screenshot_array = viewer.screenshot(canvas_only=canvas_only)
-    
-    from PIL import Image
-    img = Image.fromarray(screenshot_array)
-    img.save(path)
-    
-    return f"Screenshot saved to {path.absolute()}"
 
 def get_layer_data(
     layer_name: str | int,

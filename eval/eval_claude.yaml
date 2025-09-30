@@ -26,7 +26,7 @@ defaultTest:
     runSerially: true
     provider: anthropic:messages:claude-sonnet-4-20250514
 
-tests: file://test_basic_functions.yaml
+tests: file://tasks/0_actions/eval_basic_napari_functions.yaml
 
 
 evaluateOptions:

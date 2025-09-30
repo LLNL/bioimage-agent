@@ -38,7 +38,7 @@ defaultTest:
         verifySSL: false
         useProxy: false
 
-tests: file://test_basic_functions.yaml
+tests: file://tasks/0_actions/eval_basic_napari_functions.yaml
 
 evaluateOptions:
   cache: false

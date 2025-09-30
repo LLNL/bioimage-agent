@@ -119,7 +119,6 @@ def build_mcp(manager: NapariManager) -> FastMCP:
         "• add_surface(vertices, faces, name) - add 3D meshes\n"
         "• add_vectors(vectors, name) - add vector fields\n"
         "• save_layers(file_path, layer_names) - save layers to file\n"
-        "• export_screenshot(file_path, canvas_only) - save screenshot\n"
         "• get_layer_data(layer_name) - extract layer data\n"
         "• set_scale_bar(visible, unit) - show/hide scale bar\n"
         "• set_axis_labels(labels) - set axis labels\n"
@@ -212,7 +211,7 @@ def build_mcp(manager: NapariManager) -> FastMCP:
         return message if success else f"❌ {message}"
 
     @mcp.tool(name="screenshot")
-    def screenshot() -> str:  
+    def screenshot(filename: str | None = None) -> str:  
         """Take a screenshot of the current view.
         
         Returns:
@@ -223,7 +222,7 @@ def build_mcp(manager: NapariManager) -> FastMCP:
             Captures only the canvas area by default.
             The temporary file is automatically cleaned up by the system.
         """
-        success, message = manager.screenshot()
+        success, message = manager.screenshot(filename)
         if success:
             return Image(path=message)  # message is the absolute path to the screenshot
         return f"\u274c {message}"
@@ -567,20 +566,6 @@ def build_mcp(manager: NapariManager) -> FastMCP:
             Layer data is saved as-is without any transformations.
         """
         success, message = manager.save_layers(file_path, layer_names)
-        return message if success else f"❌ {message}"
-
-    @mcp.tool()
-    def export_screenshot(file_path: str, canvas_only: bool = True) -> str:
-        """Save a screenshot to a specific location.
-        
-        Args:
-            file_path: Path where to save the screenshot
-            canvas_only: If True, capture only the canvas area. If False, capture full UI.
-                        
-        Returns:
-            str: Success message with file path or error message prefixed with ❌
-        """
-        success, message = manager.export_screenshot(file_path, canvas_only)
         return message if success else f"❌ {message}"
 
     @mcp.tool()

@@ -112,10 +112,6 @@ contributions:
       title: Save Layers
       python_name: napari_socket._commands:save_layers
 
-    - id: napari-socket.export_screenshot
-      title: Export Screenshot
-      python_name: napari_socket._commands:export_screenshot
-
     - id: napari-socket.get_layer_data
       title: Get Layer Data
       python_name: napari_socket._commands:get_layer_data

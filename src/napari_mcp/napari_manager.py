@@ -144,9 +144,12 @@ class NapariManager:  # pylint: disable=too-few-public-methods
     # ------------------------------------------------------------------
     # screenshot helper
     # ------------------------------------------------------------------
-    def screenshot(self) -> tuple[bool, str]:
+    def screenshot(self, filename: str | None = None) -> tuple[bool, str]:
         """Ask the remote viewer to save a JPG screenshot and return the absolute path as a string."""
-        return self.send_command("napari-socket.screenshot")
+        args = []
+        if filename is not None:
+            args.append(filename)
+        return self.send_command("napari-socket.screenshot", args)
 
     # ------------------------------------------------------------------
     # layer introspection helper
@@ -271,10 +274,6 @@ class NapariManager:  # pylint: disable=too-few-public-methods
         if layer_names is not None:
             args.append(layer_names)
         return self.send_command("napari-socket.save_layers", args)
-
-    def export_screenshot(self, file_path: str, canvas_only: bool = True) -> Tuple[bool, Any]:
-        """Save a screenshot to a specific location."""
-        return self.send_command("napari-socket.export_screenshot", [file_path, canvas_only])
 
     def get_layer_data(self, layer_name: str | int) -> Tuple[bool, Any]:
         """Extract the raw data from a layer."""
