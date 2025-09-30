@@ -9,3 +9,5 @@ __pypackages__/
 
 # napari-mcp specific
 src/napari_socket/napari_socket.egg-info/
+
+eval/data
