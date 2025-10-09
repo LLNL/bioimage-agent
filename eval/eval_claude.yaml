@@ -26,8 +26,10 @@ defaultTest:
     runSerially: true
     provider: anthropic:messages:claude-sonnet-4-20250514
 
-tests: file://tasks/0_actions/eval_basic_napari_functions.yaml
-
+tests: 
+  - file://tasks/0_actions/eval_basic_napari_functions.yaml
+  #- file://tasks/1_workflows/multi_channel_visualization/eval_visualization_workflows.yaml
+  #- file://tasks/1_workflows/eval_iso_surface_determination.yaml
 
 evaluateOptions:
   cache: false

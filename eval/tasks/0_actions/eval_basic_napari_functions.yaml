@@ -58,6 +58,38 @@
     cache: false
     runSerially: true
 
+# Test: Z-stack Navigation - Scroll through different depths
+- vars:
+    question: |
+      Navigate through the z-stack of the loaded image. Use set_z_slice to jump to at least 3 different z-slices to examine structures at different depths. 
+      Take a screenshot at each z-slice to verify navigation. 
+      Respond with <1> if you successfully navigated through different z-slices and could see structural changes, or <0> if it failed. Only respond with <1> or <0>.
+  assert:
+    - type: contains-all
+      value: "<1>"
+    - type: not-contains
+      value: "<0>"
+  options:
+    cache: false
+    runSerially: true
+
+
+# Test: Time Series Navigation - Navigate through time points
+- vars:
+    question: |
+      If the data has time dimensions, use set_timestep to navigate through different time points.
+      Take screenshots at different time points to show temporal changes.
+      If no time dimension exists, simulate time navigation by adjusting the current view and taking multiple screenshots.
+      Respond with <1> if you successfully navigated through time points or simulated time navigation, or <0> if it failed. Only respond with <1> or <0>.
+  assert:
+    - type: contains-all
+      value: "<1>"
+    - type: not-contains
+      value: "<0>"
+  options:
+    cache: false
+    runSerially: true
+    
 # Test: set_colormap - Change layer colormap
 - vars:
     question: |
@@ -413,6 +445,21 @@
     question: |
       Try to remove a layer that doesn't exist named "nonexistent_layer" and handle the error gracefully.
       Respond with <1> if the error was handled gracefully (no crash), or <0> if it crashed. Only respond with <1> or <0>.
+  assert:
+    - type: contains-all
+      value: "<1>"
+    - type: not-contains
+      value: "<0>"
+  options:
+    cache: false
+    runSerially: true
+
+# Test: 3D View and Iso-surface Rendering
+- vars:
+    question: |
+      Enable iso-surface rendering for the loaded layer.
+      Take a screenshot to verify the 3D iso-surface rendering.
+      Respond with <1> if the 3D iso-surface rendering was successfully set up, or <0> if it failed. Only respond with <1> or <0>.
   assert:
     - type: contains-all
       value: "<1>"

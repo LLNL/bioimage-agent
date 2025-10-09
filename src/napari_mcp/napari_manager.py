@@ -22,6 +22,7 @@ import numpy as np
 _LOGGER = logging.getLogger(__name__)
 
 
+
 def _convert_numpy_for_json(obj):
     """Convert numpy arrays to lists for JSON serialization."""
     if isinstance(obj, np.ndarray):

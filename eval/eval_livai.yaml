@@ -38,7 +38,11 @@ defaultTest:
         verifySSL: false
         useProxy: false
 
-tests: file://tasks/0_actions/eval_basic_napari_functions.yaml
+tests: 
+  #- file://tasks/0_actions/eval_basic_napari_functions.yaml
+  #- file://tasks/1_workflows/multi_channel_visualization/eval_visualization_workflows.yaml
+  #- file://tasks/1_workflows/eval_iso_surface_determination.yaml
+  - file://tasks/1_workflows/eval_figure_recreation.yaml
 
 evaluateOptions:
   cache: false
