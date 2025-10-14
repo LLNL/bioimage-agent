@@ -135,7 +135,7 @@ def build_mcp(manager: NapariManager) -> FastMCP:
         "• merge_channels(layer_names, output_name) - merge layers into multi-channel layer\n"
     )
 
-    mcp = FastMCP("Napari‑Socket", system_prompt=prompt)
+    mcp = FastMCP("Napari‑Socket", instructions=prompt)
 
     @mcp.tool()
     def open_file(file_path: str) -> str:  
