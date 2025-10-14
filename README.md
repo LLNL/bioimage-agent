@@ -1,6 +1,6 @@
-# Napari-Mcp
+# BioImage-Agent
 
-A lightweight [napari](https://napari.org) plugin that exposes the viewer over **MCP (Message-Control Protocol)** via a Python socket server. Built on top of **[FastMCP](https://github.com/jlowin/fastmcp)**, it lets external MCP-speaking clients—such as autonomous AI agents running on Claude or OpenAI—**call napari’s public API remotely**.
+A lightweight [napari](https://napari.org) plugin that exposes the viewer over **MCP (Message-Control Protocol)** via a Python socket server. Built on top of **[FastMCP](https://github.com/jlowin/fastmcp)**, it lets external MCP-speaking clients—such as autonomous AI agents running on Claude or OpenAI—**call napari's public API remotely**.
 
 [![Watch the demo](https://img.youtube.com/vi/WM3gkBIt6A8/maxresdefault.jpg)](https://youtu.be/WM3gkBIt6A8)
 
@@ -26,7 +26,7 @@ python -m pip install "napari[all]"
 ### Install Socket Server Plugin
 
 ```bash
-cd napari-mcp/src/napari_socket
+cd bioimage-agent/src/napari_socket
 pip install -e .
 ```
 
@@ -37,7 +37,7 @@ e.g. For Claude Desktop, go to Developer->Open App Config File and add the below
 "Napari": {
       "command": ".../python.exe",
       "args": [                        
-        ".../napari-mcp/src/napari_mcp/napari_mcp_server.py"
+        ".../bioimage-agent/src/mcp_server/mcp_server.py"
       ],
       "env": {}
     }
@@ -114,10 +114,10 @@ The evaluation setup supports:
 ---
 
 ## Authors 
-Napari_MCP was created by Haichao Miao (miao1@llnl.gov) and Shusen Liu (liu42@llnl.gov)
+BioImage-Agent was created by Haichao Miao (miao1@llnl.gov) and Shusen Liu (liu42@llnl.gov)
 
 ## License
-Napari_MCP is distributed under the terms of the BSD 3‑Clause with Commercial License.
+BioImage-Agent is distributed under the terms of the BSD 3‑Clause with Commercial License.
 
 LLNL-CODE-2011142
 

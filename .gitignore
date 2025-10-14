@@ -1,5 +1,8 @@
 # Python
 **/__pycache__/
+eval/__pycache__/
+src/napari_socket/__pycache__/
+src/napari_mcp/__pycache__/
 
 # Jupyter Notebook
 .ipynb_checkpoints

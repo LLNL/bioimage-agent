@@ -1,7 +1,7 @@
 # ---------------------------------------------------------------------------
 # ---------------------------------------------------------------------------
 
-# napari_mcp_server.py
+# mcp_server.py
 """
 MCP server that connects to napari via TCP socket.
 
@@ -9,8 +9,8 @@ This script runs as an agent process launched by Claude Desktop or other MCP cli
 It forwards requests to a live napari GUI session over a socket connection.
 
 Usage:
-    python napari_mcp_server.py --help
-    python napari_mcp_server.py  # starts server on stdin/stdout
+    python mcp_server.py --help
+    python mcp_server.py  # starts server on stdin/stdout
 """
 from __future__ import annotations
 
@@ -19,12 +19,39 @@ import logging
 import os
 from pathlib import Path
 import argparse, json, logging, os
+from typing import Any
 
 from mcp.server.fastmcp import FastMCP, Image
 
+import sys
+from pathlib import Path
+
+# Add the current directory to Python path to ensure imports work
+current_dir = Path(__file__).parent
+if str(current_dir) not in sys.path:
+    sys.path.insert(0, str(current_dir))
+
 from napari_manager import NapariManager
 
-_LOGGER = logging.getLogger("napari_mcp_socket")
+_LOGGER = logging.getLogger("bioimage_agent_socket")
+
+def _format_response(success: bool, message: Any, default_success: str = "✅ Operation completed successfully") -> str:
+    """Format response from manager commands to ensure string output.
+    
+    Args:
+        success: Whether the operation succeeded
+        message: The message returned from the manager
+        default_success: Default message to use when success=True but message is None
+        
+    Returns:
+        str: Formatted response string
+    """
+    if success:
+        if message is None:
+            return default_success
+        return str(message)
+    else:
+        return f"❌ {message}"
 
 
 ###########################################################################
@@ -66,7 +93,7 @@ def _setup_logging(level: str) -> None:
 
     log_dir = Path.home() / "napari_logs"
     log_dir.mkdir(exist_ok=True)
-    log_file = log_dir / "napari_mcp_socket.log"
+    log_file = log_dir / "bioimage_agent_socket.log"
 
     logging.basicConfig(
         level=lvl,
@@ -153,7 +180,7 @@ def build_mcp(manager: NapariManager) -> FastMCP:
             napari will automatically detect the file format and use the appropriate reader.
         """
         success, message = manager.open_file(file_path)
-        return message if success else f"❌ {message}"
+        return _format_response(success, message, f"✅ Successfully loaded file: {file_path}")
 
     @mcp.tool()
     def remove_layer(name_or_index: str | int) -> str:  
@@ -170,7 +197,7 @@ def build_mcp(manager: NapariManager) -> FastMCP:
             Layer indices are 0-based.
         """
         success, message = manager.remove_layer(name_or_index)
-        return message if success else f"❌ {message}"
+        return _format_response(success, message, f"✅ Layer '{name_or_index}' removed successfully")
 
 
     @mcp.tool(name="toggle_view")
@@ -185,7 +212,7 @@ def build_mcp(manager: NapariManager) -> FastMCP:
             Some features like iso-surface rendering require 3D mode.
         """
         success, message = manager.toggle_ndisplay()
-        return message if success else f"❌ {message}"
+        return _format_response(success, message, "✅ View toggled successfully")
 
     @mcp.tool(name="iso_contour")
     def iso_contour(
@@ -208,7 +235,7 @@ def build_mcp(manager: NapariManager) -> FastMCP:
             Use this for 3D volume visualization with surface rendering.
         """
         success, message = manager.iso_contour(layer_name, threshold)
-        return message if success else f"❌ {message}"
+        return _format_response(success, message, "✅ Iso-surface rendering applied successfully")
 
     @mcp.tool(name="screenshot")
     def screenshot(filename: str | None = None) -> str:  
@@ -243,7 +270,12 @@ def build_mcp(manager: NapariManager) -> FastMCP:
             - visible: Boolean indicating if layer is visible
         """
         success, message = manager.list_layers()
-        return json.dumps(message, indent=2) if success else f"❌ {message}"
+        if success:
+            if message is None:
+                return "[]"  # Empty list if no layers
+            return json.dumps(message, indent=2)
+        else:
+            return f"❌ {message}"
 
     @mcp.tool(name="set_colormap")
     def set_colormap(layer_name: str, colormap: str) -> str:
@@ -261,7 +293,7 @@ def build_mcp(manager: NapariManager) -> FastMCP:
             Common colormaps include: gray, viridis, plasma, hot, cool, rainbow, etc.
         """
         success, message = manager.set_colormap(layer_name, colormap)
-        return message if success else f"❌ {message}"
+        return _format_response(success, message, f"✅ Colormap set to '{colormap}' for layer '{layer_name}'")
 
     @mcp.tool()
     def set_opacity(layer_name: str, opacity: float) -> str:
@@ -275,7 +307,7 @@ def build_mcp(manager: NapariManager) -> FastMCP:
             str: Success message or error message prefixed with ❌
         """
         success, message = manager.set_opacity(layer_name, opacity)
-        return message if success else f"❌ {message}"
+        return _format_response(success, message, f"✅ Opacity set to {opacity} for layer '{layer_name}'")
 
     @mcp.tool()
     def set_blending(layer_name: str, blending: str) -> str:
@@ -296,7 +328,7 @@ def build_mcp(manager: NapariManager) -> FastMCP:
             - minimum: Take minimum of pixel values
         """
         success, message = manager.set_blending(layer_name, blending)
-        return message if success else f"❌ {message}"
+        return _format_response(success, message, f"✅ Blending mode set to '{blending}' for layer '{layer_name}'")
 
     @mcp.tool()
     def set_contrast_limits(layer_name: str, contrast_min: float, contrast_max: float) -> str:
@@ -316,7 +348,7 @@ def build_mcp(manager: NapariManager) -> FastMCP:
             Use auto_contrast() to automatically set these values.
         """
         success, message = manager.set_contrast_limits(layer_name, contrast_min, contrast_max)
-        return message if success else f"❌ {message}"
+        return _format_response(success, message, f"✅ Contrast limits set to [{contrast_min}, {contrast_max}] for layer '{layer_name}'")
 
     @mcp.tool()
     def auto_contrast(layer_name: str | None = None) -> str:
@@ -329,7 +361,7 @@ def build_mcp(manager: NapariManager) -> FastMCP:
             str: Success message with new contrast limits or error message prefixed with ❌
         """
         success, message = manager.auto_contrast(layer_name)
-        return message if success else f"❌ {message}"
+        return _format_response(success, message, f"✅ Auto-contrast applied to layer '{layer_name}'")
 
     @mcp.tool()
     def set_gamma(layer_name: str, gamma: float) -> str:

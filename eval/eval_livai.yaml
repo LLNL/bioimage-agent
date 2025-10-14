@@ -12,8 +12,8 @@ providers:
         enabled: true
         server:
           command: "C:/Users/miao1/AppData/Local/anaconda3/envs/mcp/python.exe"
-          args: ["-u", "D:/Development/napari-mcp/src/napari_mcp/napari_mcp_server.py"]
-          cwd: "D:/Development/napari-mcp/eval"
+          args: ["-u", "D:/Development/bioimage-agent/src/mcp_server/mcp_server.py"]
+          cwd: "D:/Development/bioimage-agent/eval"
           name: napari-server
           env:
             PORT: "3000"        
@@ -37,12 +37,6 @@ defaultTest:
         openaiCompatible: true
         verifySSL: false
         useProxy: false
-
-tests: 
-  #- file://tasks/0_actions/eval_basic_napari_functions.yaml
-  #- file://tasks/1_workflows/multi_channel_visualization/eval_visualization_workflows.yaml
-  #- file://tasks/1_workflows/eval_iso_surface_determination.yaml
-  - file://tasks/1_workflows/eval_figure_recreation.yaml
 
 evaluateOptions:
   cache: false

@@ -5,7 +5,7 @@
 # Test: Setup - Load multi-channel cell data
 - vars:
     question: |
-      Load the first image "D:/Development/napari-mcp/eval/data/SNAP_IgM_BCR_Cell_1/input/SNAP_IgM_BCR_Cell_1_ch0_t14.tif" and then load the second image "D:/Development/napari-mcp/eval/data/SNAP_IgM_BCR_Cell_1/input/SNAP_IgM_BCR_Cell_1_ch1_t14.tif".
+      Load the first image "D:/Development/bioimage-agent/eval/data/SNAP_IgM_BCR_Cell_1/input/SNAP_IgM_BCR_Cell_1_ch0_t14.tif" and then load the second image "D:/Development/bioimage-agent/eval/data/SNAP_IgM_BCR_Cell_1/input/SNAP_IgM_BCR_Cell_1_ch1_t14.tif".
       Set the first channel to green colormap and the second channel to magenta colormap.
       Use additive blending to combine the channels.
       Take a screenshot of the combined view.
